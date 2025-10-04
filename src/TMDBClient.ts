@@ -1,6 +1,6 @@
 import {
   AccountEndpoints,
-  Authentication,
+  AuthenticationEndpoints,
   Certifications,
   Collections,
   Companies,
@@ -41,7 +41,7 @@ export class TMDBClient {
     return new AccountEndpoints(this.http);
   }
   get authentication() {
-    return new Authentication(this.http);
+    return new AuthenticationEndpoints(this.http);
   }
   get certifications() {
     return new Certifications(this.http);

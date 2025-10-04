@@ -6,7 +6,7 @@ import {
   Movie,
   TV,
   RatedTVEpisode,
-} from '../src/endpoints/account/types';
+} from '../src/sections/account/types';
 
 // Helper for paginated responses
 function checkPaginatedResponse<T>(res: {
@@ -22,7 +22,7 @@ function checkPaginatedResponse<T>(res: {
   expect(res).toHaveProperty('total_results');
 }
 
-describe('AccountEndpoints API integration', () => {
+describe('AccountEndpoints API endpoints', () => {
   const accessToken = process.env.TMDB_API_KEY!;
   const sessionId = process.env.TMDB_SESSION_ID!;
   const accountId = Number(process.env.TMDB_ACCOUNT_ID!);

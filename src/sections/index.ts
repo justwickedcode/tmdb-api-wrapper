@@ -1,5 +1,5 @@
 export * from './account/account-endpoints';
-export * from './authentication/Authentication';
+export * from './authentication/authentication-endpoints';
 export * from './certifications/Certifications';
 export * from './collections/Collections';
 export * from './companies/Companies';
