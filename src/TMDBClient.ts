@@ -1,30 +1,31 @@
 import {
-  AccountEndpoints,
-  AuthenticationEndpoints,
-  CertificationsEndpoints,
-  Collections,
-  Companies,
-  Configuration,
-  Credits,
-  Discover,
-  Find,
-  Genres,
-  Keywords,
-  Movies,
-  Networks,
-  People,
-  PeopleLists,
-  Reviews,
-  Search,
-  Trending,
-  TVEpisodeGroups,
-  TVEpisodes,
-  TVSeasons,
-  TVSeries,
-  TVSeriesLists,
-  WatchProviders,
+    AccountEndpoints,
+    AuthenticationEndpoints,
+    CertificationsEndpoints, ChangesEndpoints,
+    Collections,
+    Companies,
+    Configuration,
+    Credits,
+    Discover,
+    Find,
+    Genres,
+    Keywords,
+    Movies,
+    Networks,
+    People,
+    PeopleLists,
+    Reviews,
+    Search,
+    Trending,
+    TVEpisodeGroups,
+    TVEpisodes,
+    TVSeasons,
+    TVSeries,
+    TVSeriesLists,
+    WatchProviders,
 } from './sections';
 import HTTPClient, { RequestOptions } from './HTTPClient';
+
 
 /*
  * TMDB Wrapper
@@ -45,6 +46,9 @@ export class TMDBClient {
   }
   get certifications() {
     return new CertificationsEndpoints(this.http);
+  }
+  get changes() {
+        return new ChangesEndpoints(this.http);
   }
   get collections() {
     return new Collections(this.http);
