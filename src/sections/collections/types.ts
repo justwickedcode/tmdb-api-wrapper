@@ -19,10 +19,10 @@ export interface CollectionPart {
   original_language: string;
   poster_path: string | null;
   backdrop_path: string | null;
-  genre_ids?: number[];
-  popularity?: number;
-  release_date?: string;
-  video?: boolean;
+  genre_ids: number[];
+  popularity: number;
+  release_date: string;
+  video: boolean;
   vote_average?: number;
   vote_count?: number;
   media_type?: string;

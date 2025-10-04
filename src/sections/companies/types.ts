@@ -13,7 +13,7 @@ export interface CompanyDetails {
 /** Represents a single alternative name for a company */
 export interface CompanyAlternativeName {
   name: string;
-  type?: string;
+  type: string;
 }
 
 /** Response for alternative names endpoint */

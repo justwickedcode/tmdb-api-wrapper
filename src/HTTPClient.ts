@@ -1,7 +1,7 @@
 export interface RequestOptions extends RequestInit {
   baseUrl?: string;
   headers?: Record<string, string>;
-  params?: Record<string, string | number | boolean>;
+  params?: Record<string, string | number | boolean | null | undefined>;
   next?: { revalidate?: number; tags?: string[] };
 }
 
@@ -23,32 +23,22 @@ export default class HTTPClient {
   private async request<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
     let url = (options.baseUrl ?? this.baseUrl) + endpoint;
 
-    // ✅ merge params safely, ensure it's always an object
-    const allParams: Record<string, string> = {
-      ...this.defaultOptions.params,
-      ...options.params,
-    } as Record<string, string>;
-
-    // Convert all values to string
+    // Merge and sanitize params
+    const allParams = { ...this.defaultOptions.params, ...options.params } as Record<string, any>;
     const sanitizedParams: Record<string, string> = {};
-    for (const [key, value] of Object.entries(allParams ?? {})) {
+
+    Object.entries(allParams ?? {}).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
         sanitizedParams[key] = String(value);
       }
-    }
+    });
 
     if (Object.keys(sanitizedParams).length > 0) {
       url += `?${new URLSearchParams(sanitizedParams).toString()}`;
     }
 
-    // merge headers
     const headers = { ...this.headers, ...(options.headers ?? {}) };
-
-    // merge Next.js / generic options
-    const next = {
-      ...(this.defaultOptions.next ?? {}),
-      ...(options.next ?? {}),
-    };
+    const next = { ...(this.defaultOptions.next ?? {}), ...(options.next ?? {}) };
 
     const fetchConfig: RequestInit & Partial<Pick<RequestOptions, 'next'>> = {
       ...this.defaultOptions,
@@ -56,9 +46,7 @@ export default class HTTPClient {
       headers,
     };
 
-    if (Object.keys(next).length > 0) {
-      fetchConfig.next = next;
-    }
+    if (Object.keys(next).length > 0) fetchConfig.next = next;
 
     const res = await fetch(url, fetchConfig);
 

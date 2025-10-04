@@ -6,8 +6,8 @@ import {
   CollectionsEndpoints,
   CompaniesEndpoints,
   Configuration,
-  Credits,
-  Discover,
+  CreditsEndpoints,
+  DiscoverEndpoints,
   Find,
   Genres,
   Keywords,
@@ -60,10 +60,10 @@ export class TMDBClient {
     return new Configuration(this.http);
   }
   get credits() {
-    return new Credits(this.http);
+    return new CreditsEndpoints(this.http);
   }
   get discover() {
-    return new Discover(this.http);
+    return new DiscoverEndpoints(this.http);
   }
   get find() {
     return new Find(this.http);
