@@ -3,7 +3,7 @@ export * from './authentication/authentication-endpoints';
 export * from './certifications/certifications-endpoints';
 export * from './changes/changes-endpoints';
 export * from './collections/collections-endpoints';
-export * from './companies/Companies';
+export * from './companies/companies-endpoints';
 export * from './configuration/Configuration';
 export * from './credits/Credits';
 export * from './discover/Discover';

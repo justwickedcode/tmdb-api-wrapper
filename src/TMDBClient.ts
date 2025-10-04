@@ -4,7 +4,7 @@ import {
   CertificationsEndpoints,
   ChangesEndpoints,
   CollectionsEndpoints,
-  Companies,
+  CompaniesEndpoints,
   Configuration,
   Credits,
   Discover,
@@ -54,7 +54,7 @@ export class TMDBClient {
     return new CollectionsEndpoints(this.http);
   }
   get companies() {
-    return new Companies(this.http);
+    return new CompaniesEndpoints(this.http);
   }
   get configuration() {
     return new Configuration(this.http);
