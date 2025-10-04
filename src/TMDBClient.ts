@@ -1,94 +1,112 @@
 import {
-    Account,
-    Authentication,
-    Certifications,
-    Collections,
-    Companies,
-    Configuration,
-    Credits,
-    Discover, Find, Genres, Keywords, Movies, Networks, People, PeopleLists, Reviews, Search, Trending, TVEpisodeGroups,
-    TVEpisodes, TVSeasons, TVSeries, TVSeriesLists, WatchProviders
-} from "./endpoints";
+  AccountEndpoints,
+  Authentication,
+  Certifications,
+  Collections,
+  Companies,
+  Configuration,
+  Credits,
+  Discover,
+  Find,
+  Genres,
+  Keywords,
+  Movies,
+  Networks,
+  People,
+  PeopleLists,
+  Reviews,
+  Search,
+  Trending,
+  TVEpisodeGroups,
+  TVEpisodes,
+  TVSeasons,
+  TVSeries,
+  TVSeriesLists,
+  WatchProviders,
+} from './sections';
+import HTTPClient, { RequestOptions } from './HTTPClient';
 
 /*
  * TMDB Wrapper
  *
  * */
-class TMDBClient {
-  private readonly accessToken: string;
-  constructor(accessToken: string) {
-    this.accessToken = accessToken;
+const BASE_URL = 'https://api.themoviedb.org/3/';
+export class TMDBClient {
+  private readonly http: HTTPClient;
+
+  constructor(accessToken: string, httpOptions?: Partial<RequestOptions>) {
+    this.http = new HTTPClient(BASE_URL, accessToken, httpOptions);
   }
   get account() {
-    return new Account(this.accessToken);
+    return new AccountEndpoints(this.http);
   }
   get authentication() {
-    return new Authentication(this.accessToken);
+    return new Authentication(this.http);
   }
   get certifications() {
-    return new Certifications(this.accessToken);
+    return new Certifications(this.http);
   }
   get collections() {
-    return new Collections(this.accessToken);
+    return new Collections(this.http);
   }
   get companies() {
-    return new Companies(this.accessToken);
+    return new Companies(this.http);
   }
   get configuration() {
-    return new Configuration(this.accessToken);
+    return new Configuration(this.http);
   }
   get credits() {
-    return new Credits(this.accessToken);
+    return new Credits(this.http);
   }
   get discover() {
-    return new Discover(this.accessToken);
+    return new Discover(this.http);
   }
   get find() {
-    return new Find(this.accessToken);
+    return new Find(this.http);
   }
   get genres() {
-    return new Genres(this.accessToken);
+    return new Genres(this.http);
   }
   get keywords() {
-    return new Keywords(this.accessToken);
+    return new Keywords(this.http);
   }
   get movies() {
-    return new Movies(this.accessToken);
+    return new Movies(this.http);
   }
   get networks() {
-    return new Networks(this.accessToken);
+    return new Networks(this.http);
   }
   get people() {
-    return new People(this.accessToken);
+    return new People(this.http);
   }
   get peopleLists() {
-    return new PeopleLists(this.accessToken);
+    return new PeopleLists(this.http);
   }
   get reviews() {
-    return new Reviews(this.accessToken);
+    return new Reviews(this.http);
   }
   get search() {
-    return new Search(this.accessToken);
+    return new Search(this.http);
   }
   get trending() {
-    return new Trending(this.accessToken);
+    return new Trending(this.http);
   }
   get tvEpisodeGroups() {
-    return new TVEpisodeGroups(this.accessToken);
+    return new TVEpisodeGroups(this.http);
   }
   get tvEpisodes() {
-    return new TVEpisodes(this.accessToken);
+    return new TVEpisodes(this.http);
   }
   get tvSeasons() {
-    return new TVSeasons(this.accessToken);
+    return new TVSeasons(this.http);
   }
   get tvSeries() {
-    return new TVSeries(this.accessToken);
+    return new TVSeries(this.http);
   }
   get tvSeriesLists() {
-    return new TVSeriesLists(this.accessToken);
+    return new TVSeriesLists(this.http);
   }
   get watchProviders() {
-    return new WatchProviders(this.accessToken);
+    return new WatchProviders(this.http);
   }
 }

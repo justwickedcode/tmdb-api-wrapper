@@ -1,56 +1,80 @@
 export interface RequestOptions extends RequestInit {
-  baseUrl?: string; // Optional override of base URL
-  headers?: Record<string, string>; // Optional override of headers
-  params?: Record<string, string | number | boolean>; // Query parameters
+  baseUrl?: string;
+  headers?: Record<string, string>;
+  params?: Record<string, string | number | boolean>;
+  next?: { revalidate?: number; tags?: string[] };
 }
 
-/**
- * HTTP Fetch Client
- */
 export default class HTTPClient {
-  private baseUrl: string;
-  private headers: Record<string, string>;
+  private readonly baseUrl: string;
+  private readonly headers: Record<string, string>;
+  private readonly defaultOptions: Partial<RequestOptions>;
 
-  constructor(baseUrl: string, apiKey: string) {
+  constructor(baseUrl: string, apiKey: string, defaultOptions: Partial<RequestOptions> = {}) {
     this.baseUrl = baseUrl;
     this.headers = {
       Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      ...(defaultOptions.headers ?? {}),
     };
+    this.defaultOptions = defaultOptions;
   }
 
-  /** ---------------- PRIVATE REQUEST HANDLER ---------------- */
   private async request<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
     let url = (options.baseUrl ?? this.baseUrl) + endpoint;
 
-    // Build query params
-    if (options.params) {
-      const query = new URLSearchParams(Object.entries(options.params).map(([k, v]) => [k, String(v)]));
-      url += `?${query.toString()}`;
+    // ✅ merge params safely, ensure it's always an object
+    const allParams: Record<string, string> = {
+      ...this.defaultOptions.params,
+      ...options.params,
+    } as Record<string, string>;
+
+    // Convert all values to string
+    const sanitizedParams: Record<string, string> = {};
+    for (const [key, value] of Object.entries(allParams ?? {})) {
+      if (value !== undefined && value !== null) {
+        sanitizedParams[key] = String(value);
+      }
     }
 
-    const { params, baseUrl, ...fetchOptions } = options;
+    if (Object.keys(sanitizedParams).length > 0) {
+      url += `?${new URLSearchParams(sanitizedParams).toString()}`;
+    }
+
+    // merge headers
     const headers = { ...this.headers, ...(options.headers ?? {}) };
 
-    const res = await fetch(url, {
-      ...fetchOptions,
+    // merge Next.js / generic options
+    const next = {
+      ...(this.defaultOptions.next ?? {}),
+      ...(options.next ?? {}),
+    };
+
+    const fetchConfig: RequestInit & Partial<Pick<RequestOptions, 'next'>> = {
+      ...this.defaultOptions,
+      ...options,
       headers,
-    });
+    };
+
+    if (Object.keys(next).length > 0) {
+      fetchConfig.next = next;
+    }
+
+    const res = await fetch(url, fetchConfig);
 
     if (!res.ok) {
       const errorText = await res.text();
       throw new Error(`HTTP ${res.status}: ${errorText}`);
     }
 
-    // If caller expects JSON, parse it, else return as-is
     const contentType = res.headers.get('content-type');
     if (contentType?.includes('application/json')) {
       return (await res.json()) as T;
     }
+
     return (await res.text()) as unknown as T;
   }
 
-  /** ---------------- PUBLIC METHODS ---------------- */
   public get<T>(endpoint: string, options?: RequestOptions): Promise<T> {
     return this.request<T>(endpoint, { ...options, method: 'GET' });
   }
@@ -59,7 +83,7 @@ export default class HTTPClient {
     return this.request<T>(endpoint, {
       ...options,
       method: 'POST',
-      body: body ? JSON.stringify(body) : undefined
+      body: body ? JSON.stringify(body) : undefined,
     });
   }
 
@@ -67,7 +91,7 @@ export default class HTTPClient {
     return this.request<T>(endpoint, {
       ...options,
       method: 'PUT',
-      body: body ? JSON.stringify(body) : undefined
+      body: body ? JSON.stringify(body) : undefined,
     });
   }
 

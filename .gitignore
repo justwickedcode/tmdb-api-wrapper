@@ -22,6 +22,6 @@ pnpm-debug.log*
 *.swo
 .DS_Store
 
-# Env files (if you add secrets later)
+# Don't leak .env.local secrets
 .env
-.env.local
+.env.*
