@@ -8,14 +8,15 @@ import {
   Configuration,
   CreditsEndpoints,
   DiscoverEndpoints,
-  Find,
-  Genres,
-  Keywords,
+  FindEndpoints,
+  GenresEndpoints,
+  GuestSessionsEndpoints,
+  KeywordsEndpoints,
   Movies,
-  Networks,
+  NetworksEndpoints,
   People,
   PeopleLists,
-  Reviews,
+  ReviewsEndpoints,
   Search,
   Trending,
   TVEpisodeGroups,
@@ -23,7 +24,7 @@ import {
   TVSeasons,
   TVSeries,
   TVSeriesLists,
-  WatchProviders,
+  WatchProvidersEndpoints,
 } from './sections';
 import HTTPClient, { RequestOptions } from './HTTPClient';
 
@@ -66,19 +67,22 @@ export class TMDBClient {
     return new DiscoverEndpoints(this.http);
   }
   get find() {
-    return new Find(this.http);
+    return new FindEndpoints(this.http);
   }
   get genres() {
-    return new Genres(this.http);
+    return new GenresEndpoints(this.http);
+  }
+  get guestSessions() {
+    return new GuestSessionsEndpoints(this.http);
   }
   get keywords() {
-    return new Keywords(this.http);
+    return new KeywordsEndpoints(this.http);
   }
   get movies() {
     return new Movies(this.http);
   }
   get networks() {
-    return new Networks(this.http);
+    return new NetworksEndpoints(this.http);
   }
   get people() {
     return new People(this.http);
@@ -87,7 +91,7 @@ export class TMDBClient {
     return new PeopleLists(this.http);
   }
   get reviews() {
-    return new Reviews(this.http);
+    return new ReviewsEndpoints(this.http);
   }
   get search() {
     return new Search(this.http);
@@ -111,6 +115,6 @@ export class TMDBClient {
     return new TVSeriesLists(this.http);
   }
   get watchProviders() {
-    return new WatchProviders(this.http);
+    return new WatchProvidersEndpoints(this.http);
   }
 }
