@@ -1,6 +1,6 @@
 export * from './account/account-endpoints';
 export * from './authentication/authentication-endpoints';
-export * from './certifications/Certifications';
+export * from './certifications/certifications-endpoints';
 export * from './collections/Collections';
 export * from './companies/Companies';
 export * from './configuration/Configuration';
