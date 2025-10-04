@@ -13,7 +13,7 @@ import {
 } from './types';
 
 const BASE_PATH = '/authentication';
-
+//TODO: Fix auth workflow for it to actually be usable
 export class AuthenticationEndpoints {
     private readonly http: HTTPClient;
 
