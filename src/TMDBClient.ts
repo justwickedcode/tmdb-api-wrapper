@@ -16,7 +16,7 @@ import {
   NetworksEndpoints,
   PeopleEndpoints,
   ReviewsEndpoints,
-  Search,
+  SearchEndpoints,
   TVEpisodeGroups,
   TVEpisodes,
   TVSeasons,
@@ -24,7 +24,7 @@ import {
   WatchProvidersEndpoints,
 } from './sections';
 import HTTPClient, { RequestOptions } from './HTTPClient';
-import { Trending } from './sections/trending/Trending';
+import { TrendingEndpoints } from './sections/trending/trending-endpoints';
 import { PeopleListsEndpoints } from './sections/people/people-lists-endpoints';
 import { TVSeriesLists } from './sections/tv/TVSeriesLists';
 import { ListsEndpoints } from './sections/lists/lists-endpoints';
@@ -98,10 +98,10 @@ export class TMDBClient {
     return new ReviewsEndpoints(this.http);
   }
   get search() {
-    return new Search(this.http);
+    return new SearchEndpoints(this.http);
   }
   get trending() {
-    return new Trending(this.http);
+    return new TrendingEndpoints(this.http);
   }
   get tvEpisodeGroups() {
     return new TVEpisodeGroups(this.http);
