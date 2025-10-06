@@ -1,5 +1,3 @@
-export * from './account/account-endpoints';
-export * from './authentication/authentication-endpoints';
 export * from './certifications/certifications-endpoints';
 export * from './changes/changes-endpoints';
 export * from './collections/collections-endpoints';
@@ -9,9 +7,7 @@ export * from './credits/credits-endpoints';
 export * from './discover/discover-endpoints';
 export * from './find/find-endpoints';
 export * from './genres/genres-endpoints';
-export * from './guest-sessions/guest-session-endpoints';
 export * from './keywords/keywords-endpoints';
-export * from './lists/lists-endpoints';
 export * from './movie/movies-endpoints';
 export * from './networks/networks-endpoints';
 export * from './people/people-endpoints';

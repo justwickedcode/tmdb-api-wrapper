@@ -1,6 +1,4 @@
 import {
-  AccountEndpoints,
-  AuthenticationEndpoints,
   CertificationsEndpoints,
   ChangesEndpoints,
   CollectionsEndpoints,
@@ -10,21 +8,14 @@ import {
   DiscoverEndpoints,
   FindEndpoints,
   GenresEndpoints,
-  GuestSessionsEndpoints,
   KeywordsEndpoints,
-  ListsEndpoints,
   MoviesEndpoints,
   NetworksEndpoints,
   PeopleEndpoints,
-  PeopleListsEndpoints,
   ReviewsEndpoints,
   SearchEndpoints,
   TrendingEndpoints,
-  TvEpisodeGroupsEndpoints,
-  TvEpisodesEndpoints,
-  TvSeasonsEndpoints,
   TvSeriesEndpoints,
-  TvSeriesListsEndpoints,
   WatchProvidersEndpoints,
 } from './sections';
 import HttpConnector, { RequestOptions } from './http-connector';
@@ -70,9 +61,6 @@ export class TmdbClient {
   }
   get keywords() {
     return new KeywordsEndpoints(this.http);
-  }
-  get lists() {
-    return new ListsEndpoints(this.http);
   }
   get movies() {
     return new MoviesEndpoints(this.http);
