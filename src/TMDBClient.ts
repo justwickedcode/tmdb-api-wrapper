@@ -12,21 +12,22 @@ import {
   GenresEndpoints,
   GuestSessionsEndpoints,
   KeywordsEndpoints,
-  Movies,
+  MoviesEndpoints,
   NetworksEndpoints,
-  People,
-  PeopleLists,
+  PeopleEndpoints,
   ReviewsEndpoints,
   Search,
-  Trending,
   TVEpisodeGroups,
   TVEpisodes,
   TVSeasons,
   TVSeries,
-  TVSeriesLists,
   WatchProvidersEndpoints,
 } from './sections';
 import HTTPClient, { RequestOptions } from './HTTPClient';
+import { Trending } from './sections/trending/Trending';
+import { PeopleListsEndpoints } from './sections/people/people-lists-endpoints';
+import { TVSeriesLists } from './sections/tv/TVSeriesLists';
+import { ListsEndpoints } from './sections/lists/lists-endpoints';
 
 /*
  * TMDB Wrapper
@@ -78,17 +79,20 @@ export class TMDBClient {
   get keywords() {
     return new KeywordsEndpoints(this.http);
   }
+  get lists() {
+    return new ListsEndpoints(this.http);
+  }
   get movies() {
-    return new Movies(this.http);
+    return new MoviesEndpoints(this.http);
   }
   get networks() {
     return new NetworksEndpoints(this.http);
   }
   get people() {
-    return new People(this.http);
+    return new PeopleEndpoints(this.http);
   }
   get peopleLists() {
-    return new PeopleLists(this.http);
+    return new PeopleListsEndpoints(this.http);
   }
   get reviews() {
     return new ReviewsEndpoints(this.http);
