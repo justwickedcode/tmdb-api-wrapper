@@ -40,12 +40,7 @@ export class TMDBClient {
   constructor(accessToken: string, httpOptions?: Partial<RequestOptions>) {
     this.http = new HTTPClient(BASE_URL, accessToken, httpOptions);
   }
-  get account() {
-    return new AccountEndpoints(this.http);
-  }
-  get authentication() {
-    return new AuthenticationEndpoints(this.http);
-  }
+
   get certifications() {
     return new CertificationsEndpoints(this.http);
   }
@@ -73,9 +68,6 @@ export class TMDBClient {
   get genres() {
     return new GenresEndpoints(this.http);
   }
-  get guestSessions() {
-    return new GuestSessionsEndpoints(this.http);
-  }
   get keywords() {
     return new KeywordsEndpoints(this.http);
   }
@@ -91,9 +83,6 @@ export class TMDBClient {
   get people() {
     return new PeopleEndpoints(this.http);
   }
-  get peopleLists() {
-    return new PeopleListsEndpoints(this.http);
-  }
   get reviews() {
     return new ReviewsEndpoints(this.http);
   }
@@ -103,20 +92,8 @@ export class TMDBClient {
   get trending() {
     return new TrendingEndpoints(this.http);
   }
-  get tvEpisodeGroups() {
-    return new TvEpisodeGroupsEndpoints(this.http);
-  }
-  get tvEpisodes() {
-    return new TvEpisodesEndpoints(this.http);
-  }
-  get tvSeasons() {
-    return new TvSeasonsEndpoints(this.http);
-  }
   get tvSeries() {
     return new TvSeriesEndpoints(this.http);
-  }
-  get tvSeriesLists() {
-    return new TvSeriesListsEndpoints(this.http);
   }
   get watchProviders() {
     return new WatchProvidersEndpoints(this.http);
