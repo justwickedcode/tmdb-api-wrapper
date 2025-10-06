@@ -17,16 +17,16 @@ import {
   PeopleEndpoints,
   ReviewsEndpoints,
   SearchEndpoints,
-  TVEpisodeGroups,
-  TVEpisodes,
-  TVSeasons,
-  TVSeries,
+  TvEpisodeGroupsEndpoints,
+  TvEpisodesEndpoints,
+  TvSeasonsEndpoints,
+  TvSeriesEndpoints,
   WatchProvidersEndpoints,
 } from './sections';
 import HTTPClient, { RequestOptions } from './HTTPClient';
 import { TrendingEndpoints } from './sections/trending/trending-endpoints';
 import { PeopleListsEndpoints } from './sections/people/people-lists-endpoints';
-import { TVSeriesLists } from './sections/tv/TVSeriesLists';
+import { TvSeriesListsEndpoints } from './sections/tv/tv-series-lists-endpoints';
 import { ListsEndpoints } from './sections/lists/lists-endpoints';
 
 /*
@@ -104,19 +104,19 @@ export class TMDBClient {
     return new TrendingEndpoints(this.http);
   }
   get tvEpisodeGroups() {
-    return new TVEpisodeGroups(this.http);
+    return new TvEpisodeGroupsEndpoints(this.http);
   }
   get tvEpisodes() {
-    return new TVEpisodes(this.http);
+    return new TvEpisodesEndpoints(this.http);
   }
   get tvSeasons() {
-    return new TVSeasons(this.http);
+    return new TvSeasonsEndpoints(this.http);
   }
   get tvSeries() {
-    return new TVSeries(this.http);
+    return new TvSeriesEndpoints(this.http);
   }
   get tvSeriesLists() {
-    return new TVSeriesLists(this.http);
+    return new TvSeriesListsEndpoints(this.http);
   }
   get watchProviders() {
     return new WatchProvidersEndpoints(this.http);
