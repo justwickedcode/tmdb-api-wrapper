@@ -1,4 +1,4 @@
-import { TMDBClient } from '../../src/TMDBClient';
+import { TmdbClient } from '../../src/tmdb-client';
 
 describe('TV Series Sub-endpoints', () => {
   const accessToken = process.env.TMDB_API_KEY!;
@@ -8,10 +8,10 @@ describe('TV Series Sub-endpoints', () => {
   const episodeNumber = 1;
   const episodeGroupId = '5ae0275b0e0a26156c00de9f';
 
-  let tmdb: TMDBClient;
+  let tmdb: TmdbClient;
 
   beforeAll(() => {
-    tmdb = new TMDBClient(accessToken);
+    tmdb = new TmdbClient(accessToken);
   });
 
   // ---- TV Lists ----

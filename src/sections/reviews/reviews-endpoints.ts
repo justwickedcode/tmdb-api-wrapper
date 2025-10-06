@@ -1,11 +1,11 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { ReviewDetails } from './types';
 
 export class ReviewsEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
   private readonly BASE_PATH = '/review';
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

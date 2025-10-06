@@ -1,13 +1,13 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { GenreListResponse } from './types';
 
 const BASE_PATH_MOVIE = '/genre/movie/list';
 const BASE_PATH_TV = '/genre/tv/list';
 
 export class GenresEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

@@ -1,10 +1,10 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { PaginatedTvSeriesResponse, TvListQuery } from './types';
 
 const BASE_PATH = '/tv';
 
 export class TvSeriesListsEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get TV series airing today */
   getAiringToday(params?: TvListQuery): Promise<PaginatedTvSeriesResponse> {

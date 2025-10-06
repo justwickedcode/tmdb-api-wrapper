@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   PaginatedSearchResponse,
   SearchCollectionResult,
@@ -12,9 +12,9 @@ import {
 const BASE_PATH = '/search';
 
 export class SearchEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

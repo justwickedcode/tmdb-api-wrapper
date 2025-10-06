@@ -1,4 +1,4 @@
-import { TMDBClient } from '../../src/TMDBClient';
+import { TmdbClient } from '../../src/tmdb-client';
 import {
   Certification,
   MovieCertificationsResponse,
@@ -7,10 +7,10 @@ import {
 
 describe('Certifications API integration', () => {
   const accessToken = process.env.TMDB_API_KEY!;
-  let tmdb: TMDBClient;
+  let tmdb: TmdbClient;
 
   beforeAll(() => {
-    tmdb = new TMDBClient(accessToken);
+    tmdb = new TmdbClient(accessToken);
   });
 
   it('should fetch movie certifications', async () => {

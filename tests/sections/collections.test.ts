@@ -1,4 +1,4 @@
-import { TMDBClient } from '../../src/TMDBClient';
+import { TmdbClient } from '../../src/tmdb-client';
 import {
   CollectionDetailsResponse,
   CollectionImagesResponse,
@@ -7,11 +7,11 @@ import {
 
 describe('Collections API', () => {
   const apiKey = process.env.TMDB_API_KEY!;
-  let tmdb: TMDBClient;
+  let tmdb: TmdbClient;
   const COLLECTION_ID = 86311; // Avengers Collection
 
   beforeAll(() => {
-    tmdb = new TMDBClient(apiKey);
+    tmdb = new TmdbClient(apiKey);
   });
 
   it('fetches collection details successfully', async () => {

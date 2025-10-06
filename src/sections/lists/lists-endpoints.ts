@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   ListDetailsResponse,
   ListActionResponse,
@@ -10,11 +10,11 @@ import {
 const BASE_PATH = '/list';
 
 /**
- * TMDBClient sections Lists API
+ * TmdbClient sections Lists API
  * @see https://developer.themoviedb.org/reference/list-details
  */
 export class ListsEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get list details by ID */
   async getDetails(

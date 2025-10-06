@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { PaginatedResponse, PersonSummary } from './types';
 
 export interface PeopleListQuery {
@@ -7,7 +7,7 @@ export interface PeopleListQuery {
 }
 
 export class PeopleListsEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get popular people */
   async popular(params?: PeopleListQuery): Promise<PaginatedResponse<PersonSummary>> {

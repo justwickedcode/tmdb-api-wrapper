@@ -1,12 +1,12 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { CreditDetails } from './types';
 
 const BASE_PATH = '/credit';
 
 export class CreditsEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

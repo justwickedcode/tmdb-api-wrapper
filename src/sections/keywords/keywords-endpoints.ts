@@ -1,8 +1,8 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { KeywordDetails, KeywordMoviesResponse, KeywordMoviesOptions } from './types';
 
 export class KeywordsEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get keyword details by ID */
   getDetails(keywordId: number): Promise<KeywordDetails> {

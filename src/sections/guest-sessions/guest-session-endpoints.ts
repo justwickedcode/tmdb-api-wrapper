@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   GuestSessionRatedMoviesOptions,
   GuestSessionRatedMoviesResponse,
@@ -10,7 +10,7 @@ import {
 
 // TODO: Figure out how this works and fix if needed
 export class GuestSessionsEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get rated movies for a guest session */
   getRatedMovies(

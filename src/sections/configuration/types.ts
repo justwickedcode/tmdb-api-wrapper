@@ -12,7 +12,7 @@ export interface ConfigurationDetails {
   change_keys: string[];
 }
 
-/** Represents a country used by TMDBClient */
+/** Represents a country used by TmdbClient */
 export interface ConfigurationCountry {
   iso_3166_1: string;
   english_name: string;
@@ -25,7 +25,7 @@ export interface ConfigurationJob {
   jobs: string[];
 }
 
-/** Represents a language supported by TMDBClient */
+/** Represents a language supported by TmdbClient */
 export interface ConfigurationLanguage {
   iso_639_1: string;
   english_name: string;

@@ -6,7 +6,7 @@ export interface ReviewAuthorDetails {
   rating: number | null;
 }
 
-/** Review details response from TMDBClient */
+/** Review details response from TmdbClient */
 export interface ReviewDetails {
   id: string;
   author: string;

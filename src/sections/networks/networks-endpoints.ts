@@ -1,12 +1,12 @@
 // sections/networks/NetworksEndpoints.ts
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { NetworkDetails, NetworkAlternativeNamesResponse, NetworkImagesResponse } from './types';
 
 export class NetworksEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
   private readonly BASE_PATH = '/network';
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

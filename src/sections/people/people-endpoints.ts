@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { PeopleListsEndpoints } from './people-lists-endpoints';
 import {
   PersonDetails,
@@ -15,10 +15,10 @@ import {
 const BASE_PATH = '/person';
 
 export class PeopleEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
   public lists: PeopleListsEndpoints;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
     this.lists = new PeopleListsEndpoints(this.http);
   }

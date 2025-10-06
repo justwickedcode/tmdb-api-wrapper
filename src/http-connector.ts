@@ -5,7 +5,7 @@ export interface RequestOptions extends RequestInit {
   next?: { revalidate?: number; tags?: string[] };
 }
 
-export default class HTTPClient {
+export default class HttpConnector {
   private readonly baseUrl: string;
   private readonly headers: Record<string, string>;
   private readonly defaultOptions: Partial<RequestOptions>;

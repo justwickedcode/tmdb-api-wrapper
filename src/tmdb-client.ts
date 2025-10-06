@@ -27,18 +27,18 @@ import {
   TvSeriesListsEndpoints,
   WatchProvidersEndpoints,
 } from './sections';
-import HTTPClient, { RequestOptions } from './HTTPClient';
+import HttpConnector, { RequestOptions } from './http-connector';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';
 /*
- * TMDBClient Wrapper
+ * TmdbClient Wrapper
  *
  * */
-export class TMDBClient {
-  private readonly http: HTTPClient;
+export class TmdbClient {
+  private readonly http: HttpConnector;
 
   constructor(accessToken: string, httpOptions?: Partial<RequestOptions>) {
-    this.http = new HTTPClient(BASE_URL, accessToken, httpOptions);
+    this.http = new HttpConnector(BASE_URL, accessToken, httpOptions);
   }
 
   get certifications() {

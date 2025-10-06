@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { MovieListsEndpoints } from './movie-lists-endpoints';
 import {
   MovieDetails,
@@ -21,10 +21,10 @@ import {
 const BASE_PATH = '/movie';
 
 export class MoviesEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
   public lists: MovieListsEndpoints;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
     this.lists = new MovieListsEndpoints(http);
   }

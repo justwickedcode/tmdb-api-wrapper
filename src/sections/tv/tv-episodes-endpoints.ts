@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   TvEpisodeDetails,
   AccountState,
@@ -15,7 +15,7 @@ import {
 const BASE_PATH = '/tv';
 
 export class TvEpisodesEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get TV episode details */
   getDetails(

@@ -1,10 +1,10 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { MovieChangesResponse, TVChangesResponse, PersonChangesResponse } from './types';
 
 export class ChangesEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

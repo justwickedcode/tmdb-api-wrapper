@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   CollectionDetailsResponse,
   CollectionImagesResponse,
@@ -12,7 +12,7 @@ const BASE_PATH = '/collection';
  * (details, images, and translations).
  */
 export class CollectionsEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** 🔹 Get details about a specific collection */
   getDetails(

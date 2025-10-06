@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   DiscoverMovieResponse,
   DiscoverMovieOptions,
@@ -7,9 +7,9 @@ import {
 } from './types';
 
 export class DiscoverEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

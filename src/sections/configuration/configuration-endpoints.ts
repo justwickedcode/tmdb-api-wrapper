@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   ConfigurationDetails,
   ConfigurationCountry,
@@ -11,7 +11,7 @@ import {
 const BASE_PATH = '/configuration';
 
 export class ConfigurationEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get API configuration details (base URLs, image sizes, etc.) */
   async getDetails(): Promise<ConfigurationDetails> {
@@ -20,7 +20,7 @@ export class ConfigurationEndpoints {
     return res;
   }
 
-  /** Get the list of countries used throughout TMDBClient */
+  /** Get the list of countries used throughout TmdbClient */
   async getCountries(language?: string): Promise<ConfigurationCountry[]> {
     const res = await this.http.get<ConfigurationCountry[]>(`${BASE_PATH}/countries`, {
       params: { language },
@@ -29,21 +29,21 @@ export class ConfigurationEndpoints {
     return res;
   }
 
-  /** Get the list of jobs and departments used on TMDBClient */
+  /** Get the list of jobs and departments used on TmdbClient */
   async getJobs(): Promise<ConfigurationJob[]> {
     const res = await this.http.get<ConfigurationJob[]>(`${BASE_PATH}/jobs`);
     console.log('Configuration jobs:', res);
     return res;
   }
 
-  /** Get the list of languages used throughout TMDBClient */
+  /** Get the list of languages used throughout TmdbClient */
   async getLanguages(): Promise<ConfigurationLanguage[]> {
     const res = await this.http.get<ConfigurationLanguage[]>(`${BASE_PATH}/languages`);
     console.log('Configuration languages:', res);
     return res;
   }
 
-  /** Get the list of primary translations supported on TMDBClient */
+  /** Get the list of primary translations supported on TmdbClient */
   async getPrimaryTranslations(): Promise<ConfigurationPrimaryTranslations> {
     const res = await this.http.get<ConfigurationPrimaryTranslations>(
       `${BASE_PATH}/primary_translations`,
@@ -52,7 +52,7 @@ export class ConfigurationEndpoints {
     return res;
   }
 
-  /** Get the list of timezones used throughout TMDBClient */
+  /** Get the list of timezones used throughout TmdbClient */
   async getTimezones(): Promise<ConfigurationTimezone[]> {
     const res = await this.http.get<ConfigurationTimezone[]>(`${BASE_PATH}/timezones`);
     console.log('Configuration timezones:', res);

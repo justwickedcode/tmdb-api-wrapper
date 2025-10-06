@@ -1,11 +1,11 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { WatchProviderRegionsResponse, WatchProvidersResponse } from './types';
 
 export class WatchProvidersEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
   private readonly BASE_PATH = '/watch/providers';
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

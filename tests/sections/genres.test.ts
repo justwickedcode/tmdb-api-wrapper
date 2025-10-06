@@ -1,11 +1,11 @@
-import { TMDBClient } from '../../src/TMDBClient';
+import { TmdbClient } from '../../src/tmdb-client';
 
-describe('Genres API integration via TMDBClient', () => {
+describe('Genres API integration via TmdbClient', () => {
   const accessToken = process.env.TMDB_API_KEY!;
-  let tmdb: TMDBClient;
+  let tmdb: TmdbClient;
 
   beforeAll(() => {
-    tmdb = new TMDBClient(accessToken);
+    tmdb = new TmdbClient(accessToken);
   });
 
   it('should fetch movie genres', async () => {

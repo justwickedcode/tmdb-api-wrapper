@@ -1,13 +1,13 @@
-import { TMDBClient } from '../../src/TMDBClient';
+import { TmdbClient } from '../../src/tmdb-client';
 
 describe('People API integration', () => {
   const accessToken = process.env.TMDB_API_KEY!;
-  let tmdb: TMDBClient;
+  let tmdb: TmdbClient;
   const examplePersonId = 287; // Brad Pitt
   const examplePage = 1;
 
   beforeAll(() => {
-    tmdb = new TMDBClient(accessToken);
+    tmdb = new TmdbClient(accessToken);
   });
 
   it('should fetch person details', async () => {

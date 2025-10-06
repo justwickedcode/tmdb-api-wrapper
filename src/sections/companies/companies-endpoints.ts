@@ -1,10 +1,10 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { CompanyDetails, CompanyAlternativeNamesResponse, CompanyImagesResponse } from './types';
 
 const BASE_PATH = '/company';
 
 export class CompaniesEndpoints {
-  constructor(private readonly http: HTTPClient) {}
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get company details by ID */
   async getDetails(company_id: number): Promise<CompanyDetails> {

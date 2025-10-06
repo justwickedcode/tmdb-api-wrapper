@@ -1,15 +1,15 @@
-import { TMDBClient } from '../../src/TMDBClient';
+import { TmdbClient } from '../../src/tmdb-client';
 import { CreditDetails } from '../../src/sections/credits/types';
 
 describe('Credits API integration', () => {
   const accessToken = process.env.TMDB_API_KEY!;
-  let tmdb: TMDBClient;
+  let tmdb: TmdbClient;
 
-  // Replace this with a valid TMDBClient credit ID for testing
+  // Replace this with a valid TmdbClient credit ID for testing
   const testCreditId = '52fe420dc3a36847f800024f';
 
   beforeAll(() => {
-    tmdb = new TMDBClient(accessToken);
+    tmdb = new TmdbClient(accessToken);
   });
 
   it('should fetch credit details by ID', async () => {

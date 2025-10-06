@@ -1,10 +1,10 @@
-import HTTPClient from '../../src/HTTPClient';
+import HttpConnector from '../../src/http-connector';
 import { MoviesEndpoints } from '../../src/sections';
 import { MovieListQuery } from '../../src/sections/movie/types';
 const API_KEY = process.env.TMDB_API_KEY!;
 
 describe('MoviesEndpoints Integration Tests', () => {
-  const client = new HTTPClient('https://api.themoviedb.org/3', API_KEY);
+  const client = new HttpConnector('https://api.themoviedb.org/3', API_KEY);
   const movies = new MoviesEndpoints(client);
   let testMovieId: number;
 

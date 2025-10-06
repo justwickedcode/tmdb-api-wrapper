@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   AccountDetails,
   AddFavoriteRequestBody,
@@ -18,9 +18,9 @@ import {
 const BASE_PATH = '/account';
 
 export class AccountEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

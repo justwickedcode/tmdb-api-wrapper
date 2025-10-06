@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   DatedMovieResponse,
   DiscoverQuery,
@@ -8,7 +8,7 @@ import {
 } from './types';
 
 export class MovieListsEndpoints {
-  constructor(private client: HTTPClient) {}
+  constructor(private client: HttpConnector) {}
 
   /** Get movies currently in theatres */
   async nowPlaying(params?: MovieListQuery): Promise<DatedMovieResponse> {

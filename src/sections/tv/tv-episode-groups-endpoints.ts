@@ -1,12 +1,12 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { TvEpisodeGroupDetails } from './types';
 
 const BASE_PATH = '/tv/episode_group';
 
 export class TvEpisodeGroupsEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

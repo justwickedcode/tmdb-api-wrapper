@@ -1,12 +1,12 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { MovieCertificationsResponse, TVCertificationsResponse } from './types';
 
 const BASE_PATH = '/certification';
 
 export class CertificationsEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

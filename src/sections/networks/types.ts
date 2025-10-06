@@ -1,4 +1,4 @@
-/** Network details returned by TMDBClient */
+/** Network details returned by TmdbClient */
 export interface NetworkDetails {
   id: number;
   name: string;

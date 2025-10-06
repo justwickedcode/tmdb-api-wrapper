@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   GuestSessionResponse,
   RequestTokenResponse,
@@ -15,9 +15,9 @@ import {
 const BASE_PATH = '/authentication';
 //TODO: Fix auth workflow for it to actually be usable
 export class AuthenticationEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 
@@ -61,7 +61,7 @@ export class AuthenticationEndpoints {
     return this.http.post(`${BASE_PATH}/session/convert/4`, body);
   }
 
-  /** Delete a TMDBClient session */
+  /** Delete a TmdbClient session */
   deleteSession(body: DeleteSessionRequest): Promise<DeleteSessionResponse> {
     return this.http.delete(`${BASE_PATH}/session`, {
       body: JSON.stringify(body), // required for DELETE requests

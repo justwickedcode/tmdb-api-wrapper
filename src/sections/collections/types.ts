@@ -1,4 +1,4 @@
-/** Common image structure used by TMDBClient for posters/backdrops */
+/** Common image structure used by TmdbClient for posters/backdrops */
 export interface TMDBImage {
   aspect_ratio: number;
   height: number;

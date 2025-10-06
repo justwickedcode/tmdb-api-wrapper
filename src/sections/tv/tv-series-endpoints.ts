@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   TvSeriesDetails,
   AccountState,
@@ -30,13 +30,13 @@ import { TvEpisodeGroupsEndpoints } from './tv-episode-groups-endpoints';
 const BASE_PATH = '/tv';
 
 export class TvSeriesEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
   public lists: TvSeriesListsEndpoints;
   public seasons: TvSeasonsEndpoints;
   public episodes: TvEpisodesEndpoints;
   public episodeGroups: TvEpisodeGroupsEndpoints;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
     this.lists = new TvSeriesListsEndpoints(this.http);
     this.seasons = new TvSeasonsEndpoints(this.http);

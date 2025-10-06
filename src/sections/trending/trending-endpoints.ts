@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import {
   PaginatedTrendingResponse,
   TrendingResultBase,
@@ -11,9 +11,9 @@ import {
 const BASE_PATH = '/trending';
 
 export class TrendingEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 

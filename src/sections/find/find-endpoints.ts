@@ -1,4 +1,4 @@
-import HTTPClient from '../../HTTPClient';
+import HttpConnector from '../../http-connector';
 import { FindResponse } from './types';
 
 export interface FindByIDOptions {
@@ -15,9 +15,9 @@ export interface FindByIDOptions {
 }
 
 export class FindEndpoints {
-  private readonly http: HTTPClient;
+  private readonly http: HttpConnector;
 
-  constructor(http: HTTPClient) {
+  constructor(http: HttpConnector) {
     this.http = http;
   }
 
