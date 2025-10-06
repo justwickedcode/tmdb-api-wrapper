@@ -5,7 +5,7 @@ import {
   ChangesEndpoints,
   CollectionsEndpoints,
   CompaniesEndpoints,
-  Configuration,
+  ConfigurationEndpoints,
   CreditsEndpoints,
   DiscoverEndpoints,
   FindEndpoints,
@@ -58,7 +58,7 @@ export class TMDBClient {
     return new CompaniesEndpoints(this.http);
   }
   get configuration() {
-    return new Configuration(this.http);
+    return new ConfigurationEndpoints(this.http);
   }
   get credits() {
     return new CreditsEndpoints(this.http);

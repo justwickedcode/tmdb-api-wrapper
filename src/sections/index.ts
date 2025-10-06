@@ -4,7 +4,7 @@ export * from './certifications/certifications-endpoints';
 export * from './changes/changes-endpoints';
 export * from './collections/collections-endpoints';
 export * from './companies/companies-endpoints';
-export * from './configuration/Configuration';
+export * from './configuration/configuration-endpoints';
 export * from './credits/credits-endpoints';
 export * from './discover/discover-endpoints';
 export * from './find/find-endpoints';
