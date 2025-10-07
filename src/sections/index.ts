@@ -30,7 +30,7 @@ export * from './collections/types';
 export * from './companies/types';
 export * from './configuration/types';
 export * from './credits/types';
-// export * from './discover/types';
+export * from './discover/types';
 // export * from './find/types';
 // export * from './genres/types';
 // export * from './keywords/types';

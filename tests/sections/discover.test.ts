@@ -1,5 +1,5 @@
 import { TmdbClient } from '../../src/tmdb-client';
-import { DiscoverMovieResponse, DiscoverTVResponse } from '../../src/sections/discover/types';
+import { DiscoverMovieResponse, DiscoverTVResponse } from '../../src/sections';
 
 describe('TmdbClient Discover API integration', () => {
   const accessToken = process.env.TMDB_API_KEY!;
