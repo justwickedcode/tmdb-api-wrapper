@@ -11,12 +11,12 @@ export class CertificationsEndpoints {
   }
 
   /** Get all movie certifications */
-  async getMovieCertifications(): Promise<MovieCertificationsResponse> {
+  getMovieCertifications(): Promise<MovieCertificationsResponse> {
     return this.http.get<MovieCertificationsResponse>(`${BASE_PATH}/movie/list`);
   }
 
   /** Get all TV certifications */
-  async getTVCertifications(): Promise<TVCertificationsResponse> {
+  getTVCertifications(): Promise<TVCertificationsResponse> {
     return this.http.get<TVCertificationsResponse>(`${BASE_PATH}/tv/list`);
   }
 }

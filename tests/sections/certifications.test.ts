@@ -3,7 +3,7 @@ import {
   Certification,
   MovieCertificationsResponse,
   TVCertificationsResponse,
-} from '../../src/sections/certifications/types';
+} from '../../src/sections';
 
 describe('Certifications API integration', () => {
   const accessToken = process.env.TMDB_API_KEY!;
@@ -24,7 +24,7 @@ describe('Certifications API integration', () => {
     expect(firstCountry[0]).toHaveProperty('meaning');
     expect(firstCountry[0]).toHaveProperty('order');
 
-    console.log('Movie certifications:', countries);
+    console.log('Movie certifications countries:', countries);
   });
 
   it('should fetch TV certifications', async () => {
@@ -38,6 +38,6 @@ describe('Certifications API integration', () => {
     expect(firstCountry[0]).toHaveProperty('meaning');
     expect(firstCountry[0]).toHaveProperty('order');
 
-    console.log('TV certifications:', countries);
+    console.log('TV certifications countries:', countries);
   });
 });

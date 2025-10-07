@@ -1,3 +1,4 @@
+// Endpoints
 export * from './certifications/certifications-endpoints';
 export * from './changes/changes-endpoints';
 export * from './collections/collections-endpoints';
@@ -21,3 +22,24 @@ export * from './tv/tv-seasons-endpoints';
 export * from './tv/tv-series-endpoints';
 export * from './tv/tv-series-lists-endpoints';
 export * from './watch-providers/watch-providers-endpoints';
+
+// Types
+export * from './certifications/types';
+export * from './changes/types';
+// export * from './collections/types';
+// export * from './companies/types';
+// export * from './configuration/types';
+// export * from './credits/types';
+// export * from './discover/types';
+// export * from './find/types';
+// export * from './genres/types';
+// export * from './keywords/types';
+// export * from './movie/types';
+// export * from './networks/types';
+// export * from './people/types';
+// export * from './people-lists/types';
+// export * from './reviews/types';
+// export * from './search/types';
+// export * from './trending/types';
+// export * from './tv/types';
+// export * from './watch-providers/types';

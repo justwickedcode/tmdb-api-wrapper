@@ -1,6 +1,13 @@
 import HttpConnector from '../../http-connector';
 import { MovieChangesResponse, TVChangesResponse, PersonChangesResponse } from './types';
 
+/** Query params for change list endpoints */
+export interface ChangeListParams {
+  start_date?: string;
+  end_date?: string;
+  page?: number;
+}
+
 export class ChangesEndpoints {
   private readonly http: HttpConnector;
 
@@ -8,39 +15,18 @@ export class ChangesEndpoints {
     this.http = http;
   }
 
-  /**
-   * Get a list of movie IDs that have been changed in the past 24 hours.
-   * You can query up to 14 days using start_date and end_date.
-   */
-  async getMovieChanges(params?: {
-    start_date?: string;
-    end_date?: string;
-    page?: number;
-  }): Promise<MovieChangesResponse> {
+  /** Get changed movie IDs (up to 14 days range) */
+  getMovieChanges(params?: ChangeListParams): Promise<MovieChangesResponse> {
     return this.http.get<MovieChangesResponse>('/movie/changes', { params });
   }
 
-  /**
-   * Get a list of TV show IDs that have been changed in the past 24 hours.
-   * You can query up to 14 days using start_date and end_date.
-   */
-  async getTVChanges(params?: {
-    start_date?: string;
-    end_date?: string;
-    page?: number;
-  }): Promise<TVChangesResponse> {
+  /** Get changed TV show IDs (up to 14 days range) */
+  getTVChanges(params?: ChangeListParams): Promise<TVChangesResponse> {
     return this.http.get<TVChangesResponse>('/tv/changes', { params });
   }
 
-  /**
-   * Get a list of person IDs that have been changed in the past 24 hours.
-   * You can query up to 14 days using start_date and end_date.
-   */
-  async getPersonChanges(params?: {
-    start_date?: string;
-    end_date?: string;
-    page?: number;
-  }): Promise<PersonChangesResponse> {
+  /** Get changed person IDs (up to 14 days range) */
+  getPersonChanges(params?: ChangeListParams): Promise<PersonChangesResponse> {
     return this.http.get<PersonChangesResponse>('/person/changes', { params });
   }
 }

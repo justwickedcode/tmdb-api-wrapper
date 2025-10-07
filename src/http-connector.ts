@@ -1,7 +1,7 @@
 export interface RequestOptions extends RequestInit {
   baseUrl?: string;
   headers?: Record<string, string>;
-  params?: Record<string, string | number | boolean | null | undefined>;
+  params?: Record<string, any>;
   next?: { revalidate?: number; tags?: string[] };
 }
 
@@ -20,29 +20,28 @@ export default class HttpConnector {
     this.defaultOptions = defaultOptions;
   }
 
-  private async request<T>(endpoint: string, options: RequestOptions = {}): Promise<T> {
-    let url = (options.baseUrl ?? this.baseUrl) + endpoint;
+  private async request<T>(endpoint: string, options?: RequestOptions): Promise<T> {
+    const opts = options ?? {}; // default to empty object
+    let url = (opts.baseUrl ?? this.baseUrl) + endpoint;
 
-    // Merge and sanitize params
-    const allParams = { ...this.defaultOptions.params, ...options.params } as Record<string, any>;
+    // Merge & sanitize params
+    const allParams = { ...this.defaultOptions.params, ...opts.params };
     const sanitizedParams: Record<string, string> = {};
 
-    Object.entries(allParams ?? {}).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
-        sanitizedParams[key] = String(value);
-      }
-    });
+    for (const [key, value] of Object.entries(allParams ?? {})) {
+      if (value != null) sanitizedParams[key] = String(value);
+    }
 
     if (Object.keys(sanitizedParams).length > 0) {
       url += `?${new URLSearchParams(sanitizedParams).toString()}`;
     }
 
-    const headers = { ...this.headers, ...(options.headers ?? {}) };
-    const next = { ...(this.defaultOptions.next ?? {}), ...(options.next ?? {}) };
+    const headers = { ...this.headers, ...(opts.headers ?? {}) };
+    const next = { ...(this.defaultOptions.next ?? {}), ...(opts.next ?? {}) };
 
     const fetchConfig: RequestInit & Partial<Pick<RequestOptions, 'next'>> = {
       ...this.defaultOptions,
-      ...options,
+      ...opts,
       headers,
     };
 
@@ -51,16 +50,13 @@ export default class HttpConnector {
     const res = await fetch(url, fetchConfig);
 
     if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(`HTTP ${res.status}: ${errorText}`);
+      throw new Error(`HTTP ${res.status}: ${await res.text()}`);
     }
 
     const contentType = res.headers.get('content-type');
-    if (contentType?.includes('application/json')) {
-      return (await res.json()) as T;
-    }
-
-    return (await res.text()) as unknown as T;
+    return contentType?.includes('application/json')
+      ? ((await res.json()) as T)
+      : ((await res.text()) as unknown as T);
   }
 
   public get<T>(endpoint: string, options?: RequestOptions): Promise<T> {
