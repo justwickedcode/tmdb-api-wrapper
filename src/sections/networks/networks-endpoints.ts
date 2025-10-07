@@ -1,4 +1,3 @@
-// sections/networks/NetworksEndpoints.ts
 import HttpConnector from '../../http-connector';
 import { NetworkDetails, NetworkAlternativeNamesResponse, NetworkImagesResponse } from './types';
 

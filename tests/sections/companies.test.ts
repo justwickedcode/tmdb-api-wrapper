@@ -1,6 +1,6 @@
 import { TmdbClient } from '../../src/tmdb-client';
 import {
-  CompanyDetails,
+  CompanyDetailsResponse,
   CompanyAlternativeNamesResponse,
   CompanyImagesResponse,
 } from '../../src/sections';
@@ -14,7 +14,7 @@ describe('Companies API integration', () => {
     tmdb = new TmdbClient(apiKey);
   });
 
-  const validateCompanyDetails = (details: CompanyDetails) => {
+  const validateCompanyDetails = (details: CompanyDetailsResponse) => {
     expect(details).toHaveProperty('id', COMPANY_ID);
     expect(details).toHaveProperty('name');
     expect(typeof details.name).toBe('string');

@@ -1,4 +1,4 @@
-import { MovieBase, TVBase } from '../base-types';
+import { EpisodeBase, MovieBase, TVBase } from '../base-types';
 
 //TODO: See if you can improve the types
 /** Movie-specific fields */
@@ -16,21 +16,8 @@ export interface CreditsTV extends TVBase {
 }
 
 /** Episode for TV shows */
-export interface CreditsEpisode {
-  id: number;
-  name: string;
-  overview?: string;
+export interface CreditsEpisode extends EpisodeBase {
   media_type: 'tv_episode';
-  vote_average: number;
-  vote_count: number;
-  air_date: string;
-  episode_number: number;
-  episode_type: string;
-  production_code: string;
-  runtime: number;
-  season_number: number;
-  show_id?: number;
-  still_path?: string | null;
 }
 
 /** Season for TV shows */

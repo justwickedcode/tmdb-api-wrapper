@@ -1,3 +1,5 @@
+import { FindMovie, FindTV } from './find/types';
+
 /** Generic paginated response */
 export interface PaginatedResponse<T> {
   results: T[];
@@ -45,4 +47,43 @@ export interface TVBase extends MediaBase {
   original_name: string;
   first_air_date: string;
   origin_country: string[];
+}
+
+export interface PersonBase {
+  adult: boolean;
+  gender?: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string | null;
+  media_type: string;
+}
+
+export interface EpisodeBase {
+  id: number;
+  name: string;
+  overview?: string;
+  vote_average: number;
+  vote_count: number;
+  air_date: string;
+  episode_number: number;
+  episode_type: string;
+  production_code: string;
+  runtime: number;
+  season_number: number;
+  show_id?: number;
+  still_path?: string | null;
+}
+
+export interface SeasonBase {
+  id: number;
+  name: string;
+  overview?: string;
+  poster_path?: string | null;
+  season_number: number;
+  air_date?: string;
+  episode_count: number;
+  show_id?: number;
 }

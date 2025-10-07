@@ -21,13 +21,33 @@ describe('Find API integration via TmdbClient', () => {
     console.log('Movie result:', res.movie_results[0]);
   });
 
-  it('should find a TV show by TVDB ID', async () => {
-    const tvdbID = '81189'; // Breaking Bad
-    const res: FindResponse = await tmdb.find.byID(tvdbID, { external_source: 'tvdb_id' });
+  it('should find a TV show by IMDb ID', async () => {
+    const imdbID = 'tt0903747'; // Breaking Bad
+    const res: FindResponse = await tmdb.find.byID(imdbID, { external_source: 'imdb_id' });
 
     expect(res.tv_results.length).toBeGreaterThan(0);
-    expect(res.tv_results[0]).toMatchObject({ id: expect.any(Number), name: expect.any(String) });
-    console.log('TV result:', res.tv_results[0]);
+    const tv = res.tv_results[0];
+    expect(tv).toMatchObject({
+      id: expect.any(Number),
+      name: expect.any(String),
+      original_name: expect.any(String),
+    });
+    console.log('TV show result:', tv);
+  });
+
+  it('should find a TV episode by IMDb ID', async () => {
+    const imdbID = 'tt14659486'; // The Last of Us, S1E5
+    const res: FindResponse = await tmdb.find.byID(imdbID, { external_source: 'imdb_id' });
+
+    expect(res.tv_episode_results.length).toBeGreaterThan(0);
+    const episode = res.tv_episode_results[0];
+    expect(episode).toMatchObject({
+      id: expect.any(Number),
+      episode_number: expect.any(Number),
+      season_number: expect.any(Number),
+      show_id: expect.any(Number),
+    });
+    console.log('Episode result:', episode);
   });
 
   it('should find a person by IMDb ID', async () => {
@@ -65,6 +85,8 @@ describe('Find API integration via TmdbClient', () => {
 
     expect(res.movie_results).toEqual([]);
     expect(res.tv_results).toEqual([]);
+    expect(res.tv_episode_results).toEqual([]);
+    expect(res.tv_season_results).toEqual([]);
     expect(res.person_results).toEqual([]);
   });
 });

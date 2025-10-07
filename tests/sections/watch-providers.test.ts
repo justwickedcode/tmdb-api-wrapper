@@ -1,4 +1,3 @@
-// sections/watchProviders/WatchProvidersEndpoints.test.ts
 import { TmdbClient } from '../../src/tmdb-client';
 
 describe('WatchProvidersEndpoints integration', () => {

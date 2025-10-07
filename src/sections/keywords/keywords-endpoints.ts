@@ -1,5 +1,12 @@
 import HttpConnector from '../../http-connector';
-import { KeywordDetails, KeywordMoviesResponse, KeywordMoviesOptions } from './types';
+import { KeywordDetails, KeywordMoviesResponse } from './types';
+
+/** Options for fetching movies by keyword */
+interface KeywordMoviesParams {
+  language?: string;
+  include_adult?: boolean;
+  page?: number;
+}
 
 export class KeywordsEndpoints {
   constructor(private readonly http: HttpConnector) {}
@@ -9,12 +16,14 @@ export class KeywordsEndpoints {
     return this.http.get<KeywordDetails>(`/keyword/${keywordId}`);
   }
 
-  /** Get movies associated with a keyword */
+  /**
+   * @deprecated Use `discover.getMovies()` instead.
+   * Get movies associated with a keyword
+   */
   getMoviesByKeyword(
     keywordId: number,
-    options?: KeywordMoviesOptions,
+    params?: KeywordMoviesParams,
   ): Promise<KeywordMoviesResponse> {
-    const params = { with_keywords: keywordId, ...options };
-    return this.http.get<KeywordMoviesResponse>('/discover/movie', { params });
+    return this.http.get<KeywordMoviesResponse>(`/keyword/${keywordId}/movies`, { params });
   }
 }
