@@ -1,5 +1,5 @@
 import HttpConnector from '../../http-connector';
-import { CreditDetails } from './types';
+import { CreditDetailsResponse } from './types';
 
 const BASE_PATH = '/credit';
 
@@ -11,9 +11,7 @@ export class CreditsEndpoints {
   }
 
   /** Get credit details by credit ID */
-  async getDetails(credit_id: string): Promise<CreditDetails> {
-    const res = await this.http.get<CreditDetails>(`${BASE_PATH}/${credit_id}`);
-    console.log('Credit details:', res);
-    return res;
+  getDetails(credit_id: string): Promise<CreditDetailsResponse> {
+    return this.http.get<CreditDetailsResponse>(`${BASE_PATH}/${credit_id}`);
   }
 }

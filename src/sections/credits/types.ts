@@ -1,62 +1,53 @@
-/** ----------------------------------------
- * Media Base (shared between movie/TV)
- * ---------------------------------------- */
-export interface MediaBase {
-  id: number;
-  media_type: 'movie' | 'tv';
-  adult?: boolean;
-  backdrop_path?: string | null;
-  poster_path?: string | null;
-  original_language?: string;
-  original_name?: string;
-  original_title?: string;
-  name?: string;
-  title?: string;
-  overview?: string;
-  genre_ids?: number[];
-  popularity?: number;
-  vote_average?: number;
-  vote_count?: number;
-  first_air_date?: string;
-  release_date?: string;
-  origin_country?: string[];
-  video?: boolean;
+import { MovieBase, TVBase } from '../base-types';
+
+//TODO: See if you can improve the types
+/** Movie-specific fields */
+export interface CreditsMovie extends MovieBase {
+  media_type: 'movie';
+  character: string;
 }
 
-/** ----------------------------------------
- * Episode for TV shows
- * ---------------------------------------- */
-export interface Episode {
+/** TV-specific fields */
+export interface CreditsTV extends TVBase {
+  media_type: 'tv';
+  character: string;
+  episodes?: CreditsEpisode[];
+  seasons?: CreditsSeason[];
+}
+
+/** Episode for TV shows */
+export interface CreditsEpisode {
+  id: number;
+  name: string;
+  overview?: string;
+  media_type: 'tv_episode';
+  vote_average: number;
+  vote_count: number;
   air_date: string;
-  episode_count?: number;
+  episode_number: number;
+  episode_type: string;
+  production_code: string;
+  runtime: number;
+  season_number: number;
+  show_id?: number;
+  still_path?: string | null;
+}
+
+/** Season for TV shows */
+export interface CreditsSeason {
   id: number;
   name: string;
   overview?: string;
   poster_path?: string | null;
   season_number: number;
-  show_id?: number;
-  media_type?: 'tv';
-}
-
-/** ----------------------------------------
- * Season for TV shows
- * ---------------------------------------- */
-export interface Season {
   air_date?: string;
   episode_count: number;
-  id: number;
-  name: string;
-  overview?: string;
-  poster_path?: string | null;
-  season_number: number;
   show_id?: number;
   media_type?: 'tv';
 }
 
-/** ----------------------------------------
- * Person object
- * ---------------------------------------- */
-export interface Person {
+/** Person object */
+export interface CreditsPerson {
   id: number;
   name: string;
   original_name?: string;
@@ -68,17 +59,13 @@ export interface Person {
   popularity?: number;
 }
 
-/** ----------------------------------------
- * Credit Details
- * ---------------------------------------- */
-export interface CreditDetails {
+/** Credit details for a person on a movie or TV show */
+export interface CreditDetailsResponse {
+  id: string;
   credit_type: string;
   department: string;
-  job?: string;
-  media: MediaBase & {
-    episodes?: Episode[];
-    seasons?: Season[];
-    character?: string;
-  };
-  person: Person;
+  job: string;
+  media: CreditsMovie | CreditsTV;
+  media_type: 'movie' | 'tv';
+  person: CreditsPerson;
 }
