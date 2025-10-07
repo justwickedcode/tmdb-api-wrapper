@@ -26,8 +26,8 @@ export * from './watch-providers/watch-providers-endpoints';
 // Types
 export * from './certifications/types';
 export * from './changes/types';
-// export * from './collections/types';
-// export * from './companies/types';
+export * from './collections/types';
+export * from './companies/types';
 // export * from './configuration/types';
 // export * from './credits/types';
 // export * from './discover/types';

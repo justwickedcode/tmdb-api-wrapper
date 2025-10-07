@@ -1,33 +1,51 @@
 import { TmdbClient } from '../../src/tmdb-client';
+import {
+  CompanyDetails,
+  CompanyAlternativeNamesResponse,
+  CompanyImagesResponse,
+} from '../../src/sections';
 
-describe('Company API integration', () => {
-  const accessToken = process.env.TMDB_API_KEY!;
-  const companyId = 2; // Disney
+describe('Companies API integration', () => {
+  const apiKey = process.env.TMDB_API_KEY!;
+  const COMPANY_ID = 2; // Disney
   let tmdb: TmdbClient;
 
   beforeAll(() => {
-    tmdb = new TmdbClient(accessToken);
+    tmdb = new TmdbClient(apiKey);
   });
 
-  it('should fetch company details', async () => {
-    const details = await tmdb.companies.getDetails(companyId);
-    expect(details).toHaveProperty('id', companyId);
+  const validateCompanyDetails = (details: CompanyDetails) => {
+    expect(details).toHaveProperty('id', COMPANY_ID);
     expect(details).toHaveProperty('name');
+    expect(typeof details.name).toBe('string');
     expect(details).toHaveProperty('logo_path');
-    console.log('Company details test output:', details);
-  });
+  };
 
-  it('should fetch company alternative names', async () => {
-    const altNames = await tmdb.companies.getAlternativeNames(companyId);
-    expect(altNames).toHaveProperty('id', companyId);
+  const validateAlternativeNames = (altNames: CompanyAlternativeNamesResponse) => {
+    expect(altNames).toHaveProperty('id', COMPANY_ID);
     expect(Array.isArray(altNames.results)).toBe(true);
-    console.log('Company alternative names test output:', altNames.results);
+  };
+
+  const validateCompanyImages = (images: CompanyImagesResponse) => {
+    expect(images).toHaveProperty('id', COMPANY_ID);
+    expect(Array.isArray(images.logos)).toBe(true);
+  };
+
+  it('fetches company details', async () => {
+    const details = await tmdb.companies.getDetails(COMPANY_ID);
+    validateCompanyDetails(details);
+    console.log('Company details:', details);
   });
 
-  it('should fetch company images', async () => {
-    const images = await tmdb.companies.getImages(companyId);
-    expect(images).toHaveProperty('id', companyId);
-    expect(Array.isArray(images.logos)).toBe(true);
-    console.log('Company images test output:', images.logos);
+  it('fetches company alternative names', async () => {
+    const altNames = await tmdb.companies.getAlternativeNames(COMPANY_ID);
+    validateAlternativeNames(altNames);
+    console.log('Alternative names:', altNames.results);
+  });
+
+  it('fetches company images', async () => {
+    const images = await tmdb.companies.getImages(COMPANY_ID);
+    validateCompanyImages(images);
+    console.log('Company logos:', images.logos);
   });
 });

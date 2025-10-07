@@ -2,7 +2,7 @@ import HttpConnector from '../../http-connector';
 import { MovieChangesResponse, TVChangesResponse, PersonChangesResponse } from './types';
 
 /** Query params for change list endpoints */
-export interface ChangeListParams {
+interface ChangeQueryParams {
   start_date?: string;
   end_date?: string;
   page?: number;
@@ -15,18 +15,18 @@ export class ChangesEndpoints {
     this.http = http;
   }
 
-  /** Get changed movie IDs (up to 14 days range) */
-  getMovieChanges(params?: ChangeListParams): Promise<MovieChangesResponse> {
+  /** Get changed movie IDs */
+  getMovieChanges(params?: ChangeQueryParams): Promise<MovieChangesResponse> {
     return this.http.get<MovieChangesResponse>('/movie/changes', { params });
   }
 
-  /** Get changed TV show IDs (up to 14 days range) */
-  getTVChanges(params?: ChangeListParams): Promise<TVChangesResponse> {
+  /** Get changed TV show IDs */
+  getTVChanges(params?: ChangeQueryParams): Promise<TVChangesResponse> {
     return this.http.get<TVChangesResponse>('/tv/changes', { params });
   }
 
-  /** Get changed person IDs (up to 14 days range) */
-  getPersonChanges(params?: ChangeListParams): Promise<PersonChangesResponse> {
+  /** Get changed person IDs */
+  getPersonChanges(params?: ChangeQueryParams): Promise<PersonChangesResponse> {
     return this.http.get<PersonChangesResponse>('/person/changes', { params });
   }
 }

@@ -1,5 +1,5 @@
 /** Represents detailed info about a company */
-export interface CompanyDetails {
+export interface CompanyDetailsResponse {
   id: number;
   name: string;
   description: string;
@@ -23,15 +23,19 @@ export interface CompanyAlternativeNamesResponse {
 }
 
 /** Represents a single company logo/image */
-export interface CompanyImage {
+export interface CompanyLogoImage {
+  id: string;
   file_path: string;
   width: number;
   height: number;
   file_type: string;
+  aspect_ratio: number;
+  vote_average: number;
+  vote_count: number;
 }
 
 /** Response for company images endpoint */
 export interface CompanyImagesResponse {
   id: number;
-  logos: CompanyImage[];
+  logos: CompanyLogoImage[];
 }

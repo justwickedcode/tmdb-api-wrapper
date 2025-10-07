@@ -1,5 +1,9 @@
 import HttpConnector from '../../http-connector';
-import { CompanyDetails, CompanyAlternativeNamesResponse, CompanyImagesResponse } from './types';
+import {
+  CompanyAlternativeNamesResponse,
+  CompanyDetailsResponse,
+  CompanyImagesResponse,
+} from './types';
 
 const BASE_PATH = '/company';
 
@@ -7,25 +11,19 @@ export class CompaniesEndpoints {
   constructor(private readonly http: HttpConnector) {}
 
   /** Get company details by ID */
-  async getDetails(company_id: number): Promise<CompanyDetails> {
-    const res = await this.http.get<CompanyDetails>(`${BASE_PATH}/${company_id}`);
-    console.log('Company details:', res);
-    return res;
+  async getDetails(companyId: number): Promise<CompanyDetailsResponse> {
+    return this.http.get<CompanyDetailsResponse>(`${BASE_PATH}/${companyId}`);
   }
 
   /** Get alternative names for a company */
-  async getAlternativeNames(company_id: number): Promise<CompanyAlternativeNamesResponse> {
-    const res = await this.http.get<CompanyAlternativeNamesResponse>(
-      `${BASE_PATH}/${company_id}/alternative_names`,
+  async getAlternativeNames(companyId: number): Promise<CompanyAlternativeNamesResponse> {
+    return this.http.get<CompanyAlternativeNamesResponse>(
+      `${BASE_PATH}/${companyId}/alternative_names`,
     );
-    console.log('Company alternative names:', res);
-    return res;
   }
 
   /** Get company images/logos */
-  async getImages(company_id: number): Promise<CompanyImagesResponse> {
-    const res = await this.http.get<CompanyImagesResponse>(`${BASE_PATH}/${company_id}/images`);
-    console.log('Company images:', res);
-    return res;
+  async getImages(companyId: number): Promise<CompanyImagesResponse> {
+    return this.http.get<CompanyImagesResponse>(`${BASE_PATH}/${companyId}/images`);
   }
 }

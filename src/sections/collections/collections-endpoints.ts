@@ -7,6 +7,16 @@ import {
 
 const BASE_PATH = '/collection';
 
+/** Internal param types (not exported) */
+interface DetailsQueryParams {
+  language?: string;
+}
+
+interface ImagesQueryParams {
+  language?: string;
+  include_image_language?: string;
+}
+
 /**
  * Endpoints for fetching movie collection information
  * (details, images, and translations).
@@ -14,24 +24,25 @@ const BASE_PATH = '/collection';
 export class CollectionsEndpoints {
   constructor(private readonly http: HttpConnector) {}
 
-  /** 🔹 Get details about a specific collection */
+  /** Get details about a specific collection */
   getDetails(
     collectionId: number,
-    params?: { language?: string },
+    params?: DetailsQueryParams,
   ): Promise<CollectionDetailsResponse> {
-    return this.http.get(`${BASE_PATH}/${collectionId}`, { params });
+    return this.http.get<CollectionDetailsResponse>(`${BASE_PATH}/${collectionId}`, { params });
   }
 
-  /** 🔹 Get images (backdrops and posters) for a collection */
-  getImages(
-    collectionId: number,
-    params?: { language?: string; include_image_language?: string },
-  ): Promise<CollectionImagesResponse> {
-    return this.http.get(`${BASE_PATH}/${collectionId}/images`, { params });
+  /** Get images (backdrops and posters) for a collection */
+  getImages(collectionId: number, params?: ImagesQueryParams): Promise<CollectionImagesResponse> {
+    return this.http.get<CollectionImagesResponse>(`${BASE_PATH}/${collectionId}/images`, {
+      params,
+    });
   }
 
-  /** 🔹 Get available translations for a collection */
+  /** Get available translations for a collection */
   getTranslations(collectionId: number): Promise<CollectionTranslationsResponse> {
-    return this.http.get(`${BASE_PATH}/${collectionId}/translations`);
+    return this.http.get<CollectionTranslationsResponse>(
+      `${BASE_PATH}/${collectionId}/translations`,
+    );
   }
 }
