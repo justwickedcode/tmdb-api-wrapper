@@ -22,6 +22,7 @@
     "dist"
   ],
   "scripts": {
+    "clean": "rimraf dist",
     "build": "tsc",
     "prepare": "npm run build",
     "test": "jest",
@@ -47,6 +48,7 @@
     "dotenv": "^17.2.3",
     "jest": "^30.2.0",
     "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.4.4",
     "typescript": "^5.0.0"
   }
