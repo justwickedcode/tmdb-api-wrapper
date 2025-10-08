@@ -18,7 +18,9 @@
       "types": "./dist/http-connector.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
@@ -30,7 +32,14 @@
     "type": "git",
     "url": "https://github.com/justwickedcode/tmdb-api-wrapper.git"
   },
-  "keywords": ["tmdb", "api", "wrapper", "typescript", "movies", "tv"],
+  "keywords": [
+    "tmdb",
+    "api",
+    "wrapper",
+    "typescript",
+    "movies",
+    "tv"
+  ],
   "author": "justwickedcode",
   "license": "MIT",
   "devDependencies": {
