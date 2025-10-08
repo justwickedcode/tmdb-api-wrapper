@@ -1,12 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2019",
-    "module": "CommonJS",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "declaration": true,
-    "outDir": "dist",
+    "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "esModuleInterop": false,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true
   },
-  "include": ["src"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
