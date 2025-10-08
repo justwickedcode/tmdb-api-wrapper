@@ -48,8 +48,12 @@ export class TvEpisodesEndpoints {
     tv_id: number,
     season_number: number,
     episode_number: number,
+    params?: { start_date?: string; end_date?: string; page?: number },
   ): Promise<ChangesResponse> {
-    return this.http.get<ChangesResponse>(`${BASE_PATH}/episode/${episode_number}/changes`);
+    return this.http.get<ChangesResponse>(
+      `${BASE_PATH}/${tv_id}/season/${season_number}/episode/${episode_number}/changes`,
+      { params },
+    );
   }
 
   /** Get credits for a TV episode */

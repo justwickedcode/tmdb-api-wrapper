@@ -1,5 +1,5 @@
 import HttpConnector from '../../http-connector';
-import { ReviewDetails } from './types';
+import { ReviewDetailsResponse } from './types';
 
 export class ReviewsEndpoints {
   private readonly http: HttpConnector;
@@ -10,7 +10,7 @@ export class ReviewsEndpoints {
   }
 
   /** Get review details by ID */
-  getDetails(reviewId: string): Promise<ReviewDetails> {
-    return this.http.get<ReviewDetails>(`${this.BASE_PATH}/${reviewId}`);
+  getDetails(reviewId: string): Promise<ReviewDetailsResponse> {
+    return this.http.get<ReviewDetailsResponse>(`${this.BASE_PATH}/${reviewId}`);
   }
 }

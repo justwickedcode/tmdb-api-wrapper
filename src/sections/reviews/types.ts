@@ -7,7 +7,7 @@ export interface ReviewAuthorDetails {
 }
 
 /** Review details response from TmdbClient */
-export interface ReviewDetails {
+export interface ReviewDetailsResponse {
   id: string;
   author: string;
   author_details: ReviewAuthorDetails;

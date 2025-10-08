@@ -1,3 +1,6 @@
+import { PaginatedResponse } from '../base-types';
+
+/** Shared base structure for search results */
 export interface SearchResultBase {
   id: number;
   popularity: number;
@@ -10,6 +13,21 @@ export interface SearchResultBase {
   adult?: boolean;
   media_type?: string;
 }
+
+/** === QUERY PARAM TYPES === */
+
+export interface SearchBaseQuery {
+  query: string;
+  page?: number;
+  language?: string;
+}
+
+export interface SearchWithRegionQuery extends SearchBaseQuery {
+  include_adult?: boolean;
+  region?: string;
+}
+
+/** === RESULT TYPES === */
 
 export interface SearchCollectionResult extends SearchResultBase {
   media_type: 'collection';
@@ -46,9 +64,15 @@ export interface SearchTvResult extends SearchResultBase {
   genre_ids?: number[];
 }
 
-export interface PaginatedSearchResponse<T> {
-  page: number;
-  results: T[];
-  total_results: number;
-  total_pages: number;
-}
+/** === RESPONSE TYPES === */
+
+export type SearchCollectionResponse = PaginatedResponse<SearchCollectionResult>;
+export type SearchCompanyResponse = PaginatedResponse<SearchCompanyResult>;
+export type SearchKeywordResponse = PaginatedResponse<SearchKeywordResult>;
+export type SearchMovieResponse = PaginatedResponse<SearchMovieResult>;
+export type SearchPersonResponse = PaginatedResponse<SearchPersonResult>;
+export type SearchTvResponse = PaginatedResponse<SearchTvResult>;
+
+export type SearchMultiResponse = PaginatedResponse<
+  SearchMovieResult | SearchTvResult | SearchPersonResult | SearchCollectionResult
+>;

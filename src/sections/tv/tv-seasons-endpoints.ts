@@ -9,16 +9,13 @@ import {
   ImagesResponse,
   TranslationsResponse,
   VideosResponse,
-  WatchProvidersResponse,
+  TvWatchProvidersResponse,
 } from './types';
 
 const BASE_PATH = '/tv';
 
 export class TvSeasonsEndpoints {
-  private readonly http: HttpConnector;
-  constructor(http: HttpConnector) {
-    this.http = http;
-  }
+  constructor(private readonly http: HttpConnector) {}
 
   /** Get TV season details */
   getDetails(
@@ -47,7 +44,7 @@ export class TvSeasonsEndpoints {
   getAggregatedCredits(
     tv_id: number,
     season_number: number,
-    params: { language?: string } = { language: 'en-US' },
+    params?: { language?: string },
   ): Promise<AggregatedCredits> {
     return this.http.get<AggregatedCredits>(
       `${BASE_PATH}/${tv_id}/season/${season_number}/aggregate_credits`,
@@ -57,10 +54,11 @@ export class TvSeasonsEndpoints {
 
   /** Get changes for a TV season */
   getChanges(
+    tv_id: number,
     season_number: number,
     params?: { start_date?: string; end_date?: string; page?: number },
   ): Promise<ChangesResponse> {
-    return this.http.get<ChangesResponse>(`${BASE_PATH}/season/${season_number}/changes`, {
+    return this.http.get<ChangesResponse>(`${BASE_PATH}/${tv_id}/season/${season_number}/changes`, {
       params,
     });
   }
@@ -99,8 +97,8 @@ export class TvSeasonsEndpoints {
   }
 
   /** Get watch providers for a TV season */
-  getWatchProviders(tv_id: number, season_number: number): Promise<WatchProvidersResponse> {
-    return this.http.get<WatchProvidersResponse>(
+  getWatchProviders(tv_id: number, season_number: number): Promise<TvWatchProvidersResponse> {
+    return this.http.get<TvWatchProvidersResponse>(
       `${BASE_PATH}/${tv_id}/season/${season_number}/watch/providers`,
     );
   }

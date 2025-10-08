@@ -9,13 +9,14 @@ import {
   MovieKeywords,
   MovieReviews,
   MovieTranslations,
-  MovieRecommendations,
-  MovieSimilar,
-  MovieSummary,
-  PaginatedResponse,
   DatedMovieResponse,
   DiscoverQuery,
   MovieListQuery,
+  PopularMoviesResponse,
+  TopRatedMoviesResponse,
+  DiscoverMoviesResponse,
+  RecommendationsResponse,
+  SimilarMoviesResponse,
 } from './types';
 
 const BASE_PATH = '/movie';
@@ -61,9 +62,7 @@ export class MoviesEndpoints {
 
   /** Get reviews */
   async getReviews(movie_id: number, params?: MovieListQuery): Promise<MovieReviews> {
-    return this.http.get<MovieReviews>(`${BASE_PATH}/${movie_id}/reviews`, {
-      params: { ...params },
-    });
+    return this.http.get<MovieReviews>(`${BASE_PATH}/${movie_id}/reviews`, { params });
   }
 
   /** Get translations */
@@ -75,47 +74,39 @@ export class MoviesEndpoints {
   async getRecommendations(
     movie_id: number,
     params?: MovieListQuery,
-  ): Promise<MovieRecommendations> {
-    return this.http.get<MovieRecommendations>(`${BASE_PATH}/${movie_id}/recommendations`, {
-      params: { ...params },
+  ): Promise<RecommendationsResponse> {
+    return this.http.get<RecommendationsResponse>(`${BASE_PATH}/${movie_id}/recommendations`, {
+      params,
     });
   }
 
   /** Get similar movies */
-  async getSimilar(movie_id: number, params?: MovieListQuery): Promise<MovieSimilar> {
-    return this.http.get<MovieSimilar>(`${BASE_PATH}/${movie_id}/similar`, {
-      params: { ...params },
-    });
+  async getSimilar(movie_id: number, params?: MovieListQuery): Promise<SimilarMoviesResponse> {
+    return this.http.get<SimilarMoviesResponse>(`${BASE_PATH}/${movie_id}/similar`, { params });
   }
 
   /** Now playing */
   async nowPlaying(params?: MovieListQuery): Promise<DatedMovieResponse> {
-    return this.http.get<DatedMovieResponse>(`${BASE_PATH}/now_playing`, { params: { ...params } });
+    return this.http.get<DatedMovieResponse>(`${BASE_PATH}/now_playing`, { params });
   }
 
   /** Popular movies */
-  async popular(params?: MovieListQuery): Promise<PaginatedResponse<MovieSummary>> {
-    return this.http.get<PaginatedResponse<MovieSummary>>(`${BASE_PATH}/popular`, {
-      params: { ...params },
-    });
+  async popular(params?: MovieListQuery): Promise<PopularMoviesResponse> {
+    return this.http.get<PopularMoviesResponse>(`${BASE_PATH}/popular`, { params });
   }
 
   /** Top rated movies */
-  async topRated(params?: MovieListQuery): Promise<PaginatedResponse<MovieSummary>> {
-    return this.http.get<PaginatedResponse<MovieSummary>>(`${BASE_PATH}/top_rated`, {
-      params: { ...params },
-    });
+  async topRated(params?: MovieListQuery): Promise<TopRatedMoviesResponse> {
+    return this.http.get<TopRatedMoviesResponse>(`${BASE_PATH}/top_rated`, { params });
   }
 
   /** Upcoming movies */
   async upcoming(params?: MovieListQuery): Promise<DatedMovieResponse> {
-    return this.http.get<DatedMovieResponse>(`${BASE_PATH}/upcoming`, { params: { ...params } });
+    return this.http.get<DatedMovieResponse>(`${BASE_PATH}/upcoming`, { params });
   }
 
   /** Discover movies */
-  async discover(params?: DiscoverQuery): Promise<PaginatedResponse<MovieSummary>> {
-    return this.http.get<PaginatedResponse<MovieSummary>>(`/discover/movie`, {
-      params: { ...params },
-    });
+  async discover(params?: DiscoverQuery): Promise<DiscoverMoviesResponse> {
+    return this.http.get<DiscoverMoviesResponse>(`/discover/movie`, { params });
   }
 }

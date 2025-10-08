@@ -1,10 +1,9 @@
 import HttpConnector from '../../http-connector';
 import {
   DatedMovieResponse,
-  DiscoverQuery,
   MovieListQuery,
-  MovieSummary,
-  PaginatedResponse,
+  PopularMoviesResponse,
+  TopRatedMoviesResponse,
 } from './types';
 
 export class MovieListsEndpoints {
@@ -12,25 +11,21 @@ export class MovieListsEndpoints {
 
   /** Get movies currently in theatres */
   async nowPlaying(params?: MovieListQuery): Promise<DatedMovieResponse> {
-    return this.client.get<DatedMovieResponse>('/movie/now_playing', { params: { ...params } });
+    return this.client.get<DatedMovieResponse>('/movie/now_playing', { params });
   }
 
   /** Get most popular movies */
-  async popular(params?: MovieListQuery): Promise<PaginatedResponse<MovieSummary>> {
-    return this.client.get<PaginatedResponse<MovieSummary>>('/movie/popular', {
-      params: { ...params },
-    });
+  async popular(params?: MovieListQuery): Promise<PopularMoviesResponse> {
+    return this.client.get<PopularMoviesResponse>('/movie/popular', { params });
   }
 
   /** Get top rated movies */
-  async topRated(params?: MovieListQuery): Promise<PaginatedResponse<MovieSummary>> {
-    return this.client.get<PaginatedResponse<MovieSummary>>('/movie/top_rated', {
-      params: { ...params },
-    });
+  async topRated(params?: MovieListQuery): Promise<TopRatedMoviesResponse> {
+    return this.client.get<TopRatedMoviesResponse>('/movie/top_rated', { params });
   }
 
   /** Get upcoming movie releases */
   async upcoming(params?: MovieListQuery): Promise<DatedMovieResponse> {
-    return this.client.get<DatedMovieResponse>('/movie/upcoming', { params: { ...params } });
+    return this.client.get<DatedMovieResponse>('/movie/upcoming', { params });
   }
 }

@@ -1,5 +1,3 @@
-# PLEASE DO NO INSTALL, THE PACKAGE IS NOT READY YET!!!!
-
 # TMDB Client Module
 
 A simple TypeScript client for **The Movie Database (TMDB) API** (v3).  

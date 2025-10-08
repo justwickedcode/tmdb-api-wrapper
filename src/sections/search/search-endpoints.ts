@@ -1,12 +1,14 @@
 import HttpConnector from '../../http-connector';
 import {
-  PaginatedSearchResponse,
-  SearchCollectionResult,
-  SearchCompanyResult,
-  SearchKeywordResult,
-  SearchMovieResult,
-  SearchPersonResult,
-  SearchTvResult,
+  SearchBaseQuery,
+  SearchWithRegionQuery,
+  SearchCollectionResponse,
+  SearchCompanyResponse,
+  SearchKeywordResponse,
+  SearchMovieResponse,
+  SearchPersonResponse,
+  SearchTvResponse,
+  SearchMultiResponse,
 } from './types';
 
 const BASE_PATH = '/search';
@@ -18,56 +20,38 @@ export class SearchEndpoints {
     this.http = http;
   }
 
-  async collection(query: string, params?: { page?: number; language?: string }) {
-    return this.http.get<PaginatedSearchResponse<SearchCollectionResult>>(
-      `${BASE_PATH}/collection`,
-      {
-        params: { query, ...params },
-      },
-    );
+  /** Search collections */
+  collection(params: SearchBaseQuery): Promise<SearchCollectionResponse> {
+    return this.http.get<SearchCollectionResponse>(`${BASE_PATH}/collection`, { params });
   }
 
-  async company(query: string, params?: { page?: number }) {
-    return this.http.get<PaginatedSearchResponse<SearchCompanyResult>>(`${BASE_PATH}/company`, {
-      params: { query, ...params },
-    });
+  /** Search companies */
+  company(params: Omit<SearchBaseQuery, 'language'>): Promise<SearchCompanyResponse> {
+    return this.http.get<SearchCompanyResponse>(`${BASE_PATH}/company`, { params });
   }
 
-  async keyword(query: string, params?: { page?: number }) {
-    return this.http.get<PaginatedSearchResponse<SearchKeywordResult>>(`${BASE_PATH}/keyword`, {
-      params: { query, ...params },
-    });
+  /** Search keywords */
+  keyword(params: Omit<SearchBaseQuery, 'language'>): Promise<SearchKeywordResponse> {
+    return this.http.get<SearchKeywordResponse>(`${BASE_PATH}/keyword`, { params });
   }
 
-  async movie(
-    query: string,
-    params?: { page?: number; language?: string; include_adult?: boolean; region?: string },
-  ) {
-    return this.http.get<PaginatedSearchResponse<SearchMovieResult>>(`${BASE_PATH}/movie`, {
-      params: { query, ...params },
-    });
+  /** Search movies */
+  movie(params: SearchWithRegionQuery): Promise<SearchMovieResponse> {
+    return this.http.get<SearchMovieResponse>(`${BASE_PATH}/movie`, { params });
   }
 
-  async multi(
-    query: string,
-    params?: { page?: number; language?: string; include_adult?: boolean; region?: string },
-  ) {
-    return this.http.get<
-      PaginatedSearchResponse<
-        SearchMovieResult | SearchTvResult | SearchPersonResult | SearchCollectionResult
-      >
-    >(`${BASE_PATH}/multi`, { params: { query, ...params } });
+  /** Search multi (movie, TV, person, collection) */
+  multi(params: SearchWithRegionQuery): Promise<SearchMultiResponse> {
+    return this.http.get<SearchMultiResponse>(`${BASE_PATH}/multi`, { params });
   }
 
-  async person(query: string, params?: { page?: number; language?: string }) {
-    return this.http.get<PaginatedSearchResponse<SearchPersonResult>>(`${BASE_PATH}/person`, {
-      params: { query, ...params },
-    });
+  /** Search people */
+  person(params: SearchBaseQuery): Promise<SearchPersonResponse> {
+    return this.http.get<SearchPersonResponse>(`${BASE_PATH}/person`, { params });
   }
 
-  async tv(query: string, params?: { page?: number; language?: string }) {
-    return this.http.get<PaginatedSearchResponse<SearchTvResult>>(`${BASE_PATH}/tv`, {
-      params: { query, ...params },
-    });
+  /** Search TV shows */
+  tv(params: SearchBaseQuery): Promise<SearchTvResponse> {
+    return this.http.get<SearchTvResponse>(`${BASE_PATH}/tv`, { params });
   }
 }

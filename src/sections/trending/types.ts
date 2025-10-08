@@ -1,6 +1,16 @@
+import { PaginatedResponse } from '../base-types';
+
+/** === ENUM-LIKE TYPES === */
 export type TrendingMediaType = 'all' | 'movie' | 'tv' | 'person';
 export type TrendingTimeWindow = 'day' | 'week';
 
+/** === QUERY PARAM TYPES === */
+export interface TrendingQuery {
+  time_window?: TrendingTimeWindow; // default 'day'
+  page?: number; // default 1
+}
+
+/** === BASE RESULT === */
 export interface TrendingResultBase {
   id: number;
   popularity: number;
@@ -13,6 +23,8 @@ export interface TrendingResultBase {
   name?: string;
   adult?: boolean;
 }
+
+/** === MEDIA RESULT TYPES === */
 
 export interface TrendingMovieResult extends TrendingResultBase {
   media_type: 'movie';
@@ -34,9 +46,9 @@ export interface TrendingPersonResult extends TrendingResultBase {
   name: string;
 }
 
-export interface PaginatedTrendingResponse<T> {
-  page: number;
-  results: T[];
-  total_results: number;
-  total_pages: number;
-}
+/** === RESPONSE TYPES === */
+
+export type TrendingAllResponse = PaginatedResponse<TrendingResultBase>;
+export type TrendingMoviesResponse = PaginatedResponse<TrendingMovieResult>;
+export type TrendingTvResponse = PaginatedResponse<TrendingTvResult>;
+export type TrendingPeopleResponse = PaginatedResponse<TrendingPersonResult>;

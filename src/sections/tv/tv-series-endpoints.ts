@@ -2,23 +2,20 @@ import HttpConnector from '../../http-connector';
 import {
   TvSeriesDetails,
   AccountState,
-  AggregateCreditsResponse,
-  AlternativeTitlesResponse,
+  AggregatedCredits,
   ChangesResponse,
-  ContentRatingsResponse,
   CreditsResponse,
   EpisodeGroup,
   ExternalIds,
   ImagesResponse,
   KeywordsResponse,
   LatestResponse,
-  ListsResponse,
-  RecommendationsResponse,
   ReviewsResponse,
+  TvRecommendationsResponse,
   SimilarResponse,
   TranslationsResponse,
   VideosResponse,
-  WatchProvidersResponse,
+  TvWatchProvidersResponse,
   AddRatingRequest,
   RatingResponse,
 } from './types';
@@ -52,17 +49,8 @@ export class TvSeriesEndpoints {
     return this.http.get<AccountState>(`${BASE_PATH}/${tv_id}/account_states`, { params });
   }
 
-  getAggregateCredits(tv_id: number): Promise<AggregateCreditsResponse> {
-    return this.http.get<AggregateCreditsResponse>(`${BASE_PATH}/${tv_id}/aggregate_credits`);
-  }
-
-  getAlternativeTitles(
-    tv_id: number,
-    params?: { country?: string },
-  ): Promise<AlternativeTitlesResponse> {
-    return this.http.get<AlternativeTitlesResponse>(`${BASE_PATH}/${tv_id}/alternative_titles`, {
-      params,
-    });
+  getAggregateCredits(tv_id: number): Promise<AggregatedCredits> {
+    return this.http.get<AggregatedCredits>(`${BASE_PATH}/${tv_id}/aggregate_credits`);
   }
 
   getChanges(
@@ -70,10 +58,6 @@ export class TvSeriesEndpoints {
     params?: { start_date?: string; end_date?: string; page?: number },
   ): Promise<ChangesResponse> {
     return this.http.get<ChangesResponse>(`${BASE_PATH}/${tv_id}/changes`, { params });
-  }
-
-  getContentRatings(tv_id: number): Promise<ContentRatingsResponse> {
-    return this.http.get<ContentRatingsResponse>(`${BASE_PATH}/${tv_id}/content_ratings`);
   }
 
   getCredits(tv_id: number): Promise<CreditsResponse> {
@@ -102,29 +86,25 @@ export class TvSeriesEndpoints {
     return this.http.get<LatestResponse>(`${BASE_PATH}/latest`);
   }
 
-  getLists(tv_id: number, params: { page?: number } = {}): Promise<ListsResponse> {
-    return this.http.get<ListsResponse>(`${BASE_PATH}/${tv_id}/lists`, { params });
-  }
-
-  getRecommendations(
-    tv_id: number,
-    params: { language?: string; page?: number } = {},
-  ): Promise<RecommendationsResponse> {
-    return this.http.get<RecommendationsResponse>(`${BASE_PATH}/${tv_id}/recommendations`, {
-      params,
-    });
-  }
-
   getReviews(
     tv_id: number,
-    params: { language?: string; page?: number } = {},
+    params?: { language?: string; page?: number },
   ): Promise<ReviewsResponse> {
     return this.http.get<ReviewsResponse>(`${BASE_PATH}/${tv_id}/reviews`, { params });
   }
 
+  getRecommendations(
+    tv_id: number,
+    params?: { language?: string; page?: number },
+  ): Promise<TvRecommendationsResponse> {
+    return this.http.get<TvRecommendationsResponse>(`${BASE_PATH}/${tv_id}/recommendations`, {
+      params,
+    });
+  }
+
   getSimilar(
     tv_id: number,
-    params: { language?: string; page?: number } = {},
+    params?: { language?: string; page?: number },
   ): Promise<SimilarResponse> {
     return this.http.get<SimilarResponse>(`${BASE_PATH}/${tv_id}/similar`, { params });
   }
@@ -137,8 +117,8 @@ export class TvSeriesEndpoints {
     return this.http.get<VideosResponse>(`${BASE_PATH}/${tv_id}/videos`, { params });
   }
 
-  getWatchProviders(tv_id: number): Promise<WatchProvidersResponse> {
-    return this.http.get<WatchProvidersResponse>(`${BASE_PATH}/${tv_id}/watch/providers`);
+  getWatchProviders(tv_id: number): Promise<TvWatchProvidersResponse> {
+    return this.http.get<TvWatchProvidersResponse>(`${BASE_PATH}/${tv_id}/watch/providers`);
   }
 
   addRating(

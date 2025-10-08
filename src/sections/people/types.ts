@@ -1,20 +1,17 @@
-export interface PersonSummary {
-  adult: boolean;
-  gender: number;
-  id: number;
+import { PaginatedResponse, PersonBase, ImageInfo } from '../base-types';
+
+/** Summary for a person in listing responses */
+export interface PersonSummary extends PersonBase {
   known_for: KnownFor[];
-  known_for_department: string;
-  name: string;
-  popularity: number;
-  profile_path: string | null;
 }
 
+/** Media items the person is known for */
 export interface KnownFor {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
   id: number;
-  media_type: string;
+  media_type: 'movie' | 'tv';
   original_language: string;
   original_title?: string;
   overview: string;
@@ -26,31 +23,28 @@ export interface KnownFor {
   vote_count?: number;
 }
 
-export interface PaginatedResponse<T> {
-  page: number;
-  results: T[];
-  total_pages: number;
-  total_results: number;
+/** Named wrappers for readability */
+export type PopularPeopleResponse = PaginatedResponse<PersonSummary>;
+
+/** Query parameters for people list endpoints */
+export interface PeopleListQuery {
+  language?: string; // defaults to 'en-US'
+  page?: number; // defaults to 1
 }
 
-export interface PersonDetails {
+/** Person details */
+export interface PersonDetailsResponse extends PersonBase {
   birthday: string | null;
-  known_for_department: string;
   deathday: string | null;
-  id: number;
-  name: string;
   also_known_as: string[];
-  gender: number;
   biography: string;
-  popularity: number;
   place_of_birth: string | null;
-  profile_path: string | null;
-  adult: boolean;
   imdb_id: string | null;
   homepage: string | null;
 }
 
-export interface PersonChanges {
+/** Person changes */
+export interface PersonDetailedChangesResponse {
   id: number;
   changes: Array<{
     key: string;
@@ -64,13 +58,16 @@ export interface PersonChanges {
   }>;
 }
 
-export interface PersonCombinedCredits {
+/** Combined credits (movie + TV) */
+export interface PersonCombinedCreditsResponse {
   id: number;
   cast: any[];
   crew: any[];
 }
 
-export interface PersonExternalIds {
+/** External IDs */
+export interface PersonExternalIdsResponse {
+  id: number;
   imdb_id: string | null;
   freebase_mid: string | null;
   freebase_id: string | null;
@@ -79,50 +76,38 @@ export interface PersonExternalIds {
   facebook_id: string | null;
   instagram_id: string | null;
   twitter_id: string | null;
-  id: number;
 }
 
-export interface PersonImages {
+/** Images */
+export interface PersonImagesResponse {
   id: number;
-  profiles: PersonImage[];
+  profiles: ImageInfo[];
 }
 
-export interface PersonLatest {
-  id: number;
-  name: string;
-  adult: boolean;
-  gender: number;
-  popularity: number;
-  profile_path: string | null;
-}
+/** Latest person entry */
+export interface PersonLatestResponse extends PersonBase {}
 
-export interface PersonMovieCredits {
+/** Credits (movies only) */
+export interface PersonMovieCreditsResponse {
   id: number;
   cast: any[];
   crew: any[];
 }
 
-export interface PersonTvCredits {
+/** Credits (TV only) */
+export interface PersonTvCreditsResponse {
   id: number;
   cast: any[];
   crew: any[];
 }
 
-export interface PersonTranslations {
+/** Translations */
+export interface PersonTranslationsResponse {
   id: number;
   translations: Translation[];
 }
 
-export interface PersonImage {
-  aspect_ratio: number;
-  height: number;
-  iso_639_1: string | null;
-  file_path: string;
-  vote_average: number;
-  vote_count: number;
-  width: number;
-}
-
+/** Translation entry */
 export interface Translation {
   iso_3166_1: string;
   iso_639_1: string;

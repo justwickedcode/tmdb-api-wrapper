@@ -11,14 +11,14 @@ describe('Trending API integration', () => {
   const examplePage = 1;
 
   it('should fetch all trending items', async () => {
-    const res = await tmdb.trending.getAll('day', { page: examplePage });
+    const res = await tmdb.trending.getAll({ time_window: 'day', page: examplePage });
     expect(res).toHaveProperty('results');
     expect(Array.isArray(res.results)).toBe(true);
     console.log('Trending all:', res.results);
   });
 
   it('should fetch trending movies', async () => {
-    const res = await tmdb.trending.getMovies('day', { page: examplePage });
+    const res = await tmdb.trending.getMovies({ time_window: 'day', page: examplePage });
     expect(res).toHaveProperty('results');
     expect(Array.isArray(res.results)).toBe(true);
     res.results.forEach((movie) => expect(movie.media_type).toBe('movie'));
@@ -26,7 +26,7 @@ describe('Trending API integration', () => {
   });
 
   it('should fetch trending TV shows', async () => {
-    const res = await tmdb.trending.getTv('day', { page: examplePage });
+    const res = await tmdb.trending.getTv({ time_window: 'day', page: examplePage });
     expect(res).toHaveProperty('results');
     expect(Array.isArray(res.results)).toBe(true);
     res.results.forEach((tv) => expect(tv.media_type).toBe('tv'));
@@ -34,7 +34,7 @@ describe('Trending API integration', () => {
   });
 
   it('should fetch trending people', async () => {
-    const res = await tmdb.trending.getPeople('day', { page: examplePage });
+    const res = await tmdb.trending.getPeople({ time_window: 'day', page: examplePage });
     expect(res).toHaveProperty('results');
     expect(Array.isArray(res.results)).toBe(true);
     res.results.forEach((person) => expect(person.media_type).toBe('person'));

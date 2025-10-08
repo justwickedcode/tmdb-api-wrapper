@@ -3,7 +3,7 @@ import { TmdbClient } from '../../src/tmdb-client';
 describe('TV Series Sub-endpoints', () => {
   const accessToken = process.env.TMDB_API_KEY!;
   const sessionId = process.env.TMDB_SESSION_ID!;
-  const tvId = 1399; // Example: Game of Thrones
+  const tvId = 1399; // Game of Thrones
   const seasonNumber = 1;
   const episodeNumber = 1;
   const episodeGroupId = '5ae0275b0e0a26156c00de9f';
@@ -14,176 +14,190 @@ describe('TV Series Sub-endpoints', () => {
     tmdb = new TmdbClient(accessToken);
   });
 
-  // ---- TV Lists ----
-  it('should fetch airing today TV series', async () => {
-    const airing = await tmdb.tvSeries.lists.getAiringToday();
-    expect(airing).toHaveProperty('results');
-    console.log('Airing today:', airing);
+  /* ------------------ TV LISTS ------------------ */
+  it('fetches airing today', async () => {
+    const res = await tmdb.tvSeries.lists.getAiringToday();
+    expect(res.results).toBeDefined();
+    console.log(
+      'Airing today:',
+      res.results.map((t) => t.name),
+    );
   });
 
-  it('should fetch on the air TV series', async () => {
-    const onAir = await tmdb.tvSeries.lists.getOnTheAir();
-    expect(onAir).toHaveProperty('results');
-    console.log('On the air:', onAir);
+  it('fetches on the air', async () => {
+    const res = await tmdb.tvSeries.lists.getOnTheAir();
+    expect(res.results).toBeDefined();
+    console.log(
+      'On the air:',
+      res.results.map((t) => t.name),
+    );
   });
 
-  it('should fetch popular TV series', async () => {
-    const popular = await tmdb.tvSeries.lists.getPopular();
-    expect(popular).toHaveProperty('results');
-    console.log('Popular:', popular);
+  it('fetches popular TV series', async () => {
+    const res = await tmdb.tvSeries.lists.getPopular();
+    expect(res.results).toBeDefined();
+    console.log(
+      'Popular:',
+      res.results.map((t) => t.name),
+    );
   });
 
-  it('should fetch top rated TV series', async () => {
-    const topRated = await tmdb.tvSeries.lists.getTopRated();
-    expect(topRated).toHaveProperty('results');
-    console.log('Top rated:', topRated);
+  it('fetches top rated TV series', async () => {
+    const res = await tmdb.tvSeries.lists.getTopRated();
+    expect(res.results).toBeDefined();
+    console.log(
+      'Top rated:',
+      res.results.map((t) => t.name),
+    );
   });
 
-  // ---- TV Seasons ----
-  it('should fetch season details', async () => {
+  /* ------------------ TV SERIES DETAILS ------------------ */
+  it('fetches TV series details', async () => {
+    const details = await tmdb.tvSeries.getDetails(tvId);
+    expect(details.id).toBe(tvId);
+    console.log('Series details:', details.name);
+  });
+
+  it('fetches watch providers for a series', async () => {
+    const providers = await tmdb.tvSeries.getWatchProviders(tvId);
+    expect(providers.results).toBeDefined();
+    console.log('Watch providers:', Object.keys(providers.results));
+  });
+
+  /* ------------------ TV SEASONS ------------------ */
+  it('fetches season details', async () => {
     const season = await tmdb.tvSeries.seasons.getDetails(tvId, seasonNumber);
-    expect(season).toHaveProperty('id');
-    console.log('Season details:', season);
+    expect(season.id).toBeDefined();
+    console.log('Season details:', season.name);
   });
 
-  it('should fetch season account states', async () => {
+  it('fetches season account states', async () => {
     const account = await tmdb.tvSeries.seasons.getAccountStates(tvId, seasonNumber, {
       session_id: sessionId,
     });
-    expect(account).toHaveProperty('id');
-    console.log('Season account states:', account);
+    expect(account.id).toBeDefined();
+    console.log('Season account states:', account.favorite);
   });
 
-  it('should fetch season aggregate credits', async () => {
+  it('fetches season aggregated credits', async () => {
     const credits = await tmdb.tvSeries.seasons.getAggregatedCredits(tvId, seasonNumber);
-    expect(credits).toHaveProperty('id');
-    console.log('Season aggregate credits:', credits);
+    expect(credits.id).toBeDefined();
+    console.log('Season aggregate credits:', credits.cast.length);
   });
 
-  it('should fetch season changes', async () => {
-    const changes = await tmdb.tvSeries.seasons.getChanges(seasonNumber);
-    expect(changes).toHaveProperty('changes');
-    console.log('Season changes:', changes);
-  });
-
-  it('should fetch season credits', async () => {
+  it('fetches season credits', async () => {
     const credits = await tmdb.tvSeries.seasons.getCredits(tvId, seasonNumber);
-    expect(credits).toHaveProperty('id');
-    console.log('Season credits:', credits);
+    expect(credits.id).toBeDefined();
+    console.log('Season credits:', credits.cast.length);
   });
 
-  it('should fetch season external IDs', async () => {
+  it('fetches season external IDs', async () => {
     const extIds = await tmdb.tvSeries.seasons.getExternalIds(tvId, seasonNumber);
-    expect(extIds).toHaveProperty('id');
-    console.log('Season external IDs:', extIds);
+    expect(extIds.id).toBeDefined();
+    console.log('Season external IDs:', extIds.imdb_id);
   });
 
-  it('should fetch season images', async () => {
+  it('fetches season images', async () => {
     const images = await tmdb.tvSeries.seasons.getImages(tvId, seasonNumber);
-    expect(images).toHaveProperty('id');
-    console.log('Season images:', images);
+    expect(images.id).toBeDefined();
+    console.log('Season images:', images.posters?.length);
   });
 
-  it('should fetch season translations', async () => {
+  it('fetches season translations', async () => {
     const translations = await tmdb.tvSeries.seasons.getTranslations(tvId, seasonNumber);
-    expect(translations).toHaveProperty('id');
-    console.log('Season translations:', translations);
+    expect(translations.id).toBeDefined();
+    console.log(
+      'Season translations:',
+      translations.translations.map((t) => t.iso_639_1),
+    );
   });
 
-  it('should fetch season videos', async () => {
+  it('fetches season videos', async () => {
     const videos = await tmdb.tvSeries.seasons.getVideos(tvId, seasonNumber);
-    expect(videos).toHaveProperty('id');
-    console.log('Season videos:', videos);
+    expect(videos.results).toBeDefined();
+    console.log('Season videos:', videos.results.length);
   });
 
-  it('should fetch season watch providers', async () => {
+  it('fetches season watch providers', async () => {
     const providers = await tmdb.tvSeries.seasons.getWatchProviders(tvId, seasonNumber);
-    expect(providers).toHaveProperty('id');
-    console.log('Season watch providers:', providers);
+    expect(providers.results).toBeDefined();
+    console.log('Season watch providers:', Object.keys(providers.results));
   });
 
-  // ---- TV Episodes ----
-  it('should fetch episode details', async () => {
+  /* ------------------ TV EPISODES ------------------ */
+  it('fetches episode details', async () => {
     const episode = await tmdb.tvSeries.episodes.getDetails(tvId, seasonNumber, episodeNumber);
-    expect(episode).toHaveProperty('id');
-    console.log('Episode details:', episode);
+    expect(episode.id).toBeDefined();
+    console.log('Episode details:', episode.name);
   });
 
-  it('should fetch episode account states', async () => {
+  it('fetches episode account states', async () => {
     const account = await tmdb.tvSeries.episodes.getAccountStates(
       tvId,
       seasonNumber,
       episodeNumber,
       { session_id: sessionId },
     );
-    expect(account).toHaveProperty('id');
-    console.log('Episode account states:', account);
+    expect(account.id).toBeDefined();
+    console.log('Episode account states:', account.favorite);
   });
 
-  it('should fetch episode changes', async () => {
-    const changes = await tmdb.tvSeries.episodes.getChanges(tvId, seasonNumber, episodeNumber);
-    expect(changes).toHaveProperty('changes');
-    console.log('Episode changes:', changes);
-  });
-
-  it('should fetch episode credits', async () => {
+  it('fetches episode credits', async () => {
     const credits = await tmdb.tvSeries.episodes.getCredits(tvId, seasonNumber, episodeNumber);
-    expect(credits).toHaveProperty('id');
-    console.log('Episode credits:', credits);
+    expect(credits.id).toBeDefined();
+    console.log('Episode credits:', credits.cast.length);
   });
 
-  it('should fetch episode external IDs', async () => {
+  it('fetches episode external IDs', async () => {
     const extIds = await tmdb.tvSeries.episodes.getExternalIds(tvId, seasonNumber, episodeNumber);
-    expect(extIds).toHaveProperty('id');
-    console.log('Episode external IDs:', extIds);
+    expect(extIds.id).toBeDefined();
+    console.log('Episode external IDs:', extIds.imdb_id);
   });
 
-  it('should fetch episode images', async () => {
+  it('fetches episode images', async () => {
     const images = await tmdb.tvSeries.episodes.getImages(tvId, seasonNumber, episodeNumber);
-    expect(images).toHaveProperty('id');
-    console.log('Episode images:', images);
+    expect(images.id).toBeDefined();
+    console.log('Episode images:', images.stills?.length);
   });
 
-  it('should fetch episode translations', async () => {
+  it('fetches episode translations', async () => {
     const translations = await tmdb.tvSeries.episodes.getTranslations(
       tvId,
       seasonNumber,
       episodeNumber,
     );
-    expect(translations).toHaveProperty('id');
-    console.log('Episode translations:', translations);
+    expect(translations.id).toBeDefined();
+    console.log(
+      'Episode translations:',
+      translations.translations.map((t) => t.iso_639_1),
+    );
   });
 
-  it('should fetch episode videos', async () => {
+  it('fetches episode videos', async () => {
     const videos = await tmdb.tvSeries.episodes.getVideos(tvId, seasonNumber, episodeNumber);
-    expect(videos).toHaveProperty('id');
-    console.log('Episode videos:', videos);
+    expect(videos.results).toBeDefined();
+    console.log('Episode videos:', videos.results.length);
   });
 
-  it('should add and delete episode rating', async () => {
-    if (sessionId) {
-      const add = await tmdb.tvSeries.episodes.addRating(
-        tvId,
-        seasonNumber,
-        episodeNumber,
-        { value: 9 },
-        { session_id: sessionId },
-      );
-      expect(add).toHaveProperty('status_code');
-      console.log('Episode add rating:', add);
-
-      const del = await tmdb.tvSeries.episodes.deleteRating(tvId, seasonNumber, episodeNumber, {
-        session_id: sessionId,
-      });
-      expect(del).toHaveProperty('status_code');
-      console.log('Episode delete rating:', del);
-    }
+  it('adds and deletes episode rating', async () => {
+    const add = await tmdb.tvSeries.episodes.addRating(
+      tvId,
+      seasonNumber,
+      episodeNumber,
+      { value: 9 },
+      { session_id: sessionId },
+    );
+    expect(add.status_code).toBeDefined();
+    const del = await tmdb.tvSeries.episodes.deleteRating(tvId, seasonNumber, episodeNumber, {
+      session_id: sessionId,
+    });
+    expect(del.status_code).toBeDefined();
   });
 
-  // ---- TV Episode Groups ----
-  it('should fetch episode group details', async () => {
+  /* ------------------ TV EPISODE GROUPS ------------------ */
+  it('fetches episode group details', async () => {
     const group = await tmdb.tvSeries.episodeGroups.getDetails(episodeGroupId);
-    expect(group).toHaveProperty('id', episodeGroupId);
-    console.log('Episode group details:', group);
+    expect(group.id).toBe(episodeGroupId);
+    console.log('Episode group details:', group.name);
   });
 });

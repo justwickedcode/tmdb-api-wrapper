@@ -1,36 +1,21 @@
-/** Shared movie summary type returned by all list endpoints */
-export interface MovieSummary {
-  adult: boolean;
-  backdrop_path: string | null;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string | null;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
+import { PaginatedResponse, MovieBase, ImageInfo } from '../base-types';
 
-/** Pagination structure common to all movie list responses */
-export interface PaginatedResponse<T> {
-  page: number;
-  results: T[];
-  total_pages: number;
-  total_results: number;
-}
-
-/** Response type for endpoints that include date ranges (e.g., now_playing, upcoming) */
-export interface DatedMovieResponse extends PaginatedResponse<MovieSummary> {
+/**
+ * Response type for endpoints that include date ranges (e.g., now_playing, upcoming)
+ */
+export interface DatedMovieResponse extends PaginatedResponse<MovieBase> {
   dates: {
     maximum: string;
     minimum: string;
   };
 }
+
+/** Named wrappers for common movie list responses */
+export type PopularMoviesResponse = PaginatedResponse<MovieBase>;
+export type TopRatedMoviesResponse = PaginatedResponse<MovieBase>;
+export type DiscoverMoviesResponse = PaginatedResponse<MovieBase>;
+export type RecommendationsResponse = PaginatedResponse<MovieBase>;
+export type SimilarMoviesResponse = PaginatedResponse<MovieBase>;
 
 /** Query params shared by many movie endpoints */
 export interface MovieListQuery {
@@ -38,6 +23,9 @@ export interface MovieListQuery {
   page?: number; // defaults to 1
   region?: string; // ISO-3166-1 code
 }
+
+/** Monetization types used with watch providers */
+export type MonetizationType = 'flatrate' | 'free' | 'ads' | 'rent' | 'buy';
 
 /** Sort options for discover/movie */
 export type DiscoverSortOption =
@@ -55,9 +43,6 @@ export type DiscoverSortOption =
   | 'vote_average.desc'
   | 'vote_count.asc'
   | 'vote_count.desc';
-
-/** Monetization types used with watch providers */
-export type MonetizationType = 'flatrate' | 'free' | 'ads' | 'rent' | 'buy';
 
 /** Query parameters for discover/movie */
 export interface DiscoverQuery extends MovieListQuery {
@@ -100,7 +85,7 @@ export interface DiscoverQuery extends MovieListQuery {
 }
 
 /** Detailed movie information */
-export interface MovieDetails extends MovieSummary {
+export interface MovieDetails extends MovieBase {
   belongs_to_collection: { id: number; name: string } | null;
   budget: number;
   genres: { id: number; name: string }[];
@@ -144,11 +129,11 @@ export interface MovieCredits {
   }>;
 }
 
-/** Movie images */
+/** Movie images (using shared ImageInfo type) */
 export interface MovieImages {
   id: number;
-  backdrops: Array<{ file_path: string; width: number; height: number; iso_639_1: string | null }>;
-  posters: Array<{ file_path: string; width: number; height: number; iso_639_1: string | null }>;
+  backdrops: ImageInfo[];
+  posters: ImageInfo[];
 }
 
 /** Movie release dates */
@@ -190,10 +175,8 @@ export interface MovieKeywords {
 }
 
 /** Movie reviews */
-export interface MovieReviews {
-  id: number;
-  page: number;
-  results: Array<{
+export interface MovieReviews
+  extends PaginatedResponse<{
     author: string;
     author_details: {
       name: string;
@@ -206,10 +189,7 @@ export interface MovieReviews {
     id: string;
     updated_at: string;
     url: string;
-  }>;
-  total_pages: number;
-  total_results: number;
-}
+  }> {}
 
 /** Movie translations */
 export interface MovieTranslations {
@@ -219,10 +199,10 @@ export interface MovieTranslations {
     iso_639_1: string;
     name: string;
     english_name: string;
-    data: { title: string; overview: string; homepage: string | null };
+    data: {
+      title: string;
+      overview: string;
+      homepage: string | null;
+    };
   }>;
 }
-
-/** Recommendations and Similar movies */
-export type MovieRecommendations = PaginatedResponse<MovieSummary>;
-export type MovieSimilar = PaginatedResponse<MovieSummary>;

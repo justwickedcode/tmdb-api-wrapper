@@ -1,5 +1,3 @@
-import { FindMovie, FindTV } from './find/types';
-
 /** Generic paginated response */
 export interface PaginatedResponse<T> {
   results: T[];

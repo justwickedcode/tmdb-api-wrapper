@@ -1,10 +1,10 @@
 import HttpConnector from '../../http-connector';
 import {
-  PaginatedTrendingResponse,
-  TrendingResultBase,
-  TrendingMovieResult,
-  TrendingTvResult,
-  TrendingPersonResult,
+  TrendingQuery,
+  TrendingAllResponse,
+  TrendingMoviesResponse,
+  TrendingTvResponse,
+  TrendingPeopleResponse,
   TrendingTimeWindow,
 } from './types';
 
@@ -18,46 +18,26 @@ export class TrendingEndpoints {
   }
 
   /** Get all trending items */
-  getAll(
-    time_window: TrendingTimeWindow = 'day',
-    params?: { page?: number },
-  ): Promise<PaginatedTrendingResponse<TrendingResultBase>> {
-    return this.http.get<PaginatedTrendingResponse<TrendingResultBase>>(
-      `${BASE_PATH}/all/${time_window}`,
-      { params },
-    );
+  getAll(params: TrendingQuery = {}): Promise<TrendingAllResponse> {
+    const time_window: TrendingTimeWindow = params.time_window ?? 'day';
+    return this.http.get<TrendingAllResponse>(`${BASE_PATH}/all/${time_window}`, { params });
   }
 
   /** Get trending movies */
-  getMovies(
-    time_window: TrendingTimeWindow = 'day',
-    params?: { page?: number },
-  ): Promise<PaginatedTrendingResponse<TrendingMovieResult>> {
-    return this.http.get<PaginatedTrendingResponse<TrendingMovieResult>>(
-      `${BASE_PATH}/movie/${time_window}`,
-      { params },
-    );
+  getMovies(params: TrendingQuery = {}): Promise<TrendingMoviesResponse> {
+    const time_window: TrendingTimeWindow = params.time_window ?? 'day';
+    return this.http.get<TrendingMoviesResponse>(`${BASE_PATH}/movie/${time_window}`, { params });
   }
 
   /** Get trending TV shows */
-  getTv(
-    time_window: TrendingTimeWindow = 'day',
-    params?: { page?: number },
-  ): Promise<PaginatedTrendingResponse<TrendingTvResult>> {
-    return this.http.get<PaginatedTrendingResponse<TrendingTvResult>>(
-      `${BASE_PATH}/tv/${time_window}`,
-      { params },
-    );
+  getTv(params: TrendingQuery = {}): Promise<TrendingTvResponse> {
+    const time_window: TrendingTimeWindow = params.time_window ?? 'day';
+    return this.http.get<TrendingTvResponse>(`${BASE_PATH}/tv/${time_window}`, { params });
   }
 
   /** Get trending people */
-  getPeople(
-    time_window: TrendingTimeWindow = 'day',
-    params?: { page?: number },
-  ): Promise<PaginatedTrendingResponse<TrendingPersonResult>> {
-    return this.http.get<PaginatedTrendingResponse<TrendingPersonResult>>(
-      `${BASE_PATH}/person/${time_window}`,
-      { params },
-    );
+  getPeople(params: TrendingQuery = {}): Promise<TrendingPeopleResponse> {
+    const time_window: TrendingTimeWindow = params.time_window ?? 'day';
+    return this.http.get<TrendingPeopleResponse>(`${BASE_PATH}/person/${time_window}`, { params });
   }
 }
