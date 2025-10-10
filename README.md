@@ -17,7 +17,7 @@ It provides easy access to movies, TV shows, lists, genres, and related data via
 ### Basic Usage
 
 ```ts
-import { TmdbClient } from 'your-tmdb-client/src/tmdb-client';
+import { TmdbClient } from '@justwicked/tmdb-api-wrapper';
 
 const accessToken = process.env.TMDB_API_KEY!;
 const tmdb = new TmdbClient(accessToken);
