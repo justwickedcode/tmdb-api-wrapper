@@ -24,6 +24,7 @@ export * from './tv/tv-series-lists-endpoints';
 export * from './watch-providers/watch-providers-endpoints';
 
 // Types
+export * from "./base-types";
 export * from './certifications/types';
 export * from './changes/types';
 export * from './collections/types';
