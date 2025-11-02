@@ -47,6 +47,12 @@ export interface TVBase extends MediaBase {
   origin_country: string[];
 }
 
+/** Basic genre information */
+export interface GenreBase {
+  id: number;
+  name: string;
+}
+
 export interface PersonBase {
   adult: boolean;
   gender?: number;
