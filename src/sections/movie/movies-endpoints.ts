@@ -1,5 +1,5 @@
 import HttpConnector from '../../http-connector';
-import { CreditsResponse, ReviewsResponse } from '../tv/types';
+import { CreditsResponse, ExternalIds, ReviewsResponse } from '../tv/types';
 import { MovieListsEndpoints } from './movie-lists-endpoints';
 import {
   MovieDetails,
@@ -38,6 +38,10 @@ export class MoviesEndpoints {
   async getCredits(movie_id: number): Promise<CreditsResponse> {
     return this.http.get<CreditsResponse>(`${BASE_PATH}/${movie_id}/credits`);
   }
+
+  getExternalIds(movie_id: number): Promise<ExternalIds> {
+      return this.http.get<ExternalIds>(`${BASE_PATH}/${movie_id}/external_ids`);
+    }
 
   /** Get movie images */
   async getImages(movie_id: number): Promise<MovieImages> {
@@ -83,6 +87,8 @@ export class MoviesEndpoints {
   async getSimilar(movie_id: number, params?: MovieListQuery): Promise<SimilarMoviesResponse> {
     return this.http.get<SimilarMoviesResponse>(`${BASE_PATH}/${movie_id}/similar`, { params });
   }
+
+  
 
   /** Now playing */
   async nowPlaying(params?: MovieListQuery): Promise<DatedMovieResponse> {
