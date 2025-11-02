@@ -1,4 +1,5 @@
 import { PaginatedResponse, PersonBase, ImageInfo } from '../base-types';
+import { CastMember, CrewMember } from '../credits/types';
 
 /** Summary for a person in listing responses */
 export interface PersonSummary extends PersonBase {
@@ -61,8 +62,8 @@ export interface PersonDetailedChangesResponse {
 /** Combined credits (movie + TV) */
 export interface PersonCombinedCreditsResponse {
   id: number;
-  cast: any[];
-  crew: any[];
+  cast: CastMember[];
+  crew: CrewMember[];
 }
 
 /** External IDs */

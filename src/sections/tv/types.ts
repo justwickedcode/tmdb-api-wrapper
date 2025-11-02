@@ -1,5 +1,5 @@
 import { EpisodeBase, GenreBase, ImageInfo, SeasonBase, TVBase } from '../base-types';
-import { CrewMember } from '../credits/types';
+import { CastMember, CrewMember } from '../credits/types';
 
 /* ============================================================
    TV SERIES DETAILS
@@ -119,20 +119,8 @@ export interface ChangesResponse {
 
 export interface CreditsResponse {
   id: number;
-  cast: Array<{
-    id: number;
-    name: string;
-    character: string;
-    order: number;
-    profile_path?: string | null;
-  }>;
-  crew: Array<{
-    id: number;
-    name: string;
-    department: string;
-    job: string;
-    profile_path?: string | null;
-  }>;
+  cast: CastMember[];
+  crew: CrewMember[];
 }
 
 export interface ExternalIds {
