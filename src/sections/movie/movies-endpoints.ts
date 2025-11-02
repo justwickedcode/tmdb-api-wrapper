@@ -1,5 +1,5 @@
 import HttpConnector from '../../http-connector';
-import { CreditsResponse } from '../tv/types';
+import { CreditsResponse, ReviewsResponse } from '../tv/types';
 import { MovieListsEndpoints } from './movie-lists-endpoints';
 import {
   MovieDetails,
@@ -7,7 +7,6 @@ import {
   MovieReleaseDates,
   MovieVideos,
   MovieKeywords,
-  MovieReviews,
   MovieTranslations,
   DatedMovieResponse,
   DiscoverQuery,
@@ -61,8 +60,8 @@ export class MoviesEndpoints {
   }
 
   /** Get reviews */
-  async getReviews(movie_id: number, params?: MovieListQuery): Promise<MovieReviews> {
-    return this.http.get<MovieReviews>(`${BASE_PATH}/${movie_id}/reviews`, { params });
+  async getReviews(movie_id: number, params?: MovieListQuery): Promise<ReviewsResponse> {
+    return this.http.get<ReviewsResponse>(`${BASE_PATH}/${movie_id}/reviews`, { params });
   }
 
   /** Get translations */
