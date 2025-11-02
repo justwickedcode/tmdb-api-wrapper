@@ -6,7 +6,6 @@ import {
   ChangesResponse,
   CreditsResponse,
   EpisodeGroup,
-  ExternalIds,
   ImagesResponse,
   KeywordsResponse,
   LatestResponse,
@@ -18,6 +17,7 @@ import {
   TvWatchProvidersResponse,
   AddRatingRequest,
   RatingResponse,
+  TvExternalIds,
 } from './types';
 import { TvSeriesListsEndpoints } from './tv-series-lists-endpoints';
 import { TvSeasonsEndpoints } from './tv-seasons-endpoints';
@@ -70,8 +70,8 @@ export class TvSeriesEndpoints {
     );
   }
 
-  getExternalIds(tv_id: number): Promise<ExternalIds> {
-    return this.http.get<ExternalIds>(`${BASE_PATH}/${tv_id}/external_ids`);
+  getExternalIds(tv_id: number): Promise<TvExternalIds> {
+    return this.http.get<TvExternalIds>(`${BASE_PATH}/${tv_id}/external_ids`);
   }
 
   getImages(tv_id: number): Promise<ImagesResponse> {

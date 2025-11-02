@@ -1,5 +1,5 @@
 import HttpConnector from '../../http-connector';
-import { CreditsResponse, ExternalIds, ReviewsResponse } from '../tv/types';
+import { CreditsResponse, ReviewsResponse } from '../tv/types';
 import { MovieListsEndpoints } from './movie-lists-endpoints';
 import {
   MovieDetails,
@@ -16,6 +16,7 @@ import {
   DiscoverMoviesResponse,
   RecommendationsResponse,
   SimilarMoviesResponse,
+  MovieExternalIds,
 } from './types';
 
 const BASE_PATH = '/movie';
@@ -39,8 +40,8 @@ export class MoviesEndpoints {
     return this.http.get<CreditsResponse>(`${BASE_PATH}/${movie_id}/credits`);
   }
 
-  getExternalIds(movie_id: number): Promise<ExternalIds> {
-      return this.http.get<ExternalIds>(`${BASE_PATH}/${movie_id}/external_ids`);
+  getExternalIds(movie_id: number): Promise<MovieExternalIds> {
+      return this.http.get<MovieExternalIds>(`${BASE_PATH}/${movie_id}/external_ids`);
     }
 
   /** Get movie images */
