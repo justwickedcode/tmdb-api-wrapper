@@ -1,8 +1,8 @@
 import HttpConnector from '../../http-connector';
+import { CreditsResponse } from '../tv/types';
 import { MovieListsEndpoints } from './movie-lists-endpoints';
 import {
   MovieDetails,
-  MovieCredits,
   MovieImages,
   MovieReleaseDates,
   MovieVideos,
@@ -36,8 +36,8 @@ export class MoviesEndpoints {
   }
 
   /** Get movie credits (cast and crew) */
-  async getCredits(movie_id: number): Promise<MovieCredits> {
-    return this.http.get<MovieCredits>(`${BASE_PATH}/${movie_id}/credits`);
+  async getCredits(movie_id: number): Promise<CreditsResponse> {
+    return this.http.get<CreditsResponse>(`${BASE_PATH}/${movie_id}/credits`);
   }
 
   /** Get movie images */
