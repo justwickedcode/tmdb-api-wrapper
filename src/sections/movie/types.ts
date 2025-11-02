@@ -1,5 +1,7 @@
 import { PaginatedResponse, MovieBase, ImageInfo } from '../base-types';
 import { CastMember, CrewMember } from '../credits/types';
+import { Translation } from '../people/types';
+import { VideoInfo } from '../tv/types';
 
 /**
  * Response type for endpoints that include date ranges (e.g., now_playing, upcoming)
@@ -123,56 +125,43 @@ export interface MovieImages {
 /** Movie release dates */
 export interface MovieReleaseDates {
   id: number;
-  results: Array<{
-    iso_3166_1: string;
-    release_dates: Array<{
-      certification: string;
-      iso_639_1: string | null;
-      release_date: string;
-      type: number;
-      note: string;
-    }>;
-  }>;
+  results: ReleaseDate[];
+}
+
+export interface ReleaseDate {
+  iso_639_1: string | null;
+  release_dates: ReleaseDateInfo[];
+}
+
+export interface ReleaseDateInfo {
+  certification: string;
+  iso_639_1: string | null;
+  release_date: string;
+  type: number;
+  note: string;
 }
 
 /** Movie videos */
 export interface MovieVideos {
   id: number;
-  results: Array<{
-    id: string;
-    iso_639_1: string;
-    iso_3166_1: string;
-    key: string;
-    name: string;
-    site: string;
-    size: number;
-    type: string;
-    official: boolean;
-    published_at: string;
-  }>;
+  results: VideoInfo[];
 }
 
 /** Movie keywords */
 export interface MovieKeywords {
   id: number;
-  keywords: Array<{ id: number; name: string }>;
+  keywords: Keyword[];
 }
 
+export interface Keyword {
+  id: number;
+  name: string;
+}
 
 /** Movie translations */
 export interface MovieTranslations {
   id: number;
-  translations: Array<{
-    iso_3166_1: string;
-    iso_639_1: string;
-    name: string;
-    english_name: string;
-    data: {
-      title: string;
-      overview: string;
-      homepage: string | null;
-    };
-  }>;
+  translations: Translation[];
 }
 
 export interface MovieExternalIds {

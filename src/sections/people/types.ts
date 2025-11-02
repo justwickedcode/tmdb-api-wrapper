@@ -47,16 +47,20 @@ export interface PersonDetailsResponse extends PersonBase {
 /** Person changes */
 export interface PersonDetailedChangesResponse {
   id: number;
-  changes: Array<{
-    key: string;
-    items: Array<{
-      id?: string | number;
-      action: string;
-      time: string;
-      original_value: any;
-      value: any;
-    }>;
-  }>;
+  changes: PersonChange[];
+}
+
+export interface PersonChange {
+  key: string;
+    items: PersonChangedItem[];
+}
+
+export interface PersonChangedItem {
+  id?: string | number;
+  action: string;
+  time: string;
+  original_value: any;
+  value: any;
 }
 
 /** Combined credits (movie + TV) */

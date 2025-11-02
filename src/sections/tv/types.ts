@@ -1,5 +1,6 @@
 import { EpisodeBase, GenreBase, ImageInfo, SeasonBase, TVBase } from '../base-types';
 import { CastMember, CrewMember } from '../credits/types';
+import { Keyword } from '../movie/types';
 
 /* ============================================================
    TV SERIES DETAILS
@@ -109,7 +110,15 @@ export interface AggregatedCredits {
 
 export interface ChangeItem {
   key: string;
-  items: Array<{ id: string; action: string; time: string }>;
+  items: ChangeItem[];
+}
+
+export interface ChangeItem {
+  id?: string | number;
+  action: string;
+  time: string;
+  original_value: any;
+  value: any;
 }
 
 export interface ChangesResponse {
@@ -164,8 +173,11 @@ export interface ImagesResponse {
 
 export interface VideosResponse {
   id: number;
-  results: Array<{
-    id: string;
+  results: VideoInfo[];
+}
+
+export interface VideoInfo {
+  id: string;
     iso_639_1: string;
     iso_3166_1: string;
     key: string;
@@ -175,9 +187,7 @@ export interface VideosResponse {
     type: string;
     official: boolean;
     published_at: string;
-  }>;
 }
-
 /* ============================================================
    TRANSLATIONS & PROVIDERS
 ============================================================ */
@@ -221,12 +231,17 @@ export interface ProviderInfo {
 
 export interface ContentRatingsResponse {
   id: number;
-  results: Array<{ iso_3166_1: string; rating: string }>;
+  results: ContentRating[];
+}
+
+export interface ContentRating {
+  iso_3166_1: string;
+  rating: string;
 }
 
 export interface KeywordsResponse {
   id: number;
-  results: Array<{ id: number; name: string }>;
+  results: Keyword[];
 }
 
 export interface ReviewsResponse {
