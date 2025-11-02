@@ -1,4 +1,5 @@
 import { EpisodeBase, GenreBase, ImageInfo, SeasonBase, TVBase } from '../base-types';
+import { CrewMember } from '../credits/types';
 
 /* ============================================================
    TV SERIES DETAILS
@@ -41,21 +42,6 @@ export interface TvListQuery {
 /** Detailed season info */
 export interface TvSeasonDetails extends SeasonBase {
   episodes?: EpisodeBase[];
-}
-
-/** Crew member info */
-export interface CrewMember {
-  department: string;
-  job: string;
-  credit_id: string;
-  adult: boolean;
-  gender: number | null;
-  id: number;
-  known_for_department: string;
-  name: string;
-  original_name: string;
-  popularity: number;
-  profile_path: string | null;
 }
 
 /** Guest star info */

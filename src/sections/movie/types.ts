@@ -1,4 +1,5 @@
 import { PaginatedResponse, MovieBase, ImageInfo } from '../base-types';
+import { CastMember, CrewMember } from '../credits/types';
 
 /**
  * Response type for endpoints that include date ranges (e.g., now_playing, upcoming)
@@ -108,25 +109,8 @@ export interface MovieDetails extends MovieBase {
 /** Movie credits */
 export interface MovieCredits {
   id: number;
-  cast: Array<{
-    cast_id: number;
-    character: string;
-    credit_id: string;
-    gender: number | null;
-    id: number;
-    name: string;
-    order: number;
-    profile_path: string | null;
-  }>;
-  crew: Array<{
-    credit_id: string;
-    department: string;
-    gender: number | null;
-    id: number;
-    job: string;
-    name: string;
-    profile_path: string | null;
-  }>;
+  cast: CastMember[];
+  crew: CrewMember[];
 }
 
 /** Movie images (using shared ImageInfo type) */
