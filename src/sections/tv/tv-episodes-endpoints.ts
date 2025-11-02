@@ -4,7 +4,7 @@ import {
   AccountState,
   ChangesResponse,
   CreditsResponse,
-  ExternalIds,
+  TvEpisodeExternalIds,
   ImagesResponse,
   TranslationsResponse,
   VideosResponse,
@@ -72,8 +72,8 @@ export class TvEpisodesEndpoints {
     tv_id: number,
     season_number: number,
     episode_number: number,
-  ): Promise<ExternalIds> {
-    return this.http.get<ExternalIds>(
+  ): Promise<TvEpisodeExternalIds> {
+    return this.http.get<TvEpisodeExternalIds>(
       `${BASE_PATH}/${tv_id}/season/${season_number}/episode/${episode_number}/external_ids`,
     );
   }

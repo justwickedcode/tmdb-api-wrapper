@@ -1,6 +1,6 @@
 {
   "name": "@justwicked/tmdb-api-wrapper",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A lightweight TypeScript wrapper for the TMDB API.",
   "type": "module",
   "main": "./dist/index.js",

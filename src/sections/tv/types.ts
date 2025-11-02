@@ -136,6 +136,25 @@ export interface TvExternalIds {
   twitter_id: string | null;
 }
 
+export interface TvSeasonExternalIds {
+  id: number;
+  freebase_mid: string | null;
+  freebase_id: string | null;
+  tvdb_id: number | null;
+  tvrage_id: number | null;
+  wikidata_id: string | null;
+}
+
+export interface TvEpisodeExternalIds {
+  id: number;
+  imdb_id: string | null;
+  freebase_mid: string | null;
+  freebase_id: string | null;
+  tvdb_id: number | null;
+  tvrage_id: number | null;
+  wikidata_id: string | null;
+}
+
 export interface ImagesResponse {
   id: number;
   backdrops?: ImageInfo[];

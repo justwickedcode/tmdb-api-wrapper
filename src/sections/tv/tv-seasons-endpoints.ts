@@ -5,11 +5,11 @@ import {
   AggregatedCredits,
   ChangesResponse,
   CreditsResponse,
-  ExternalIds,
   ImagesResponse,
   TranslationsResponse,
   VideosResponse,
   TvWatchProvidersResponse,
+  TvSeasonExternalIds,
 } from './types';
 
 const BASE_PATH = '/tv';
@@ -69,8 +69,8 @@ export class TvSeasonsEndpoints {
   }
 
   /** Get external IDs for a TV season */
-  getExternalIds(tv_id: number, season_number: number): Promise<ExternalIds> {
-    return this.http.get<ExternalIds>(`${BASE_PATH}/${tv_id}/season/${season_number}/external_ids`);
+  getExternalIds(tv_id: number, season_number: number): Promise<TvSeasonExternalIds> {
+    return this.http.get<TvSeasonExternalIds>(`${BASE_PATH}/${tv_id}/season/${season_number}/external_ids`);
   }
 
   /** Get images for a TV season */
