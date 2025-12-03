@@ -5,10 +5,11 @@ export default defineConfig({
     input: './oas/tmdb-api.yaml',
     output: {
       mode: 'tags-split',
-      target: './src/services/__generated__',
-      schemas: './src/services/__generated__/schema',
+      target: './src/client/__generated__/api',
+      schemas: './src/client/__generated__/schema',
+      indexFiles: true,
       client: 'fetch',
-      baseUrl: 'https://api.themoviedb.org',
+      baseUrl: 'https://api.themoviedb.org/3',
       prettier: true,
       usePrefetch: true,
       urlEncodeParameters: true,
@@ -18,10 +19,7 @@ export default defineConfig({
         fetch: {
           includeHttpResponseReturnType: false,
         },
-        responses: {
-          suffix: ''
-        }
-      }
+      },
     },
   },
 });
