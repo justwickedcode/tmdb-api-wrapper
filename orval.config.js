@@ -9,7 +9,7 @@ export default defineConfig({
       schemas: './src/client/__generated__/schema',
       indexFiles: true,
       client: 'fetch',
-      baseUrl: 'https://api.themoviedb.org/3',
+      baseUrl: 'https://api.themoviedb.org',
       prettier: true,
       usePrefetch: true,
       urlEncodeParameters: true,

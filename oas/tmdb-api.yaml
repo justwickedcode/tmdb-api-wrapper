@@ -9328,6 +9328,8 @@ paths:
       deprecated: false
     get:
       summary: Details
+      tags: 
+        - List
       description: ''
       operationId: list-details
       parameters:
@@ -19726,6 +19728,8 @@ paths:
       deprecated: false
     delete:
       summary: Delete Rating
+      tags:
+        - Movie
       description: Delete a user rating.
       operationId: movie-delete-rating
       parameters:
@@ -40163,6 +40167,8 @@ paths:
       deprecated: false
     delete:
       summary: Delete Rating
+      tags:
+        - Tv
       description: ''
       operationId: tv-series-delete-rating
       parameters:
@@ -52519,6 +52525,10 @@ paths:
       deprecated: false
     delete:
       summary: Delete Rating
+      tags: 
+        - Tv
+        - Season
+        - Episode
       description: Delete your rating on a TV episode.
       operationId: tv-episode-delete-rating
       parameters:
