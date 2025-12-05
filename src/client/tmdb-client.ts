@@ -1,0 +1,71 @@
+import { CustomRequestInit } from './types';
+
+import AccountService from './services/account/account-service';
+import AuthenticationService from './services/authentication/authentication-service';
+import CertificationService from './services/certification/certification-service';
+import CollectionService from './services/collection/collection-service';
+import CompanyService from './services/company/company-service';
+import ConfigurationService from './services/configuration/configuration-service';
+import CreditService from './services/credit/credit-service';
+import DiscoverService from './services/dicover/discover-service';
+import FindService from './services/find/find-service';
+import GenreService from './services/genre/genre-service';
+import GuestSessionService from './services/guest-session/guest-session-service';
+import KeywordService from './services/keyword/keyword-service';
+import ListService from './services/list/list-service';
+import MovieService from './services/movie/movie-service';
+import NetworkService from './services/network/network-service';
+import PersonService from './services/person/person-service';
+import ReviewService from './services/review/review-service';
+import SearchService from './services/search/search-service';
+import TrendingService from './services/trending/trending-service';
+import TVService from './services/tv/tv-service';
+import WatchService from './services/watch/watch-service';
+
+export class TmdbClient {
+  public account: AccountService;
+  public authentication: AuthenticationService;
+  public certification: CertificationService;
+  public collection: CollectionService;
+  public company: CompanyService;
+  public configuration: ConfigurationService;
+  public credit: CreditService;
+  public discover: DiscoverService;
+  public find: FindService;
+  public genre: GenreService;
+  public guestSession: GuestSessionService;
+  public keyword: KeywordService;
+  public list: ListService;
+  public movie: MovieService;
+  public network: NetworkService;
+  public person: PersonService;
+  public review: ReviewService;
+  public search: SearchService;
+  public trending: TrendingService;
+  public tv: TVService;
+  public watch: WatchService;
+
+  constructor(public readonly defaultOptions: CustomRequestInit) {
+    this.account = new AccountService(defaultOptions);
+    this.authentication = new AuthenticationService(defaultOptions);
+    this.certification = new CertificationService(defaultOptions);
+    this.collection = new CollectionService(defaultOptions);
+    this.company = new CompanyService(defaultOptions);
+    this.configuration = new ConfigurationService(defaultOptions);
+    this.credit = new CreditService(defaultOptions);
+    this.discover = new DiscoverService(defaultOptions);
+    this.find = new FindService(defaultOptions);
+    this.genre = new GenreService(defaultOptions);
+    this.guestSession = new GuestSessionService(defaultOptions);
+    this.keyword = new KeywordService(defaultOptions);
+    this.list = new ListService(defaultOptions);
+    this.movie = new MovieService(defaultOptions);
+    this.network = new NetworkService(defaultOptions);
+    this.person = new PersonService(defaultOptions);
+    this.review = new ReviewService(defaultOptions);
+    this.search = new SearchService(defaultOptions);
+    this.trending = new TrendingService(defaultOptions);
+    this.tv = new TVService(defaultOptions);
+    this.watch = new WatchService(defaultOptions);
+  }
+}

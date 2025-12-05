@@ -1,0 +1,18 @@
+import * as orval from '../../__generated__/api/network/network';
+import { CustomRequestInit } from '../../types';
+
+export default class NetworkService {
+  constructor(private readonly defaultOptions: CustomRequestInit) {}
+
+  public async getDetails(networkId: number) {
+    return await orval.networkDetails(networkId, this.defaultOptions);
+  }
+
+  public async getDetailsCopy(networkId: number) {
+    return await orval.detailsCopy(networkId, this.defaultOptions);
+  }
+
+  public async getAlternativeNamesCopy(networkId: number) {
+    return await orval.alternativeNamesCopy(networkId, this.defaultOptions);
+  }
+}
