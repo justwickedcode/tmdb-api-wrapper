@@ -6,6 +6,7 @@ import {
   SearchMovieParams,
   SearchMultiParams,
   SearchPersonParams,
+  SearchTvParams,
 } from '../../__generated__/schema';
 import { CustomRequestInit } from '../../types';
 
@@ -34,5 +35,9 @@ export default class SearchService {
 
   public async getPerson(params: SearchPersonParams) {
     return await orval.searchPerson(params, this.defaultOptions);
+  }
+
+  public async getTv(params: SearchTvParams) {
+    return await orval.searchTv(params, this.defaultOptions);
   }
 }
