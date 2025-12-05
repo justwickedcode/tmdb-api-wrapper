@@ -14,7 +14,7 @@ import { CustomRequestInit } from '../../../types';
 export default class SeasonService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}
 
-  public async tvSeasonDetails(
+  public async getDetails(
     seriesId: number,
     seasonNumber: number,
     params?: TvSeasonDetailsParams,
@@ -22,7 +22,7 @@ export default class SeasonService {
     return await orval.tvSeasonDetails(seriesId, seasonNumber, params, this.defaultOptions);
   }
 
-  public async tvSeasonAccountStates(
+  public async getAccountStates(
     seriesId: number,
     seasonNumber: number,
     params?: TvSeasonAccountStatesParams,
@@ -30,7 +30,7 @@ export default class SeasonService {
     return await orval.tvSeasonAccountStates(seriesId, seasonNumber, params, this.defaultOptions);
   }
 
-  public async tvSeasonAggregateCredits(
+  public async getAggregateCredits(
     seriesId: number,
     seasonNumber: number,
     params?: TvSeasonAggregateCreditsParams,
@@ -43,11 +43,11 @@ export default class SeasonService {
     );
   }
 
-  public async tvSeasonChangesById(seriesId: number, params?: TvSeasonChangesByIdParams) {
+  public async getChangesById(seriesId: number, params?: TvSeasonChangesByIdParams) {
     return await orval.tvSeasonChangesById(seriesId, params, this.defaultOptions);
   }
 
-  public async tvSeasonCredits(
+  public async getCredits(
     seriesId: number,
     seasonNumber: number,
     params?: TvSeasonCreditsParams,
@@ -55,11 +55,11 @@ export default class SeasonService {
     return await orval.tvSeasonCredits(seriesId, seasonNumber, params, this.defaultOptions);
   }
 
-  public async tvSeasonExternalIds(seriesId: number, seasonNumber: number) {
+  public async getExternalIds(seriesId: number, seasonNumber: number) {
     return await orval.tvSeasonExternalIds(seriesId, seasonNumber, this.defaultOptions);
   }
 
-  public async tvSeasonImages(
+  public async getImages(
     seriesId: number,
     seasonNumber: number,
     params?: TvSeasonImagesParams,
@@ -67,11 +67,11 @@ export default class SeasonService {
     return await orval.tvSeasonImages(seriesId, seasonNumber, params, this.defaultOptions);
   }
 
-  public async tvSeasonTranslations(seriesId: number, seasonNumber: number) {
+  public async getTranslations(seriesId: number, seasonNumber: number) {
     return await orval.tvSeasonTranslations(seriesId, seasonNumber, this.defaultOptions);
   }
 
-  public async tvSeasonVideos(
+  public async getVideos(
     seriesId: number,
     seasonNumber: number,
     params?: TvSeasonVideosParams,
@@ -79,7 +79,7 @@ export default class SeasonService {
     return await orval.tvSeasonVideos(seriesId, seasonNumber, params, this.defaultOptions);
   }
 
-  public async tvSeasonWatchProviders(
+  public async getWatchProviders(
     seriesId: number,
     seasonNumber: number,
     params?: TvSeasonWatchProvidersParams,

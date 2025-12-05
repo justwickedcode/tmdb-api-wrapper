@@ -32,51 +32,51 @@ export default class TVService {
     this.season = new SeasonService(defaultOptions);
   }
 
-  public async changesTvList(params?: ChangesTvListParams) {
+  public async getChangesTvList(params?: ChangesTvListParams) {
     return await orval.changesTvList(params, this.defaultOptions);
   }
 
-  public async tvSeriesAiringTodayList(params?: TvSeriesAiringTodayListParams) {
+  public async getAiringTodayList(params?: TvSeriesAiringTodayListParams) {
     return await orval.tvSeriesAiringTodayList(params, this.defaultOptions);
   }
 
-  public async tvSeriesOnTheAirList(params?: TvSeriesOnTheAirListParams) {
+  public async getOnTheAirList(params?: TvSeriesOnTheAirListParams) {
     return await orval.tvSeriesOnTheAirList(params, this.defaultOptions);
   }
 
-  public async tvSeriesPopularList(params?: TvSeriesPopularListParams) {
+  public async getPopularList(params?: TvSeriesPopularListParams) {
     return await orval.tvSeriesPopularList(params, this.defaultOptions);
   }
 
-  public async tvSeriesTopRatedList(params?: TvSeriesTopRatedListParams) {
+  public async getTopRatedList(params?: TvSeriesTopRatedListParams) {
     return await orval.tvSeriesTopRatedList(params, this.defaultOptions);
   }
 
-  public async tvSeriesDetails(seriesId: number, params?: TvSeriesDetailsParams) {
+  public async getDetails(seriesId: number, params?: TvSeriesDetailsParams) {
     return await orval.tvSeriesDetails(seriesId, params, this.defaultOptions);
   }
 
-  public async tvSeriesAccountStates(seriesId: number, params?: TvSeriesAccountStatesParams) {
+  public async getAccountStates(seriesId: number, params?: TvSeriesAccountStatesParams) {
     return await orval.tvSeriesAccountStates(seriesId, params, this.defaultOptions);
   }
 
-  public async tvSeriesAggregateCredits(seriesId: number, params?: TvSeriesAggregateCreditsParams) {
+  public async getAggregateCredits(seriesId: number, params?: TvSeriesAggregateCreditsParams) {
     return await orval.tvSeriesAggregateCredits(seriesId, params, this.defaultOptions);
   }
 
-  public async tvSeriesAlternativeTitles(seriesId: number) {
+  public async getAlternativeTitles(seriesId: number) {
     return await orval.tvSeriesAlternativeTitles(seriesId, this.defaultOptions);
   }
 
-  public async tvSeriesChanges(seriesId: number, params?: TvSeriesChangesParams) {
+  public async getChanges(seriesId: number, params?: TvSeriesChangesParams) {
     return await orval.tvSeriesChanges(seriesId, params, this.defaultOptions);
   }
 
-  public async tvSeriesContentRatings(seriesId: number) {
+  public async getContentRatings(seriesId: number) {
     return await orval.tvSeriesContentRatings(seriesId, this.defaultOptions);
   }
 
-  public async tvSeriesCredits(seriesId: number, params?: TvSeriesCreditsParams) {
+  public async getCredits(seriesId: number, params?: TvSeriesCreditsParams) {
     return await orval.tvSeriesCredits(seriesId, params, this.defaultOptions);
   }
 
