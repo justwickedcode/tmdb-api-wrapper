@@ -5,7 +5,7 @@ import { CustomRequestInit } from "../../types";
 export default class PersonService {
     constructor(private readonly defaultOptions: CustomRequestInit) {}
 
-    public async getPeopleList(params?: ChangesPeopleListParams) {
+    public async getChangesPeopleList(params?: ChangesPeopleListParams) {
         return await orval.changesPeopleList(params, this.defaultOptions);
     }
 

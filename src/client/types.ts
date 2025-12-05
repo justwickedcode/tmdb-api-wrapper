@@ -14,3 +14,5 @@ export type CustomRequestInit = RequestInit & {
   revalidate?: NextFetchRequestConfig['revalidate'];
   tags?: NextFetchRequestConfig['tags'];
 };
+
+export * from "../client/__generated__/schema"

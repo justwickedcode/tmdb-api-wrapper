@@ -1,9 +1,16 @@
 import * as orval from "../../__generated__/api/tv/tv";
 import { ChangesTvListParams, ListsCopyParams, TvSeriesAccountStatesParams, TvSeriesAddRatingBody, TvSeriesAddRatingParams, TvSeriesAggregateCreditsParams, TvSeriesAiringTodayListParams, TvSeriesChangesParams, TvSeriesCreditsParams, TvSeriesDeleteRatingParams, TvSeriesDetailsParams, TvSeriesImagesParams, TvSeriesOnTheAirListParams, TvSeriesPopularListParams, TvSeriesRecommendationsParams, TvSeriesReviewsParams, TvSeriesSimilarParams, TvSeriesTopRatedListParams, TvSeriesVideosParams } from "../../__generated__/schema";
 import { CustomRequestInit } from "../../types";
+import EpisodeService from "./episode-service";
+import SeasonService from "./season-service";
 
 export default class TVService {
-    constructor(private readonly defaultOptions: CustomRequestInit) {}
+    public episode: EpisodeService;
+    public season: SeasonService;
+    constructor(private readonly defaultOptions: CustomRequestInit) {
+        this.episode = new EpisodeService(defaultOptions);
+        this.season = new SeasonService(defaultOptions);
+    }
 
     public async changesTvList(params?: ChangesTvListParams) {
         return await orval.changesTvList(params, this.defaultOptions);
