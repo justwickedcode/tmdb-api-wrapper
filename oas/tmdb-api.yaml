@@ -17,7 +17,7 @@ paths:
   /3/authentication:
     get:
       summary: Validate Key
-      tags: 
+      tags:
         - Authentication
       description: Test your API Key to see if it's valid.
       operationId: authentication-validate-key
@@ -70,7 +70,7 @@ paths:
   /3/account/{account_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Account
       description: Get the public details of an account on TMDB.
       operationId: account-details
@@ -138,7 +138,7 @@ paths:
   /3/account/{account_id}/favorite:
     post:
       summary: Add Favorite
-      tags: 
+      tags:
         - Account
       description: Mark a movie or TV show as a favourite.
       operationId: account-add-favorite
@@ -197,7 +197,7 @@ paths:
   /3/account/{account_id}/watchlist:
     post:
       summary: Add To Watchlist
-      tags: 
+      tags:
         - Account
       description: Add a movie or TV show to your watchlist.
       operationId: account-add-to-watchlist
@@ -256,7 +256,7 @@ paths:
   /3/account/{account_id}/favorite/movies:
     get:
       summary: Favorite Movies
-      tags: 
+      tags:
         - Account
       description: Get a users list of favourite movies.
       operationId: account-get-favorites
@@ -526,7 +526,7 @@ paths:
   /3/account/{account_id}/favorite/tv:
     get:
       summary: Favorite TV
-      tags: 
+      tags:
         - Account
       description: Get a users list of favourite TV shows.
       operationId: account-favorite-tv
@@ -812,7 +812,7 @@ paths:
   /3/account/{account_id}/lists:
     get:
       summary: Lists
-      tags: 
+      tags:
         - Account
       description: Get a users list of custom lists.
       operationId: account-lists
@@ -972,7 +972,7 @@ paths:
   /3/account/{account_id}/rated/movies:
     get:
       summary: Rated Movies
-      tags: 
+      tags:
         - Account
       description: Get a users list of rated movies.
       operationId: account-rated-movies
@@ -1224,7 +1224,7 @@ paths:
   /3/account/{account_id}/rated/tv:
     get:
       summary: Rated TV
-      tags: 
+      tags:
         - Account
       description: Get a users list of rated TV shows.
       operationId: account-rated-tv
@@ -1500,7 +1500,7 @@ paths:
   /3/account/{account_id}/rated/tv/episodes:
     get:
       summary: Rated TV Episodes
-      tags: 
+      tags:
         - Account
       description: Get a users list of rated TV episodes.
       operationId: account-rated-tv-episodes
@@ -1717,7 +1717,7 @@ paths:
   /3/account/{account_id}/watchlist/movies:
     get:
       summary: Watchlist Movies
-      tags: 
+      tags:
         - Account
       description: Get a list of movies added to a users watchlist.
       operationId: account-watchlist-movies
@@ -2000,7 +2000,7 @@ paths:
   /3/account/{account_id}/watchlist/tv:
     get:
       summary: Watchlist TV
-      tags: 
+      tags:
         - Account
       description: Get a list of TV shows added to a users watchlist.
       operationId: account-watchlist-tv
@@ -2307,7 +2307,7 @@ paths:
   /3/authentication/guest_session/new:
     get:
       summary: Create Guest Session
-      tags: 
+      tags:
         - Authentication
       description: ''
       operationId: authentication-create-guest-session
@@ -2341,7 +2341,7 @@ paths:
   /3/authentication/token/new:
     get:
       summary: Create Request Token
-      tags: 
+      tags:
         - Authentication
       description: ''
       operationId: authentication-create-request-token
@@ -2375,7 +2375,7 @@ paths:
   /3/authentication/session/new:
     post:
       summary: Create Session
-      tags: 
+      tags:
         - Authentication
       description: ''
       operationId: authentication-create-session
@@ -2420,7 +2420,7 @@ paths:
   /3/authentication/session/convert/4:
     post:
       summary: Create Session (from v4 token)
-      tags: 
+      tags:
         - Authentication
       description: ''
       operationId: authentication-create-session-from-v4-token
@@ -2466,7 +2466,7 @@ paths:
   /3/authentication/token/validate_with_login:
     post:
       summary: Create Session (with login)
-      tags: 
+      tags:
         - Authentication
       description: >-
         This method allows an application to validate a request token by
@@ -2519,7 +2519,7 @@ paths:
   /3/authentication/session:
     delete:
       summary: Delete Session
-      tags: 
+      tags:
         - Authentication
       description: ''
       operationId: authentication-delete-session
@@ -2560,7 +2560,7 @@ paths:
   /3/certification/movie/list:
     get:
       summary: Movie Certifications
-      tags: 
+      tags:
         - Certification
       description: >-
         Get an up to date list of the officially supported movie certifications
@@ -3973,7 +3973,7 @@ paths:
   /3/certification/tv/list:
     get:
       summary: TV Certifications
-      tags: 
+      tags:
         - Certification
       description: ''
       operationId: certifications-tv-list
@@ -5221,7 +5221,7 @@ paths:
   /3/movie/changes:
     get:
       summary: Movie List
-      tags: 
+      tags:
         - Movie
       description: >-
         Get a list of all of the movie ids that have been changed in the past 24
@@ -5285,7 +5285,7 @@ paths:
   /3/person/changes:
     get:
       summary: People List
-      tags: 
+      tags:
         - Person
       description: ''
       operationId: changes-people-list
@@ -5347,7 +5347,7 @@ paths:
   /3/tv/changes:
     get:
       summary: TV List
-      tags: 
+      tags:
         - Tv
       description: ''
       operationId: changes-tv-list
@@ -5409,7 +5409,7 @@ paths:
   /3/collection/{collection_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Collection
       description: Get collection details by ID.
       operationId: collection-details
@@ -5731,7 +5731,7 @@ paths:
   /3/collection/{collection_id}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Collection
       description: Get the images that belong to a collection.
       operationId: collection-images
@@ -5833,7 +5833,7 @@ paths:
   /3/collection/{collection_id}/translations:
     get:
       summary: Translations
-      tags: 
+      tags:
         - Collection
       description: ''
       operationId: collection-translations
@@ -6079,7 +6079,7 @@ paths:
   /3/company/{company_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Company
       description: Get the company details by ID.
       operationId: company-details
@@ -6131,7 +6131,7 @@ paths:
   /3/company/{company_id}/alternative_names:
     get:
       summary: Alternative Names
-      tags: 
+      tags:
         - Company
       description: Get the company details by ID.
       operationId: company-alternative-names
@@ -6175,7 +6175,7 @@ paths:
   /3/company/{company_id}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Company
       description: Get the company logos by id.
       operationId: company-images
@@ -6240,7 +6240,7 @@ paths:
   /3/configuration:
     get:
       summary: Details
-      tags: 
+      tags:
         - Configuration
       description: Query the API configuration details.
       operationId: configuration-details
@@ -6299,7 +6299,7 @@ paths:
   /3/configuration/countries:
     get:
       summary: Countries
-      tags: 
+      tags:
         - Configuration
       description: Get the list of countries (ISO 3166-1 tags) used throughout TMDB.
       operationId: configuration-countries
@@ -6487,7 +6487,7 @@ paths:
   /3/configuration/jobs:
     get:
       summary: Jobs
-      tags: 
+      tags:
         - Configuration
       description: Get the list of the jobs and departments we use on TMDB.
       operationId: configuration-jobs
@@ -6917,7 +6917,7 @@ paths:
   /3/configuration/languages:
     get:
       summary: Languages
-      tags: 
+      tags:
         - Configuration
       description: Get the list of languages (ISO 639-1 tags) used throughout TMDB.
       operationId: configuration-languages
@@ -6967,7 +6967,7 @@ paths:
   /3/configuration/primary_translations:
     get:
       summary: Primary Translations
-      tags: 
+      tags:
         - Configuration
       description: Get a list of the officially supported translations on TMDB.
       operationId: configuration-primary-translations
@@ -6989,7 +6989,7 @@ paths:
   /3/configuration/timezones:
     get:
       summary: Timezones
-      tags: 
+      tags:
         - Configuration
       description: Get the list of timezones used throughout TMDB.
       operationId: configuration-timezones
@@ -7019,7 +7019,7 @@ paths:
   /3/credit/{credit_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Credit
       description: Get a movie or TV credit details by ID.
       operationId: credit-details
@@ -7224,7 +7224,7 @@ paths:
   /3/discover/movie:
     get:
       summary: Movie
-      tags: 
+      tags:
         - Discover
       description: Find movies using over 30 filters and sort options.
       operationId: discover-movie
@@ -7690,7 +7690,7 @@ paths:
   /3/discover/tv:
     get:
       summary: TV
-      tags: 
+      tags:
         - Discover
       description: Find TV shows using over 30 filters and sort options.
       operationId: discover-tv
@@ -8088,7 +8088,7 @@ paths:
   /3/find/{external_id}:
     get:
       summary: Find By ID
-      tags: 
+      tags:
         - Find
       description: Find data by external ID's.
       operationId: find-by-id
@@ -8207,7 +8207,7 @@ paths:
   /3/genre/movie/list:
     get:
       summary: Movie List
-      tags: 
+      tags:
         - Genre
       description: Get the list of official genres for movies.
       operationId: genre-movie-list
@@ -8246,7 +8246,7 @@ paths:
   /3/genre/tv/list:
     get:
       summary: TV List
-      tags: 
+      tags:
         - Genre
       description: Get the list of official genres for TV shows.
       operationId: genre-tv-list
@@ -8288,7 +8288,7 @@ paths:
   /3/guest_session/{guest_session_id}/rated/movies:
     get:
       summary: Rated Movies
-      tags: 
+      tags:
         - GuestSession
       description: Get the rated movies for a guest session.
       operationId: guest-session-rated-movies
@@ -8425,7 +8425,7 @@ paths:
   /3/guest_session/{guest_session_id}/rated/tv:
     get:
       summary: Rated TV
-      tags: 
+      tags:
         - GuestSession
       description: Get the rated TV shows for a guest session.
       operationId: guest-session-rated-tv
@@ -8559,7 +8559,7 @@ paths:
   /3/guest_session/{guest_session_id}/rated/tv/episodes:
     get:
       summary: Rated TV Episodes
-      tags: 
+      tags:
         - GuestSession
       description: Get the rated TV episodes for a guest session.
       operationId: guest-session-rated-tv-episodes
@@ -8679,7 +8679,7 @@ paths:
   /3/keyword/{keyword_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Keyword
       description: ''
       operationId: keyword-details
@@ -8712,7 +8712,7 @@ paths:
   /3/keyword/{keyword_id}/movies:
     get:
       summary: Movies
-      tags: 
+      tags:
         - Keyword
       description: ''
       operationId: keyword-movies
@@ -9077,7 +9077,7 @@ paths:
   /3/list/{list_id}/add_item:
     post:
       summary: Add Movie
-      tags: 
+      tags:
         - List
       description: Add a movie to a list.
       operationId: list-add-movie
@@ -9132,7 +9132,7 @@ paths:
   /3/list/{list_id}/item_status:
     get:
       summary: Check Item Status
-      tags: 
+      tags:
         - List
       description: Use this method to check if an item has already been added to the list.
       operationId: list-check-item-status
@@ -9176,7 +9176,7 @@ paths:
   /3/list/{list_id}/clear:
     post:
       summary: Clear
-      tags: 
+      tags:
         - List
       description: Clear all items from a list.
       operationId: list-clear
@@ -9224,7 +9224,7 @@ paths:
   /3/list:
     post:
       summary: Create
-      tags: 
+      tags:
         - List
       description: ''
       operationId: list-create
@@ -9287,7 +9287,7 @@ paths:
   /3/list/{list_id}:
     delete:
       summary: Delete
-      tags: 
+      tags:
         - List
       description: Delete a list.
       operationId: list-delete
@@ -9328,7 +9328,7 @@ paths:
       deprecated: false
     get:
       summary: Details
-      tags: 
+      tags:
         - List
       description: ''
       operationId: list-details
@@ -10322,7 +10322,7 @@ paths:
   /3/list/{list_id}/remove_item:
     post:
       summary: Remove Movie
-      tags: 
+      tags:
         - List
       description: Remove a movie from a list.
       operationId: list-remove-movie
@@ -10379,7 +10379,7 @@ paths:
   /3/movie/now_playing:
     get:
       summary: Now Playing
-      tags: 
+      tags:
         - Movie
       description: Get a list of movies that are currently in theatres.
       operationId: movie-now-playing-list
@@ -10639,7 +10639,7 @@ paths:
   /3/movie/popular:
     get:
       summary: Popular
-      tags: 
+      tags:
         - Movie
       description: Get a list of movies ordered by popularity.
       operationId: movie-popular-list
@@ -10909,7 +10909,7 @@ paths:
   /3/movie/top_rated:
     get:
       summary: Top Rated
-      tags: 
+      tags:
         - Movie
       description: Get a list of movies ordered by rating.
       operationId: movie-top-rated-list
@@ -11177,7 +11177,7 @@ paths:
   /3/movie/upcoming:
     get:
       summary: Upcoming
-      tags: 
+      tags:
         - Movie
       description: Get a list of movies that are being released soon.
       operationId: movie-upcoming-list
@@ -11450,7 +11450,7 @@ paths:
   /3/movie/{movie_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Movie
       description: Get the top level details of a movie by ID.
       operationId: movie-details
@@ -11641,7 +11641,7 @@ paths:
   /3/movie/{movie_id}/account_states:
     get:
       summary: Account States
-      tags: 
+      tags:
         - Movie
       description: Get the rating, watchlist and favourite status of an account.
       operationId: movie-account-states
@@ -11695,7 +11695,7 @@ paths:
   /3/movie/{movie_id}/alternative_titles:
     get:
       summary: Alternative Titles
-      tags: 
+      tags:
         - Movie
       description: Get the alternative titles for a movie.
       operationId: movie-alternative-titles
@@ -11757,7 +11757,7 @@ paths:
   /3/movie/{movie_id}/changes:
     get:
       summary: Changes
-      tags: 
+      tags:
         - Movie
       description: Get the recent changes for a movie.
       operationId: movie-changes
@@ -11852,7 +11852,7 @@ paths:
   /3/movie/{movie_id}/credits:
     get:
       summary: Credits
-      tags: 
+      tags:
         - Movie
       description: ''
       operationId: movie-credits
@@ -12819,7 +12819,7 @@ paths:
   /3/movie/{movie_id}/external_ids:
     get:
       summary: External IDs
-      tags: 
+      tags:
         - Movie
       description: ''
       operationId: movie-external-ids
@@ -12859,7 +12859,7 @@ paths:
   /3/movie/{movie_id}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Movie
       description: Get the images that belong to a movie.
       operationId: movie-images
@@ -12992,7 +12992,7 @@ paths:
   /3/movie/{movie_id}/keywords:
     get:
       summary: Keywords
-      tags: 
+      tags:
         - Movie
       description: ''
       operationId: movie-keywords
@@ -13045,7 +13045,7 @@ paths:
   /3/movie/latest:
     get:
       summary: Latest
-      tags: 
+      tags:
         - Movie
       description: Get the newest movie ID.
       operationId: movie-latest-id
@@ -13141,7 +13141,7 @@ paths:
   /3/movie/{movie_id}/lists:
     get:
       summary: Lists
-      tags: 
+      tags:
         - Movie
       description: Get the lists that a movie has been added to.
       operationId: movie-lists
@@ -13244,7 +13244,7 @@ paths:
   /3/movie/{movie_id}/recommendations:
     get:
       summary: Recommendations
-      tags: 
+      tags:
         - Movie
       description: ''
       operationId: movie-recommendations
@@ -13281,7 +13281,7 @@ paths:
   /3/movie/{movie_id}/release_dates:
     get:
       summary: Release Dates
-      tags: 
+      tags:
         - Movie
       description: Get the release dates and certifications for a movie.
       operationId: movie-release-dates
@@ -13357,7 +13357,7 @@ paths:
   /3/movie/{movie_id}/reviews:
     get:
       summary: Reviews
-      tags: 
+      tags:
         - Movie
       description: Get the user reviews for a movie.
       operationId: movie-reviews
@@ -13709,7 +13709,7 @@ paths:
   /3/movie/{movie_id}/similar:
     get:
       summary: Similar
-      tags: 
+      tags:
         - Movie
       description: Get the similar movies based on genres and keywords.
       operationId: movie-similar
@@ -13982,7 +13982,7 @@ paths:
   /3/movie/{movie_id}/translations:
     get:
       summary: Translations
-      tags: 
+      tags:
         - Movie
       description: Get the translations for a movie.
       operationId: movie-translations
@@ -14513,7 +14513,7 @@ paths:
   /3/movie/{movie_id}/videos:
     get:
       summary: Videos
-      tags: 
+      tags:
         - Movie
       description: ''
       operationId: movie-videos
@@ -14592,7 +14592,7 @@ paths:
   /3/movie/{movie_id}/watch/providers:
     get:
       summary: Watch Providers
-      tags: 
+      tags:
         - Movie
       description: Get the list of streaming providers we have for a movie.
       operationId: movie-watch-providers
@@ -19663,7 +19663,7 @@ paths:
   /3/movie/{movie_id}/rating:
     post:
       summary: Add Rating
-      tags: 
+      tags:
         - Movie
       description: Rate a movie and save it to your rated list.
       operationId: movie-add-rating
@@ -19778,7 +19778,7 @@ paths:
   /3/network/{network_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Network
       description: ''
       operationId: network-details
@@ -19825,7 +19825,7 @@ paths:
   /3/network/{network_id}/alternative_names:
     get:
       summary: Alternative Names
-      tags: 
+      tags:
         - Network
       description: Get the alternative names of a network.
       operationId: details-copy
@@ -19868,7 +19868,7 @@ paths:
   /3/network/{network_id}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Network
       description: Get the TV network logos by id.
       operationId: alternative-names-copy
@@ -19933,7 +19933,7 @@ paths:
   /3/person/popular:
     get:
       summary: Popular
-      tags: 
+      tags:
         - Person
       description: Get a list of people ordered by popularity.
       operationId: person-popular-list
@@ -20569,7 +20569,7 @@ paths:
   /3/person/{person_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Person
       description: Query the top level details of a person.
       operationId: person-details
@@ -20719,7 +20719,7 @@ paths:
   /3/person/{person_id}/changes:
     get:
       summary: Changes
-      tags: 
+      tags:
         - Person
       description: Get the recent changes for a person.
       operationId: person-changes
@@ -20819,7 +20819,7 @@ paths:
   /3/person/{person_id}/combined_credits:
     get:
       summary: Combined Credits
-      tags: 
+      tags:
         - Person
       description: Get the combined movie and TV credits that belong to a person.
       operationId: person-combined-credits
@@ -23622,7 +23622,7 @@ paths:
   /3/person/{person_id}/external_ids:
     get:
       summary: External IDs
-      tags: 
+      tags:
         - Person
       description: Get the external ID's that belong to a person.
       operationId: person-external-ids
@@ -23682,7 +23682,7 @@ paths:
   /3/person/{person_id}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Person
       description: Get the profile images that belong to a person.
       operationId: person-images
@@ -23872,7 +23872,7 @@ paths:
   /3/person/latest:
     get:
       summary: Latest
-      tags: 
+      tags:
         - Person
       description: >-
         Get the newest created person. This is a live response and will
@@ -23926,7 +23926,7 @@ paths:
   /3/person/{person_id}/movie_credits:
     get:
       summary: Movie Credits
-      tags: 
+      tags:
         - Person
       description: Get the movie credits for a person.
       operationId: person-movie-credits
@@ -25839,7 +25839,7 @@ paths:
   /3/person/{person_id}/tv_credits:
     get:
       summary: TV Credits
-      tags: 
+      tags:
         - Person
       description: Get the TV credits that belong to a person.
       operationId: person-tv-credits
@@ -26908,7 +26908,7 @@ paths:
   /3/person/{person_id}/tagged_images:
     get:
       summary: Tagged Images
-      tags: 
+      tags:
         - Person
       description: Get the tagged images for a person.
       operationId: person-tagged-images
@@ -27159,7 +27159,7 @@ paths:
   /3/person/{person_id}/translations:
     get:
       summary: Translations
-      tags: 
+      tags:
         - Person
       description: Get the translations that belong to a person.
       operationId: translations
@@ -27709,7 +27709,7 @@ paths:
   /3/review/{review_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Review
       description: Retrieve the details of a movie or TV show review.
       operationId: review-details
@@ -27810,7 +27810,7 @@ paths:
   /3/search/collection:
     get:
       summary: Collection
-      tags: 
+      tags:
         - Search
       description: >-
         Search for collections by their original, translated and alternative
@@ -27918,7 +27918,7 @@ paths:
   /3/search/company:
     get:
       summary: Company
-      tags: 
+      tags:
         - Search
       description: Search for companies by their original and alternative names.
       operationId: search-company
@@ -28005,7 +28005,7 @@ paths:
   /3/search/keyword:
     get:
       summary: Keyword
-      tags: 
+      tags:
         - Search
       description: Search for keywords by their name.
       operationId: search-keyword
@@ -28080,7 +28080,7 @@ paths:
   /3/search/movie:
     get:
       summary: Movie
-      tags: 
+      tags:
         - Search
       description: Search for movies by their original, translated and alternative titles.
       operationId: search-movie
@@ -28392,7 +28392,7 @@ paths:
   /3/search/multi:
     get:
       summary: Multi
-      tags: 
+      tags:
         - Search
       description: >-
         Use multi search when you want to search for movies, TV shows and people
@@ -28682,7 +28682,7 @@ paths:
   /3/search/person:
     get:
       summary: Person
-      tags: 
+      tags:
         - Search
       description: Search for people by their name and also known as names.
       operationId: search-person
@@ -28859,7 +28859,7 @@ paths:
   /3/search/tv:
     get:
       summary: TV
-      tags: 
+      tags:
         - Search
       description: >-
         Search for TV shows by their original, translated and also known as
@@ -29001,7 +29001,7 @@ paths:
   /3/trending/all/{time_window}:
     get:
       summary: All
-      tags: 
+      tags:
         - Trending
       description: Get the trending movies, TV shows and people.
       operationId: trending-all
@@ -29253,7 +29253,7 @@ paths:
   /3/trending/movie/{time_window}:
     get:
       summary: Movies
-      tags: 
+      tags:
         - Trending
       description: Get the trending movies on TMDB.
       operationId: trending-movies
@@ -29508,7 +29508,7 @@ paths:
   /3/trending/person/{time_window}:
     get:
       summary: People
-      tags: 
+      tags:
         - Trending
       description: Get the trending people on TMDB.
       operationId: trending-people
@@ -30172,7 +30172,7 @@ paths:
   /3/trending/tv/{time_window}:
     get:
       summary: TV
-      tags: 
+      tags:
         - Trending
       description: Get the trending TV shows on TMDB.
       operationId: trending-tv
@@ -30424,7 +30424,7 @@ paths:
   /3/tv/airing_today:
     get:
       summary: Airing Today
-      tags: 
+      tags:
         - Tv
       description: Get a list of TV shows airing today.
       operationId: tv-series-airing-today-list
@@ -30648,7 +30648,7 @@ paths:
   /3/tv/on_the_air:
     get:
       summary: On The Air
-      tags: 
+      tags:
         - Tv
       description: Get a list of TV shows that air in the next 7 days.
       operationId: tv-series-on-the-air-list
@@ -30872,7 +30872,7 @@ paths:
   /3/tv/popular:
     get:
       summary: Popular
-      tags: 
+      tags:
         - Tv
       description: Get a list of TV shows ordered by popularity.
       operationId: tv-series-popular-list
@@ -31092,7 +31092,7 @@ paths:
   /3/tv/top_rated:
     get:
       summary: Top Rated
-      tags: 
+      tags:
         - Tv
       description: Get a list of TV shows ordered by rating.
       operationId: tv-series-top-rated-list
@@ -31372,7 +31372,7 @@ paths:
   /3/tv/{series_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Tv
       description: Get the details of a TV show.
       operationId: tv-series-details
@@ -31896,7 +31896,7 @@ paths:
   /3/tv/{series_id}/account_states:
     get:
       summary: Account States
-      tags: 
+      tags:
         - Tv
       description: Get the rating, watchlist and favourite status.
       operationId: tv-series-account-states
@@ -31950,7 +31950,7 @@ paths:
   /3/tv/{series_id}/aggregate_credits:
     get:
       summary: Aggregate Credits
-      tags: 
+      tags:
         - Tv
       description: >-
         Get the aggregate credits (cast and crew) that have been added to a TV
@@ -34420,7 +34420,7 @@ paths:
   /3/tv/{series_id}/alternative_titles:
     get:
       summary: Alternative Titles
-      tags: 
+      tags:
         - Tv
       description: Get the alternative titles that have been added to a TV show.
       operationId: tv-series-alternative-titles
@@ -34494,7 +34494,7 @@ paths:
   /3/tv/{series_id}/changes:
     get:
       summary: Changes
-      tags: 
+      tags:
         - Tv
       description: Get the recent changes for a TV show.
       operationId: tv-series-changes
@@ -34595,7 +34595,7 @@ paths:
   /3/tv/{series_id}/content_ratings:
     get:
       summary: Content Ratings
-      tags: 
+      tags:
         - Tv
       description: Get the content ratings that have been added to a TV show.
       operationId: tv-series-content-ratings
@@ -34639,7 +34639,7 @@ paths:
   /3/tv/{series_id}/credits:
     get:
       summary: Credits
-      tags: 
+      tags:
         - Tv
       description: Get the latest season credits of a TV show.
       operationId: tv-series-credits
@@ -34878,7 +34878,7 @@ paths:
   /3/tv/{series_id}/episode_groups:
     get:
       summary: Episode Groups
-      tags: 
+      tags:
         - Episode
       description: Get the episode groups that have been added to a TV show.
       operationId: tv-series-episode-groups
@@ -34952,7 +34952,7 @@ paths:
   /3/tv/{series_id}/external_ids:
     get:
       summary: External IDs
-      tags: 
+      tags:
         - Tv
       description: Get a list of external IDs that have been added to a TV show.
       operationId: tv-series-external-ids
@@ -35012,7 +35012,7 @@ paths:
   /3/tv/{series_id}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Tv
       description: Get the images that belong to a TV series.
       operationId: tv-series-images
@@ -35145,7 +35145,7 @@ paths:
   /3/tv/{series_id}/keywords:
     get:
       summary: Keywords
-      tags: 
+      tags:
         - Tv
       description: Get a list of keywords that have been added to a TV show.
       operationId: tv-series-keywords
@@ -35190,7 +35190,7 @@ paths:
   /3/tv/latest:
     get:
       summary: Latest
-      tags: 
+      tags:
         - Tv
       description: Get the newest TV show ID.
       operationId: tv-series-latest-id
@@ -35365,7 +35365,7 @@ paths:
   /3/tv/{series_id}/lists:
     get:
       summary: Lists
-      tags: 
+      tags:
         - Tv
       description: Get the lists that a TV series has been added to.
       operationId: lists-copy
@@ -35656,7 +35656,7 @@ paths:
   /3/tv/{series_id}/recommendations:
     get:
       summary: Recommendations
-      tags: 
+      tags:
         - Tv
       description: ''
       operationId: tv-series-recommendations
@@ -35938,7 +35938,7 @@ paths:
   /3/tv/{series_id}/reviews:
     get:
       summary: Reviews
-      tags: 
+      tags:
         - Tv
       description: Get the reviews that have been added to a TV show.
       operationId: tv-series-reviews
@@ -36271,7 +36271,7 @@ paths:
   /3/tv/{series_id}/screened_theatrically:
     get:
       summary: Screened Theatrically
-      tags: 
+      tags:
         - Tv
       description: Get the seasons and episodes that have screened theatrically.
       operationId: tv-series-screened-theatrically
@@ -36319,7 +36319,7 @@ paths:
   /3/tv/{series_id}/similar:
     get:
       summary: Similar
-      tags: 
+      tags:
         - Tv
       description: Get the similar TV shows.
       operationId: tv-series-similar
@@ -36613,7 +36613,7 @@ paths:
   /3/tv/{series_id}/translations:
     get:
       summary: Translations
-      tags: 
+      tags:
         - Tv
       description: Get the translations that have been added to a TV show.
       operationId: tv-series-translations
@@ -37183,7 +37183,7 @@ paths:
   /3/tv/{series_id}/videos:
     get:
       summary: Videos
-      tags: 
+      tags:
         - Tv
       description: Get the videos that belong to a TV show.
       operationId: tv-series-videos
@@ -37280,7 +37280,7 @@ paths:
   /3/tv/{series_id}/watch/providers:
     get:
       summary: Watch Providers
-      tags: 
+      tags:
         - Tv
       description: Get the list of streaming providers we have for a TV show.
       operationId: tv-series-watch-providers
@@ -40102,7 +40102,7 @@ paths:
   /3/tv/{series_id}/rating:
     post:
       summary: Add Rating
-      tags: 
+      tags:
         - Tv
       description: Rate a TV show and save it to your rated list.
       operationId: tv-series-add-rating
@@ -40217,7 +40217,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Season
       description: Query the details of a TV season.
       operationId: tv-season-details
@@ -45168,7 +45168,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/account_states:
     get:
       summary: Account States
-      tags: 
+      tags:
         - Season
       description: Get the rating, watchlist and favourite status.
       operationId: tv-season-account-states
@@ -45289,7 +45289,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/aggregate_credits:
     get:
       summary: Aggregate Credits
-      tags: 
+      tags:
         - Season
       description: >-
         Get the aggregate credits (cast and crew) that have been added to a TV
@@ -45846,7 +45846,7 @@ paths:
   /3/tv/season/{season_id}/changes:
     get:
       summary: Changes
-      tags: 
+      tags:
         - Season
       description: Get the recent changes for a TV season.
       operationId: tv-season-changes-by-id
@@ -46105,7 +46105,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/credits:
     get:
       summary: Credits
-      tags: 
+      tags:
         - Season
       description: ''
       operationId: tv-season-credits
@@ -46330,7 +46330,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/external_ids:
     get:
       summary: External IDs
-      tags: 
+      tags:
         - Season
       description: Get a list of external IDs that have been added to a TV season.
       operationId: tv-season-external-ids
@@ -46381,7 +46381,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Season
       description: Get the images that belong to a TV season.
       operationId: tv-season-images
@@ -46460,7 +46460,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/translations:
     get:
       summary: Translations
-      tags: 
+      tags:
         - Season
       description: Get the translations for a TV season.
       operationId: tv-season-translations
@@ -46846,7 +46846,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/videos:
     get:
       summary: Videos
-      tags: 
+      tags:
         - Season
       description: Get the videos that belong to a TV season.
       operationId: tv-season-videos
@@ -46965,7 +46965,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/watch/providers:
     get:
       summary: Watch Providers
-      tags: 
+      tags:
         - Season
       description: Get the list of streaming providers we have for a TV season.
       operationId: tv-season-watch-providers
@@ -51016,7 +51016,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Episode
       description: Query the details of a TV episode.
       operationId: tv-episode-details
@@ -51275,7 +51275,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}/account_states:
     get:
       summary: Account States
-      tags: 
+      tags:
         - Episode
       description: Get the rating, watchlist and favourite status.
       operationId: tv-episode-account-states
@@ -51341,7 +51341,7 @@ paths:
   /3/tv/episode/{episode_id}/changes:
     get:
       summary: Changes
-      tags: 
+      tags:
         - Episode
       description: Get the recent changes for a TV episode.
       operationId: tv-episode-changes-by-id
@@ -51450,7 +51450,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}/credits:
     get:
       summary: Credits
-      tags: 
+      tags:
         - Episode
       description: ''
       operationId: tv-episode-credits
@@ -51754,7 +51754,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}/external_ids:
     get:
       summary: External IDs
-      tags: 
+      tags:
         - Episode
       description: Get a list of external IDs that have been added to a TV episode.
       operationId: tv-episode-external-ids
@@ -51816,7 +51816,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}/images:
     get:
       summary: Images
-      tags: 
+      tags:
         - Episode
       description: Get the images that belong to a TV episode.
       operationId: tv-episode-images
@@ -51899,7 +51899,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}/translations:
     get:
       summary: Translations
-      tags: 
+      tags:
         - Episode
       description: Get the translations that have been added to a TV episode.
       operationId: tv-episode-translations
@@ -52296,7 +52296,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}/videos:
     get:
       summary: Videos
-      tags: 
+      tags:
         - Episode
       description: Get the videos that belong to a TV episode.
       operationId: tv-episode-videos
@@ -52421,7 +52421,7 @@ paths:
   /3/tv/{series_id}/season/{season_number}/episode/{episode_number}/rating:
     post:
       summary: Add Rating
-      tags: 
+      tags:
         - Episode
       description: Rate a TV episode and save it to your rated list.
       operationId: tv-episode-add-rating
@@ -52498,7 +52498,7 @@ paths:
       deprecated: false
     delete:
       summary: Delete Rating
-      tags: 
+      tags:
         - Episode
       description: Delete your rating on a TV episode.
       operationId: tv-episode-delete-rating
@@ -52560,7 +52560,7 @@ paths:
   /3/tv/episode_group/{tv_episode_group_id}:
     get:
       summary: Details
-      tags: 
+      tags:
         - Episode
       description: Get the details of a TV episode group.
       operationId: tv-episode-group-details
@@ -53139,7 +53139,7 @@ paths:
   /3/watch/providers/regions:
     get:
       summary: Available Regions
-      tags: 
+      tags:
         - Watch
       description: >-
         Get the list of the countries we have watch provider (OTT/streaming)
@@ -53233,7 +53233,7 @@ paths:
   /3/watch/providers/movie:
     get:
       summary: Movie Providers
-      tags: 
+      tags:
         - Watch
       description: Get the list of streaming providers we have for movies.
       operationId: watch-providers-movie-list
@@ -54010,7 +54010,7 @@ paths:
   /3/watch/providers/tv:
     get:
       summary: TV Providers
-      tags: 
+      tags:
         - Watch
       description: Get the list of streaming providers we have for TV shows.
       operationId: watch-provider-tv-list
