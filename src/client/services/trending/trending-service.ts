@@ -5,7 +5,7 @@ import {
   TrendingPeopleParams,
   TrendingTvParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class TrendingService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

@@ -1,5 +1,5 @@
 import * as orval from '../../__generated__/api/company/company';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class CompanyService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

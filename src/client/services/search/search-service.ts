@@ -7,7 +7,7 @@ import {
   SearchMultiParams,
   SearchPersonParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class SearchService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

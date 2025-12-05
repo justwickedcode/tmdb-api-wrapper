@@ -9,7 +9,7 @@ import {
   TvEpisodeImagesParams,
   TvEpisodeVideosParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class EpisodeService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

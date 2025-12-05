@@ -5,7 +5,7 @@ import {
   AuthenticationCreateSessionFromV4TokenBody,
   AuthenticationDeleteSessionBody,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class AuthenticationService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

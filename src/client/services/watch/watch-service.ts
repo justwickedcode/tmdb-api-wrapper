@@ -4,7 +4,7 @@ import {
   WatchProvidersMovieListParams,
   WatchProviderTvListParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class WatchService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

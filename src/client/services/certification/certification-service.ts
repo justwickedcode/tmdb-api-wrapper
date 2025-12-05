@@ -1,5 +1,5 @@
 import * as orval from '../../__generated__/api/certification/certification';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class CertificationService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

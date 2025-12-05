@@ -1,6 +1,6 @@
 import * as orval from '../../__generated__/api/discover/discover';
 import { DiscoverMovieParams, DiscoverTvParams } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class DiscoverService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

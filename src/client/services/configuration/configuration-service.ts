@@ -1,6 +1,6 @@
 import * as orval from '../../__generated__/api/configuration/configuration';
 import { ConfigurationCountriesParams } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class ConfigurationService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

@@ -9,7 +9,7 @@ import {
   TvSeasonVideosParams,
   TvSeasonWatchProvidersParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class SeasonService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

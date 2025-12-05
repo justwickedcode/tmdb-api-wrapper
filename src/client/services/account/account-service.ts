@@ -14,7 +14,7 @@ import {
   AccountWatchlistMoviesParams,
   AccountWatchlistTvParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class AccountService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

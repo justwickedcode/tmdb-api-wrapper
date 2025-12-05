@@ -1,6 +1,6 @@
 import * as orval from '../../__generated__/api/keyword/keyword';
 import { KeywordMoviesParams } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class KeywordService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

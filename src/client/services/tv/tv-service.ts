@@ -20,7 +20,7 @@ import {
   TvSeriesTopRatedListParams,
   TvSeriesVideosParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 import EpisodeService from './episode-service';
 import SeasonService from './season-service';
 

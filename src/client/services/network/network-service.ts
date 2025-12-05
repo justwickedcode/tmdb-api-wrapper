@@ -1,5 +1,5 @@
 import * as orval from '../../__generated__/api/network/network';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class NetworkService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

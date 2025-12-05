@@ -11,7 +11,7 @@ import {
   ListRemoveMovieBody,
   ListRemoveMovieParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class ListService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

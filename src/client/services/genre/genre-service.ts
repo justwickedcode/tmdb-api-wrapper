@@ -1,6 +1,6 @@
 import * as orval from '../../__generated__/api/genre/genre';
 import { GenreMovieListParams, GenreTvListParams } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class GenreService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

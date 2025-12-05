@@ -20,7 +20,7 @@ import {
   MovieUpcomingListParams,
   MovieVideosParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class MovieService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

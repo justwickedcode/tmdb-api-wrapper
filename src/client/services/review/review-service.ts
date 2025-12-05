@@ -1,5 +1,5 @@
 import * as orval from '../../__generated__/api/review/review';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class ReviewService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

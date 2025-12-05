@@ -4,7 +4,7 @@ import {
   GuestSessionRatedTvParams,
   GuestSessionRatedTvEpisodesParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class GuestSessionService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

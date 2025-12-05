@@ -9,7 +9,7 @@ import {
   PersonTaggedImagesParams,
   PersonTvCreditsParams,
 } from '../../__generated__/schema';
-import { CustomRequestInit } from '../../../types';
+import { CustomRequestInit } from '../../types';
 
 export default class PersonService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}

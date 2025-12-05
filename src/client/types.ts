@@ -15,4 +15,4 @@ export type CustomRequestInit = RequestInit & {
   tags?: NextFetchRequestConfig['tags'];
 };
 
-export * from '../src/client/__generated__/schema';
+export * from './__generated__/schema';
