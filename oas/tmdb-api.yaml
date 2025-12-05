@@ -34879,7 +34879,7 @@ paths:
     get:
       summary: Episode Groups
       tags: 
-        - Tv
+        - Episode
       description: Get the episode groups that have been added to a TV show.
       operationId: tv-series-episode-groups
       parameters:
@@ -40218,7 +40218,6 @@ paths:
     get:
       summary: Details
       tags: 
-        - Tv
         - Season
       description: Query the details of a TV season.
       operationId: tv-season-details
@@ -45170,7 +45169,6 @@ paths:
     get:
       summary: Account States
       tags: 
-        - Tv
         - Season
       description: Get the rating, watchlist and favourite status.
       operationId: tv-season-account-states
@@ -45292,7 +45290,6 @@ paths:
     get:
       summary: Aggregate Credits
       tags: 
-        - Tv
         - Season
       description: >-
         Get the aggregate credits (cast and crew) that have been added to a TV
@@ -45850,7 +45847,6 @@ paths:
     get:
       summary: Changes
       tags: 
-        - Tv
         - Season
       description: Get the recent changes for a TV season.
       operationId: tv-season-changes-by-id
@@ -46110,7 +46106,6 @@ paths:
     get:
       summary: Credits
       tags: 
-        - Tv
         - Season
       description: ''
       operationId: tv-season-credits
@@ -46336,7 +46331,6 @@ paths:
     get:
       summary: External IDs
       tags: 
-        - Tv
         - Season
       description: Get a list of external IDs that have been added to a TV season.
       operationId: tv-season-external-ids
@@ -46388,7 +46382,6 @@ paths:
     get:
       summary: Images
       tags: 
-        - Tv
         - Season
       description: Get the images that belong to a TV season.
       operationId: tv-season-images
@@ -46468,7 +46461,6 @@ paths:
     get:
       summary: Translations
       tags: 
-        - Tv
         - Season
       description: Get the translations for a TV season.
       operationId: tv-season-translations
@@ -46855,7 +46847,6 @@ paths:
     get:
       summary: Videos
       tags: 
-        - Tv
         - Season
       description: Get the videos that belong to a TV season.
       operationId: tv-season-videos
@@ -46975,7 +46966,6 @@ paths:
     get:
       summary: Watch Providers
       tags: 
-        - Tv
         - Season
       description: Get the list of streaming providers we have for a TV season.
       operationId: tv-season-watch-providers
@@ -51027,8 +51017,6 @@ paths:
     get:
       summary: Details
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Query the details of a TV episode.
       operationId: tv-episode-details
@@ -51288,8 +51276,6 @@ paths:
     get:
       summary: Account States
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Get the rating, watchlist and favourite status.
       operationId: tv-episode-account-states
@@ -51356,7 +51342,6 @@ paths:
     get:
       summary: Changes
       tags: 
-        - Tv
         - Episode
       description: Get the recent changes for a TV episode.
       operationId: tv-episode-changes-by-id
@@ -51466,8 +51451,6 @@ paths:
     get:
       summary: Credits
       tags: 
-        - Tv
-        - Season
         - Episode
       description: ''
       operationId: tv-episode-credits
@@ -51772,8 +51755,6 @@ paths:
     get:
       summary: External IDs
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Get a list of external IDs that have been added to a TV episode.
       operationId: tv-episode-external-ids
@@ -51836,8 +51817,6 @@ paths:
     get:
       summary: Images
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Get the images that belong to a TV episode.
       operationId: tv-episode-images
@@ -51921,8 +51900,6 @@ paths:
     get:
       summary: Translations
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Get the translations that have been added to a TV episode.
       operationId: tv-episode-translations
@@ -52320,8 +52297,6 @@ paths:
     get:
       summary: Videos
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Get the videos that belong to a TV episode.
       operationId: tv-episode-videos
@@ -52447,8 +52422,6 @@ paths:
     post:
       summary: Add Rating
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Rate a TV episode and save it to your rated list.
       operationId: tv-episode-add-rating
@@ -52526,8 +52499,6 @@ paths:
     delete:
       summary: Delete Rating
       tags: 
-        - Tv
-        - Season
         - Episode
       description: Delete your rating on a TV episode.
       operationId: tv-episode-delete-rating
@@ -52590,7 +52561,6 @@ paths:
     get:
       summary: Details
       tags: 
-        - Tv
         - Episode
       description: Get the details of a TV episode group.
       operationId: tv-episode-group-details
