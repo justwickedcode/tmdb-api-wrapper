@@ -1,7 +1,7 @@
 interface NextFetchRequestConfig {
   revalidate?: number | false;
   tags?: string[];
-  cache?: 'force-cache' | 'no-store' | 'no-cache' | 'only-if-cached';
+  cache?: RequestCache;
   next?: {
     revalidate?: number | false;
     tags?: string[];
