@@ -1,21 +1,11 @@
-import * as orval from '../../__generated__/api/episode/episode';
-import {
-  TvEpisodeAccountStatesParams,
-  TvEpisodeAddRatingBody,
-  TvEpisodeAddRatingParams,
-  TvEpisodeCreditsParams,
-  TvEpisodeDeleteRatingParams,
-  TvEpisodeDetailsParams,
-  TvEpisodeImagesParams,
-  TvEpisodeVideosParams,
-} from '../../__generated__/schema';
-import { CustomRequestInit } from '../../types';
+import { tvSeriesEpisodeGroups, TvEpisodeDetailsParams, tvEpisodeDetails, TvEpisodeAccountStatesParams, tvEpisodeAccountStates, tvEpisodeChangesById, TvEpisodeCreditsParams, tvEpisodeCredits, tvEpisodeExternalIds, TvEpisodeImagesParams, tvEpisodeImages, tvEpisodeTranslations, TvEpisodeVideosParams, tvEpisodeVideos, TvEpisodeAddRatingBody, TvEpisodeAddRatingParams, tvEpisodeAddRating, TvEpisodeDeleteRatingParams, tvEpisodeDeleteRating, tvEpisodeGroupDetails } from "../../__generated__/api/tmdbApi";
+import { CustomRequestInit } from "../../types";
 
 export default class EpisodeService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}
 
   public async getGroups(seriesId: number) {
-    return await orval.tvSeriesEpisodeGroups(seriesId, this.defaultOptions);
+    return await tvSeriesEpisodeGroups(seriesId, this.defaultOptions);
   }
 
   public async getDetails(
@@ -24,7 +14,7 @@ export default class EpisodeService {
     episodeNumber: number,
     params?: TvEpisodeDetailsParams,
   ) {
-    return await orval.tvEpisodeDetails(
+    return await tvEpisodeDetails(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -39,7 +29,7 @@ export default class EpisodeService {
     episodeNumber: number,
     params?: TvEpisodeAccountStatesParams,
   ) {
-    return await orval.tvEpisodeAccountStates(
+    return await tvEpisodeAccountStates(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -49,7 +39,7 @@ export default class EpisodeService {
   }
 
   public async getChangesById(episodeId: number) {
-    return await orval.tvEpisodeChangesById(episodeId, this.defaultOptions);
+    return await tvEpisodeChangesById(episodeId, this.defaultOptions);
   }
 
   public async getCredits(
@@ -58,7 +48,7 @@ export default class EpisodeService {
     episodeNumber: number,
     params?: TvEpisodeCreditsParams,
   ) {
-    return await orval.tvEpisodeCredits(
+    return await tvEpisodeCredits(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -68,7 +58,7 @@ export default class EpisodeService {
   }
 
   public async getExternalIds(seriesId: number, seasonNumber: number, episodeNumber: string) {
-    return await orval.tvEpisodeExternalIds(
+    return await tvEpisodeExternalIds(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -82,7 +72,7 @@ export default class EpisodeService {
     episodeNumber: number,
     params?: TvEpisodeImagesParams,
   ) {
-    return await orval.tvEpisodeImages(
+    return await tvEpisodeImages(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -92,7 +82,7 @@ export default class EpisodeService {
   }
 
   public async getTranslations(seriesId: number, seasonNumber: number, episodeNumber: number) {
-    return await orval.tvEpisodeTranslations(
+    return await tvEpisodeTranslations(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -106,7 +96,7 @@ export default class EpisodeService {
     episodeNumber: number,
     params?: TvEpisodeVideosParams,
   ) {
-    return await orval.tvEpisodeVideos(
+    return await tvEpisodeVideos(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -122,7 +112,7 @@ export default class EpisodeService {
     tvEpisodeAddRatingBody: TvEpisodeAddRatingBody,
     params?: TvEpisodeAddRatingParams,
   ) {
-    return await orval.tvEpisodeAddRating(
+    return await tvEpisodeAddRating(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -138,7 +128,7 @@ export default class EpisodeService {
     episodeNumber: number,
     params?: TvEpisodeDeleteRatingParams,
   ) {
-    return await orval.tvEpisodeDeleteRating(
+    return await tvEpisodeDeleteRating(
       seriesId,
       seasonNumber,
       episodeNumber,
@@ -148,6 +138,6 @@ export default class EpisodeService {
   }
 
   public async getGroupDetails(tvEpisodeGroupId: string) {
-    return await orval.tvEpisodeGroupDetails(tvEpisodeGroupId, this.defaultOptions);
+    return await tvEpisodeGroupDetails(tvEpisodeGroupId, this.defaultOptions);
   }
 }

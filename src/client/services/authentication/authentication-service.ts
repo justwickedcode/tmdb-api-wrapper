@@ -1,29 +1,23 @@
-import * as orval from '../../__generated__/api/authentication/authentication';
-import {
-  AuthenticationCreateSessionBody,
-  AuthenticationCreateSessionFromLoginBody,
-  AuthenticationCreateSessionFromV4TokenBody,
-  AuthenticationDeleteSessionBody,
-} from '../../__generated__/schema';
-import { CustomRequestInit } from '../../types';
+import { authenticationValidateKey, authenticationCreateGuestSession, authenticationCreateRequestToken, AuthenticationCreateSessionBody, authenticationCreateSession, AuthenticationCreateSessionFromV4TokenBody, authenticationCreateSessionFromV4Token, AuthenticationCreateSessionFromLoginBody, authenticationCreateSessionFromLogin, AuthenticationDeleteSessionBody, authenticationDeleteSession } from "../../__generated__/api/tmdbApi";
+import { CustomRequestInit } from "../../types";
 
 export default class AuthenticationService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}
 
   public async validateKey() {
-    return await orval.authenticationValidateKey(this.defaultOptions);
+    return await authenticationValidateKey(this.defaultOptions);
   }
 
   public async createGuestSession() {
-    return await orval.authenticationCreateGuestSession(this.defaultOptions);
+    return await authenticationCreateGuestSession(this.defaultOptions);
   }
 
   public async createRequestToken() {
-    return await orval.authenticationCreateRequestToken(this.defaultOptions);
+    return await authenticationCreateRequestToken(this.defaultOptions);
   }
 
   public async createSession(authenticationCreateSessionBody: AuthenticationCreateSessionBody) {
-    return await orval.authenticationCreateSession(
+    return await authenticationCreateSession(
       authenticationCreateSessionBody,
       this.defaultOptions,
     );
@@ -32,7 +26,7 @@ export default class AuthenticationService {
   public async createSessionFromV4Token(
     authenticationCreateSessionFromV4TokenBody: AuthenticationCreateSessionFromV4TokenBody,
   ) {
-    return await orval.authenticationCreateSessionFromV4Token(
+    return await authenticationCreateSessionFromV4Token(
       authenticationCreateSessionFromV4TokenBody,
       this.defaultOptions,
     );
@@ -41,14 +35,14 @@ export default class AuthenticationService {
   public async createSessionFromLogin(
     authenticationCreateSessionFromLoginBody: AuthenticationCreateSessionFromLoginBody,
   ) {
-    return await orval.authenticationCreateSessionFromLogin(
+    return await authenticationCreateSessionFromLogin(
       authenticationCreateSessionFromLoginBody,
       this.defaultOptions,
     );
   }
 
   public async deleteSession(authenticationDeleteSessionBody: AuthenticationDeleteSessionBody) {
-    return await orval.authenticationDeleteSession(
+    return await authenticationDeleteSession(
       authenticationDeleteSessionBody,
       this.defaultOptions,
     );

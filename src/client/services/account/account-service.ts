@@ -1,26 +1,11 @@
-import * as orval from '../../__generated__/api/account/account';
-import {
-  AccountAddFavoriteBody,
-  AccountAddFavoriteParams,
-  AccountAddToWatchlistBody,
-  AccountAddToWatchlistParams,
-  AccountDetailsParams,
-  AccountFavoriteTvParams,
-  AccountGetFavoritesParams,
-  AccountListsParams,
-  AccountRatedMoviesParams,
-  AccountRatedTvEpisodesParams,
-  AccountRatedTvParams,
-  AccountWatchlistMoviesParams,
-  AccountWatchlistTvParams,
-} from '../../__generated__/schema';
-import { CustomRequestInit } from '../../types';
+import { AccountDetailsParams, accountDetails, AccountAddFavoriteBody, AccountAddFavoriteParams, accountAddFavorite, AccountAddToWatchlistBody, AccountAddToWatchlistParams, accountAddToWatchlist, AccountGetFavoritesParams, accountGetFavorites, AccountFavoriteTvParams, accountFavoriteTv, AccountListsParams, accountLists, AccountRatedMoviesParams, accountRatedMovies, AccountRatedTvParams, accountRatedTv, AccountRatedTvEpisodesParams, accountRatedTvEpisodes, AccountWatchlistMoviesParams, accountWatchlistMovies, AccountWatchlistTvParams, accountWatchlistTv } from "../../__generated__/api/tmdbApi";
+import { CustomRequestInit } from "../../types";
 
 export default class AccountService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}
 
   public async getDetails(accountId: number, params: AccountDetailsParams) {
-    return await orval.accountDetails(accountId, params, this.defaultOptions);
+    return await accountDetails(accountId, params, this.defaultOptions);
   }
 
   public async addFavorite(
@@ -28,7 +13,7 @@ export default class AccountService {
     accountAddFavoriteBody: AccountAddFavoriteBody,
     params?: AccountAddFavoriteParams,
   ) {
-    return await orval.accountAddFavorite(
+    return await accountAddFavorite(
       accountId,
       accountAddFavoriteBody,
       params,
@@ -41,7 +26,7 @@ export default class AccountService {
     accountAddToWatchlistBody: AccountAddToWatchlistBody,
     params?: AccountAddToWatchlistParams,
   ) {
-    return await orval.accountAddToWatchlist(
+    return await accountAddToWatchlist(
       accountId,
       accountAddToWatchlistBody,
       params,
@@ -50,34 +35,34 @@ export default class AccountService {
   }
 
   public async getFavorites(accountId: number, params?: AccountGetFavoritesParams) {
-    return await orval.accountGetFavorites(accountId, params, this.defaultOptions);
+    return await accountGetFavorites(accountId, params, this.defaultOptions);
   }
 
   public async getFavoriteTv(accountId: number, params?: AccountFavoriteTvParams) {
-    return await orval.accountFavoriteTv(accountId, params, this.defaultOptions);
+    return await accountFavoriteTv(accountId, params, this.defaultOptions);
   }
 
   public async getLists(accountId: number, params?: AccountListsParams) {
-    return await orval.accountLists(accountId, params, this.defaultOptions);
+    return await accountLists(accountId, params, this.defaultOptions);
   }
 
   public async getRatedMovies(accountId: number, params?: AccountRatedMoviesParams) {
-    return await orval.accountRatedMovies(accountId, params, this.defaultOptions);
+    return await accountRatedMovies(accountId, params, this.defaultOptions);
   }
 
   public async getRatedTv(accountId: number, params?: AccountRatedTvParams) {
-    return await orval.accountRatedTv(accountId, params, this.defaultOptions);
+    return await accountRatedTv(accountId, params, this.defaultOptions);
   }
 
   public async getRatedTvEpisodes(accountId: number, params?: AccountRatedTvEpisodesParams) {
-    return await orval.accountRatedTvEpisodes(accountId, params, this.defaultOptions);
+    return await accountRatedTvEpisodes(accountId, params, this.defaultOptions);
   }
 
   public async getWatchlistMovies(accountId: number, params?: AccountWatchlistMoviesParams) {
-    return await orval.accountWatchlistMovies(accountId, params, this.defaultOptions);
+    return await accountWatchlistMovies(accountId, params, this.defaultOptions);
   }
 
   public async getWatchlistTv(accountId: number, params?: AccountWatchlistTvParams) {
-    return await orval.accountWatchlistTv(accountId, params, this.defaultOptions);
+    return await accountWatchlistTv(accountId, params, this.defaultOptions);
   }
 }

@@ -4,10 +4,8 @@ export default defineConfig({
   'tmdb-api': {
     input: './oas/tmdb-api.yaml',
     output: {
-      mode: 'tags-split',
+      mode: 'single',
       target: './src/client/__generated__/api',
-      schemas: './src/client/__generated__/schema',
-      indexFiles: true,
       client: 'fetch',
       baseUrl: 'https://api.themoviedb.org',
       prettier: true,

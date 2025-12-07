@@ -1,11 +1,10 @@
-import * as orval from '../../__generated__/api/find/find';
-import { FindByIdParams } from '../../__generated__/schema';
+import { findById, FindByIdParams } from '../../__generated__/api/tmdbApi';
 import { CustomRequestInit } from '../../types';
 
 export default class FindService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}
 
   public async byId(externalId: string, params: FindByIdParams) {
-    return await orval.findById(externalId, params, this.defaultOptions);
+    return await findById(externalId, params, this.defaultOptions);
   }
 }

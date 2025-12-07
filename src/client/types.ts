@@ -15,4 +15,5 @@ export type CustomRequestInit = RequestInit & {
   tags?: NextFetchRequestConfig['tags'];
 };
 
-export * from './__generated__/schema';
+export type * from './__generated__/api/tmdbApi';
+

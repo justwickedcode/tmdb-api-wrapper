@@ -1,14 +1,14 @@
-import * as orval from '../../__generated__/api/certification/certification';
-import { CustomRequestInit } from '../../types';
+import { certificationMovieList, certificationsTvList } from "../../__generated__/api/tmdbApi";
+import { CustomRequestInit } from "../../types";
 
 export default class CertificationService {
   constructor(private readonly defaultOptions: CustomRequestInit) {}
 
   public async getMovieList() {
-    return await orval.certificationMovieList(this.defaultOptions);
+    return await certificationMovieList(this.defaultOptions);
   }
 
   public async getTvList() {
-    return await orval.certificationsTvList(this.defaultOptions);
+    return await certificationsTvList(this.defaultOptions);
   }
 }
