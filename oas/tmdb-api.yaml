@@ -13251,10 +13251,10 @@ paths:
       parameters:
         - name: movie_id
           in: path
+          required: true
           schema:
             type: integer
             format: int32
-          required: true
         - name: language
           in: query
           schema:
@@ -13268,15 +13268,61 @@ paths:
             default: 1
       responses:
         '200':
-          description: '200'
+          description: Successful response
           content:
             application/json:
-              examples:
-                Result:
-                  value: '{}'
               schema:
                 type: object
-                properties: {}
+                properties:
+                  page:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        adult:
+                          type: boolean
+                        backdrop_path:
+                          type: string
+                          nullable: true
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        original_title:
+                          type: string
+                        overview:
+                          type: string
+                        poster_path:
+                          type: string
+                          nullable: true
+                        media_type:
+                          type: string
+                        original_language:
+                          type: string
+                        genre_ids:
+                          type: array
+                          items:
+                            type: integer
+                        popularity:
+                          type: number
+                          format: float
+                        release_date:
+                          type: string
+                          format: date
+                          nullable: true
+                        video:
+                          type: boolean
+                        vote_average:
+                          type: number
+                          format: float
+                        vote_count:
+                          type: integer
+                  total_pages:
+                    type: integer
+                  total_results:
+                    type: integer
       deprecated: false
   /3/movie/{movie_id}/release_dates:
     get:
