@@ -1,7 +1,6 @@
 # TMDB Client Module
 
-A simple **TypeScript client** for **The Movie Database (TMDB) API (v3)**.  
-It provides easy access to movies, TV shows, lists, genres, and related data via a single `TMDBClient` instance with full TypeScript typings.
+A simple TypeScript client for [The Movie Database API](https://developer.themoviedb.org/reference/getting-started)
 
 ---
 
@@ -9,7 +8,7 @@ It provides easy access to movies, TV shows, lists, genres, and related data via
 
 ```ts
 import 'server-only';
-import { TmdbClient } from '@justwicked/tmdb-api-wrapper';
+import { TmdbClient } from '@justwicked/tmdb-client';
 
 const tmdbApi = new TmdbClient({
   next: {

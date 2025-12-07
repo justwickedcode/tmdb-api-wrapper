@@ -1,2 +1,2 @@
 export * from './client/tmdb-client';
-export type { CustomRequestInit } from './client/types';
+export type * from './client/types';
