@@ -37,4 +37,4 @@ getTrending();
 ```
 
 ### Caution
-- Avoid relying on this client, this is intended for self use and may not be stable.
+- Avoid relying on this client, as it is intended for self use.
